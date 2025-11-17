@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "_posts/2009-05-15-probando.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
@@ -185,6 +185,8 @@
   },
   "active": "1f78560cd1dff075",
   "lastOpenFiles": [
+    "assets/images",
+    "assets/images/{D12A25C8-C6E1-407F-A2A4-41D8198D3B64}.png",
     "CHANGELOG.md"
   ]
 }
