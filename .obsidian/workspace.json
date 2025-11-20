@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2009-05-15-probando.md",
+                "file": "_posts/2025-11-20-Querier.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2009-05-15-probando"
+              "title": "2025-11-20-Querier"
             }
           }
         ]
@@ -185,9 +185,10 @@
   },
   "active": "1f78560cd1dff075",
   "lastOpenFiles": [
+    "_posts/2009-05-15-probando.md",
+    "_posts/2025-11-20-Querier.md",
     "t.py",
     "assets/images/{D12A25C8-C6E1-407F-A2A4-41D8198D3B64}.png",
-    "_posts/2009-05-15-probando.md",
     "assets/images",
     "CHANGELOG.md"
   ]
