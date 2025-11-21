@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2025-11-20-Querier.md",
+                "file": "_posts/2025-11-21-Codify.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-11-20-Querier"
+              "title": "2025-11-21-Codify"
             }
           }
         ]
@@ -185,8 +185,15 @@
   },
   "active": "1f78560cd1dff075",
   "lastOpenFiles": [
-    "_posts/2009-05-15-probando.md",
+    "conversor.py",
     "_posts/2025-11-20-Querier.md",
+    "_posts/2025-11-21-Codify.md",
+    "assets/images/{508BC3FD-F3B2-402A-8038-FBFFAF550592}.png",
+    "assets/images/{65D31DDB-0D1E-41CA-B59B-E22E988A67B1}.png",
+    "assets/images/{D95054A9-DD2A-4046-A534-F4A82EA9F89A}.png",
+    "assets/images/{F2511ABF-9D5F-4461-8549-25EFD82AC1F6}.png",
+    "assets/images/{7A2F6464-0AAF-483C-B962-5B4ED6AE19D7}.png",
+    "_posts/2009-05-15-probando.md",
     "t.py",
     "assets/images/{D12A25C8-C6E1-407F-A2A4-41D8198D3B64}.png",
     "assets/images",
