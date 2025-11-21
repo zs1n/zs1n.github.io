@@ -14,7 +14,7 @@ def convert_image_links(file_path):
         # Función de reemplazo
         def replace_link(match):
             image_name = match.group(1)
-            return f'![image-center](/assets/images/posts/{image_name})'
+            return f'![image-center](/assets/images/{image_name})'
         
         # Reemplazar todas las ocurrencias
         new_content = re.sub(pattern, replace_link, content)
