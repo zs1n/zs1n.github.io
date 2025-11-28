@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2025-11-21-Codify.md",
+                "file": "_posts/2025-11-26-Editorial.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-11-21-Codify"
+              "title": "2025-11-26-Editorial"
+            }
+          },
+          {
+            "id": "a262ddee2a247144",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_posts/2025-11-28-Mentor.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2025-11-28-Mentor"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -53,7 +68,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:python3.8",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -183,19 +198,31 @@
       "bases:Create new base": false
     }
   },
-  "active": "1f78560cd1dff075",
+  "active": "a262ddee2a247144",
   "lastOpenFiles": [
-    "conversor.py",
+    "_posts/2025-11-28-Busqueda.md",
+    "_posts/2025-11-28-Mentor.md",
+    "assets/images/{4DDB8B89-EC6F-4878-828D-E39DE9FCF10E}.png",
+    "assets/images/{13E066ED-2C2D-48E4-82BD-FFC4197E1516}.png",
+    "assets/images/{A9EEA6E1-6F8B-450B-A0C9-D02816C093E6}.png",
+    "assets/images/{F351C83E-6644-4F42-B6EA-6377BD644342}.png",
+    "assets/images/{67045A4B-668C-4731-8F01-8227253065F8}.png",
+    "assets/images/{3FE04AD0-C517-4843-A903-B30C315D38FB}.png",
+    "assets/images/{6D499D39-DBDC-4113-A52D-F7FA68C4EF5E}.png",
+    "assets/images/{44D244FA-2F9A-4BBD-874C-DF9DF4469EF0}.png",
+    "assets/images/{3CB449D2-153D-4E75-B5D2-9979719253EE}.png",
+    "assets/images/{8531D6C3-9772-495A-BCD3-50D2664F9146}.png",
+    "_posts/2025-11-27-Bounty.md",
+    "_posts/2025-11-26-Editorial.md",
+    "_posts/2025-11-27-Bashed.md",
     "_posts/2025-11-20-Querier.md",
+    "_posts/2025-11-22-Artificial.md",
+    "_posts/2025-11-22-Cap.md",
+    "_posts/Alert.md",
     "_posts/2025-11-21-Codify.md",
-    "assets/images/{508BC3FD-F3B2-402A-8038-FBFFAF550592}.png",
-    "assets/images/{65D31DDB-0D1E-41CA-B59B-E22E988A67B1}.png",
-    "assets/images/{D95054A9-DD2A-4046-A534-F4A82EA9F89A}.png",
-    "assets/images/{F2511ABF-9D5F-4461-8549-25EFD82AC1F6}.png",
-    "assets/images/{7A2F6464-0AAF-483C-B962-5B4ED6AE19D7}.png",
+    "conversor.py",
     "_posts/2009-05-15-probando.md",
     "t.py",
-    "assets/images/{D12A25C8-C6E1-407F-A2A4-41D8198D3B64}.png",
     "assets/images",
     "CHANGELOG.md"
   ]
