@@ -115,16 +115,16 @@ analytics:
 author:
   name             : "zs1n"
   avatar           : "/assets/images/broly.jpg" # path of avatar image, e.g. 
-  bio              : " Cibersecurity Enthusiast 🕵️‍♂️ | Pentester | CTF Player 🚩"
+  bio              : "Cibersecurity Enthusiast 🕵️‍♂️ | Pentester | CTF Player 🚩"
   location         : "Buenos Aires, Argentina"
   email            :
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:tomymatteucci05@gmail.com"
+      url: "mailto:tomymatteucci05@gmail.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
+      url: "https://zs1n.github.io/"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       # url: "https://twitter.com/"
@@ -133,7 +133,7 @@ author:
       # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
+      url: "https://github.com/zs1n"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"

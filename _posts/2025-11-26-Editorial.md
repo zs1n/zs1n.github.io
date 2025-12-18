@@ -8,7 +8,7 @@ toc_sticky: true
 sidebar: main
 ---
 ---
-# Introduccion
+# Introducción
 
 `Editorial` es una máquina `Linux` de fácil dificultad que presenta una aplicación web de publicación vulnerable a `Server-Side Request Forgery (SSRF)`. Esta vulnerabilidad se aprovecha para obtener acceso a una API interna en ejecución, que luego se aprovecha para obtener credenciales que conducen al acceso `SSH` a la máquina. La enumeración del sistema revela aún más un repositorio de `Git` que se aprovecha para revelar credenciales para un nuevo usuario. El usuario `root` se puede obtener explotando [CVE-2022-24439](https://nvd.nist.gov/vuln/detail/CVE-2022-24439) y la configuración sudo.
 # Reconocimiento
