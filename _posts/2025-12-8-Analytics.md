@@ -96,6 +96,7 @@ exploit_meta.py: error: the following arguments are required: -l/--lhost, -p/--l
 metabase_shell > whoami
 [-] Error: [Errno 98] Address already in use
 ```
+## Shell as metalytics
 ### ENV
 
 El error que me dio es debido a que desde mi otra shell tenia mi `listener` preparado, por lo que me di cuenta que el mismo script te proporcionaba la shell.
