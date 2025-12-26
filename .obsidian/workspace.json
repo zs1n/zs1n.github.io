@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "tests/sekmeth.md",
+                "file": "_posts/2025-12-24-MetaTwo.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "sekmeth"
+              "title": "2025-12-24-MetaTwo"
             }
           },
           {
@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2025-12-10-Minion.md",
+                "file": "_posts/2025-12-17-Pilgrimage.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-12-10-Minion"
+              "title": "2025-12-17-Pilgrimage"
             }
           },
           {
@@ -89,7 +89,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:python3.8",
+                "query": "git-",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -221,8 +221,28 @@
   },
   "active": "1f78560cd1dff075",
   "lastOpenFiles": [
-    "_posts/2025-12-17-Sekmeth.md",
+    "assets/images/Pasted image 20251225003440.png",
+    "assets/images/Pasted image 20251224221030.png",
+    "assets/images/Pasted image 20251224204627.png",
+    "assets/images/Pasted image 20251224204351.png",
+    "_posts/2025-12-24-Soccer.md",
+    "_posts/2025-12-24-MetaTwo.md",
+    "_posts/2025-12-24-UpDown.md",
+    "assets/images/Pasted image 20251224203128.png",
+    "assets/images/Pasted image 20251224203115.png",
+    "assets/images/Pasted image 20251224203029.png",
+    "assets/images/Pasted image 20251224202838.png",
+    "assets/images/Pasted image 20251224201744.png",
+    "assets/images/Pasted image 20251224201622.png",
+    "assets/images/Pasted image 20251224170720.png",
+    "_posts/2025-12-24-Delivery.md",
+    "_posts/2025-12-17-Pilgrimage.md",
+    "_posts/2025-12-10-Minion.md",
+    "_posts/2025-12-24-Boardlight.md",
+    "_posts/2025-12-23-Chatterbox.md",
+    "_posts/2025-12-22-Help.md",
     "tests/sekmeth.md",
+    "_posts/2025-12-17-Sekmeth.md",
     "_posts/2025-12-10-Support.md",
     "_posts/2025-12-10-Pandora.md",
     "_posts/2025-12-9-Broker.md",
@@ -232,31 +252,11 @@
     "_posts/2025-12-4-Certified.md",
     "_posts/2025-12-2-TheFrizz.md",
     "_posts/2025-12-4-Usage.md",
-    "_posts/2025-12-23-Chatterbox.md",
-    "_posts/2025-12-10-Minion.md",
     "_posts/2025-12-22-Devvortex.md",
     "tests/minion htb.md",
-    "_posts/2025-12-22-Help.md",
-    "assets/images/Pasted image 20251222194845.png",
-    "assets/images/Pasted image 20251222194612.png",
-    "assets/images/Pasted image 20251222194513.png",
-    "assets/images/Pasted image 20251222185611.png",
-    "assets/images/Pasted image 20251222185322.png",
-    "assets/images/Pasted image 20251222185243.png",
-    "assets/images/Pasted image 20251222181733.png",
     "_posts/2025-11-20-Querier.md",
-    "assets/images/Pasted image 20251222164157.png",
-    "assets/images/Pasted image 20251222154954.png",
-    "assets/images/Pasted image 20251222153818.png",
     "_posts/2025-12-22-Cozyhosting.md",
-    "_posts/2025-12-17-Pilgrimage.md",
     "_posts/2025-12-17-Escape.md",
-    "_posts/2025-12-15-Secnotes.md",
-    "_posts/2025-12-8-Remote.md",
-    "_posts/2025-12-8-Builder.md",
-    "_posts/2025-12-2-Nineveh.md",
-    "_posts/2025-12-17-Magic.md",
-    "_posts/2025-12-15-Sniper.md",
     "tests",
     "conversor.py",
     "t.py",
