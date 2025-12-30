@@ -93,7 +93,6 @@ Magento CE < 1.9.0.1 - (Authenticated) Remote Code Execution                    
 
 Sin embargo en mi caso, el mismo me fallo y diseñe uno amoldado a ese script
 
-{% raw %}
 ```bash
 #!/usr/bin/python3
 # Magento CE < 1.9.0.1 Post Auth RCE - Python 3 Fixed Version
@@ -262,7 +261,6 @@ except Exception as e:
     traceback.print_exc()
 
 ```
-{% endraw %}
 
 Lo ejecutamos 
 

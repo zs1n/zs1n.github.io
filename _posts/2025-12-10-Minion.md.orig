@@ -218,7 +218,6 @@ listening on tun0, link-type RAW (Raw IP), snapshot length 262144 bytes
 Por lo que puedo pensar en que shell por `TCP` no acepta, pero quizás por `ICMP` si.
 Por lo que me cree un script en `Python` que lo que hace tomando de referencia este [archivo](https://github.com/samratashok/nishang/blob/master/Shells/Invoke-PowerShellIcmp.ps1) en `Powershell` para peticiones `ICMP`, que lo que hace es enviar el payload en codificado en `base64` en fragmentos, después, en la función `listener()` crea un listener, el cual solo filtra los paquetes `ICMP` únicamente de la ip victima luego recibe las repuestas o peticiones `ICMP` en partes, que luego en la función `process_packet()`, construye todos los fragmentos devolviendo así el output en la terminal.
 
-{% raw %}
 ```python
 import base64
 import requests
@@ -297,7 +296,6 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         print("\n[!] Saliendo")
 ```
-{% endraw %}
 
 Una vez lo ejecuto pasandole la url victima, veo que con exito puedo ejecutar comandos, y la respuesta es vista en el output.
 
