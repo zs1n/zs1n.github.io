@@ -33,7 +33,7 @@ Nmap done: 1 IP address (1 host up) scanned in 35.43 seconds
 
 ## Website 
 
-![[Pasted image 20251224001257.png]]
+![image-center](/assets/images/Pasted image 20251224001257.png)
 ## Shell as www-data
 ### VHOST enumeration
 
@@ -60,12 +60,12 @@ ID           Response   Lines    Word       Chars       Payload
 
 Agregue dicho subdominio al archivo `/etc/hosts`, y fui a la pagina, y me tope con este panel de `login` donde corre `Dolibarr`.
 
-![[Pasted image 20251224002414.png]]
+![image-center](/assets/images/Pasted image 20251224002414.png)
 ### CVE
 
 Usando credenciales por defecto como `admin:admin` gane acceso al panel de administracion.
 
-![[Pasted image 20251224002404.png]]
+![image-center](/assets/images/Pasted image 20251224002404.png)
 
 Ahora que tengo credenciales y se que usa la versión `17.0.0` puedo tratar de buscar `exploits` asociados a la misma, y es así como me cruce con este [enlace](https://github.com/nikn0laty/Exploit-for-Dolibarr-17.0.0-CVE-2023-30253).
 Para el uso del mismo necesito el `usuario` y su `password`, así como también el puerto e `ip` desde la que voy a estar en escucha para poder recibir la `Reverse Shell`.

@@ -1,11 +1,4 @@
----
-tags:
-title: MetaTwo - Easy (HTB)
-permalink: /MetaTwo-HTB-Writeup
-toc: true
-toc_label: Topics
-toc_sticky: true
-sidebar: main
+
 ---
 ---
 # Reconocimiento
@@ -46,7 +39,7 @@ Nmap done: 1 IP address (1 host up) scanned in 304.20 seconds
 
 ![[Pasted image 20251224204351.png]]
 
-![[Pasted image 20251224204627.png]]
+
 
 ```bash
 wpscan --url http://metapress.htb --enumerate
