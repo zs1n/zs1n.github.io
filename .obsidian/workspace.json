@@ -1,0 +1,218 @@
+{
+  "main": {
+    "id": "aad74cecf89014fc",
+    "type": "split",
+    "children": [
+      {
+        "id": "b82bf8f5032121f9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4e9f916d247c5d22",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_posts/2025-12-31-APT.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2025-12-31-APT"
+            }
+          },
+          {
+            "id": "34913d6e71e4d38f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_posts/2025-12-29-Vintage.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2025-12-29-Vintage"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a9c768f14fe57609",
+    "type": "split",
+    "children": [
+      {
+        "id": "5df73b39b007c52c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b85fc5b96da8a4a8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "e4f3d3a6dd1c3934",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "impacket-secre",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "3f31ccecc6d9ec63",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "c39f0da73bbb2bfd",
+    "type": "split",
+    "children": [
+      {
+        "id": "b598079a3d0da41d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d8d016c2243dff6e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "_posts/2025-12-31-APT.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 2025-12-31-APT"
+            }
+          },
+          {
+            "id": "95bb5a346f596edb",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "_posts/2025-12'31-APT.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 2025-12'31-APT"
+            }
+          },
+          {
+            "id": "ba29a78a4615ceb5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "a5a0aef2ecc260c9",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "17e3b1049dc76e51",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "_posts/2025-12'31-APT.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 2025-12'31-APT"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "4e9f916d247c5d22",
+  "lastOpenFiles": [
+    "_posts/2025-12-29-Vintage.md",
+    "_posts/2025-12-25-Flight.md",
+    "_posts/2025-12-31-APT.md",
+    "Pasted image 20260101015217.png",
+    "Pasted image 20260101015159.png",
+    "Pasted image 20260101015140.png",
+    "Pasted image 20260101013704.png",
+    "Pasted image 20260101013702.png",
+    "Pasted image 20260101005756.png",
+    "_posts/2025-12-25-UnderPass.md",
+    "_posts/2025-12'31-APT.md",
+    "_posts/2025-12-4-Usage.md",
+    "_posts/2025-12-9-Broker.md",
+    "_posts/2025-12-25-Voleur.md"
+  ]
+}
