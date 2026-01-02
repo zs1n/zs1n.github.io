@@ -219,6 +219,8 @@ kramdown:
   toc_levels: 1..6
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
+  parse_block_html: true
+  process_escapes: true
 
 
 # Sass/SCSS
@@ -274,7 +276,10 @@ whitelist:
   - jekyll-feed
   - jekyll-include-cache
 
-
+liquid:
+  error_mode: warn        # 'lax' | 'warn' | 'strict' — usa 'warn' para no fallar la build
+  strict_variables: false
+  strict_filters: false
 # Archives
 #  Type
 #  - GitHub Pages compatible archive pages built with Liquid ~> type: liquid (default)

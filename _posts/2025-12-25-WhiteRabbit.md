@@ -132,6 +132,7 @@ Vemos un nuevo host para agregar el `/etc/hosts` y un link que nos descarga un `
 
 El contenido de archivo `json` muestra un `workflow exportado` en `json` el cual recibe eventos de n8n y actualiza la base de datos `victim` en `maria-db` o `mysql`.Dentro del archivo vemos una clave secreta. Esta clave permite generar firmas válidas para cualquier payload, lo que nos da la posibilidad de interactuar con el webhook de manera controlada.
 
+{% raw %}
 ```json 
 {
       "parameters": {
@@ -143,6 +144,7 @@ El contenido de archivo `json` muestra un `workflow exportado` en `json` el cual
       },
 
 ```
+{% endraw %}
 Esa clave lo que hace es que cuando el `Chekpoint Gopish Header` valida si el request trae un header `x-gopish-signature` el cual despues `Extract siganture` y `Calculate the signature` calculan un `HMAC SHA-256` con la clave secreta lo que ayuda a la validacion de que si la request venga realmente de `Gopish`.
 
 Para automatizar el proceso y facilitar pruebas de inyección SQL, se implementó un script en Python con la siguiente lógica:

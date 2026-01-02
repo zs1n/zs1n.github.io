@@ -7,7 +7,6 @@ toc_label: Topics
 toc_sticky: true
 sidebar: main
 ---
-
 ---
 # Reconocimientos 
 
@@ -593,6 +592,7 @@ WINRM       10.10.11.222    5985   AUTHORITY        [-] authority.htb\administra
 
 `defaults/main.yml` tiene valores de configuracion para `PWM`:
 
+{% raw %}
 ```bash
 cat Automation/Ansible/PWM/defaults/main.yml
 ---
@@ -632,6 +632,7 @@ ldap_admin_password: !vault |
           3764
 
 ```
+{% endraw %}
 
 Esos valores estan protegidos con `Ansible vault`, además tenemos el script de `john` llamado `ansible2john` el cual necesita de un hash o una clave con el formato que vemos para poder pasarlo a un hash crackeable para la herramienta `john`. Por lo que cada uno de estos lo metemos en cada archivos con su identificacion y luego con `cat` visualizamos y con `tee` los metemos en un archivos unico para poder con john romper cada uno.
 

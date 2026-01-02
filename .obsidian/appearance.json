@@ -1,4 +1,6 @@
 {
+  "theme": "obsidian",
   "cssTheme": "Obsidian Nord",
-  "theme": "obsidian"
+  "showViewHeader": true,
+  "showRibbon": true
 }
