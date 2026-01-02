@@ -182,7 +182,7 @@ drwxrwxrwx+  2 nobody nogroup   64 Sep 15  2024 Rosie.Powell
 drwxrwxrwx+  2 nobody nogroup   64 Sep 13  2024 Shirley.West
 ```
 
-![[Pasted image 20251230145944.png]]
+![image-center](/assets/images/Pasted image 20251230145944.png)
 ## Auth as DC-JPQ225 
 
 Ya que la imagen se encontró en el directorio de `Rosie.Powell` intentamos probar sin son validas a nivel de `kerberos` ya que parece que la autenticación `NTLM` esta deshabilitada.

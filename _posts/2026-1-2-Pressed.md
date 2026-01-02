@@ -28,7 +28,7 @@ Nmap done: 1 IP address (1 host up) scanned in 36.88 seconds
 
 ## Website
 
-![[Pasted image 20260102020419.png]]
+![image-center](/assets/images/Pasted image 20260102020419.png)
 
 ```bash
 wpscan --url http://pressed.htb
@@ -141,9 +141,9 @@ define( 'DB_COLLATE', '' );
 
 ```
 
-![[Pasted image 20260102021515.png]]
+![image-center](/assets/images/Pasted image 20260102021515.png)
 
-![[Pasted image 20260102021607.png]]
+![image-center](/assets/images/Pasted image 20260102021607.png)
 
 ```bash
  curl --data "<methodCall><methodName>system.listMethods</methodName><params></params></methodCall>" http://pressed.htb/xmlrpc.php
@@ -203,7 +203,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 True
 ```
 
-![[Pasted image 20260102024545.png]]
+![image-center](/assets/images/Pasted image 20260102024545.png)
 
 ```bash
 ┌──(root㉿kali)-[/home/zs1n/Desktop/htb/pressed]
