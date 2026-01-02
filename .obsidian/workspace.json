@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2026-1-2-Pressed.md",
+                "file": "_posts/2026-1-2-Manager.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-1-2-Pressed"
+              "title": "2026-1-2-Manager"
             }
           },
           {
@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2025-11-28-Busqueda.md",
+                "file": "_posts/2025-12-17-Escape.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-11-28-Busqueda"
+              "title": "2025-12-17-Escape"
             }
           },
           {
@@ -96,7 +96,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "C#",
+                "query": "Get-AD",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -117,7 +117,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -226,13 +227,22 @@
       "bases:Create new base": false
     }
   },
-  "active": "b85fc5b96da8a4a8",
+  "active": "34913d6e71e4d38f",
   "lastOpenFiles": [
+    "_posts/2025-12-17-Escape.md",
+    "_posts/2026-1-2-Manager.md",
+    "_posts/2025-12-25-Snoopy.md",
+    "_posts/2025-11-28-Busqueda.md",
+    "assets/images/Pasted image 20260102154657.png",
+    "assets/images/Pasted image 20260102145013.png",
+    "assets/images/Pasted image 20260102143716.png",
+    "assets/images/Pasted image 20260102141122.png",
+    "_posts/2026-1-2-Pressed.md",
+    "_posts/2025-12-31-APT.md",
     "_posts/2025-12-17-Editor.md",
     "_posts/2025-12-8-Remote.md",
     "_posts/2025-12-25-Pov.md",
     "_posts/2025-12-17-Era.md",
-    "_posts/2026-1-2-Pressed.md",
     "assets/images/Pasted image 20260102024545.png",
     "assets/images/Pasted image 20260102021607.png",
     "assets/images/Pasted image 20260102021515.png",
@@ -240,14 +250,8 @@
     "_posts/2025-12-31-Agile.md",
     "assets/images/Pasted image 20260102011451.png",
     "assets/images/Pasted image 20260102010858.png",
-    "assets/images/Pasted image 20260102010336.png",
-    "assets/images/Pasted image 20260102010110.png",
-    "assets/images/Pasted image 20260102004243.png",
-    "assets/images/Pasted image 20260102003500.png",
     "_posts/2025-12-29-Vintage.md",
-    "_posts/2025-12-31-APT.md",
     "_posts/2025-12-29-Shoppy.md",
-    "_posts/2025-11-28-Busqueda.md",
     "_posts/2025-11-26-Editorial.md",
     "_posts/2025-11-21-Codify.md",
     "Untitled.md",
