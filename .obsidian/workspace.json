@@ -13,12 +13,24 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2026-1-2-Pressed.md",
+                "file": "_posts/2026-1-4-Reddish.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-1-2-Pressed"
+              "title": "2026-1-4-Reddish"
+            }
+          },
+          {
+            "id": "a3d1cf1d5ce3e28c",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "assets/images/Pasted image 20260105134744.png"
+              },
+              "icon": "lucide-image",
+              "title": "Pasted image 20260105134744"
             }
           },
           {
@@ -27,12 +39,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2025-12-17-Administrator.md",
+                "file": "_posts/2025-12-25-Postman.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-12-17-Administrator"
+              "title": "2025-12-25-Postman"
             }
           },
           {
@@ -81,7 +93,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Computer",
+                "query": "redis",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -213,21 +225,27 @@
   },
   "active": "1419e53e48c6b621",
   "lastOpenFiles": [
-    "_posts/2026-1-2-Manager.md",
+    "assets/images/Pasted image 20260105134806.png",
+    "assets/images/Pasted image 20260105134744.png",
+    "_posts/2026-1-4-Reddish.md",
+    "assets/images/Pasted image 20260105133131.png",
+    "assets/images/Pasted image 20260105114910.png",
+    "assets/images/Pasted image 20260104040745.png",
+    "assets/images/Pasted image 20260104035024.png",
+    "assets/images/Pasted image 20260104033336.png",
+    "_posts/2025-12-25-Postman.md",
+    "_posts/2025-12-25-WhiteRabbit.md",
+    "assets/images/Pasted image 20260104012017.png",
+    "_posts/2025-12-17-Administrator.md",
+    "assets/images/Pasted image 20260104002433.png",
+    "assets/images/Pasted image 20260104002125.png",
+    "_posts/2025-12-24-Delivery.md",
     "_posts/2026-1-2-Pressed.md",
+    "_posts/2026-1-2-Manager.md",
     "_posts/2025-12-31-APT.md",
     "_posts/2025-12-30-RustyKey.md",
     "fix.py",
     "assets/images/Pasted image 20260102154657.png",
-    "assets/images/Pasted image 20260102145013.png",
-    "assets/images/Pasted image 20260102143716.png",
-    "assets/images/Pasted image 20260102141122.png",
-    "assets/images/Pasted image 20260102024545.png",
-    "assets/images/Pasted image 20260102021607.png",
-    "assets/images/Pasted image 20260102021515.png",
-    "assets/images/Pasted image 20260102020419.png",
-    "assets/images/Pasted image 20260102011451.png",
-    "assets/images/Pasted image 20260102010858.png",
     "_posts/2025-12-31-Agile.md",
     "_posts/2025-12-29-Vintage.md",
     "_posts/2025-12-29-Shoppy.md",
@@ -235,11 +253,9 @@
     "_posts/2025-12-28-Hospital.md",
     "_posts/2025-12-24-UpDown.md",
     "_posts/2025-12-24-Soccer.md",
-    "_posts/2025-12-24-Delivery.md",
     "_posts/2025-12-24-Boardlight.md",
     "_posts/2025-12-17-Driver.md",
     "_posts/2025-12-17-Authority.md",
-    "_posts/2025-12-17-Administrator.md",
     "_posts/2025-11-20-Blackfield.md"
   ]
 }
