@@ -146,7 +146,7 @@ Luego en la maquina victima lo coloco dentro de un archivo de la siguiente forma
 ```bash
 echo cm9vdEBub2RlcmVkOi9ub2RlLXJlZCMgY2F0IHNoZWxsLnNoIAojIS9iaW4vYmFzaAppcHM9KDE3Mi4xOC4wLjEgMTcyLjE4LjAuMiAxNzIuMTkuMC4xIDE3Mi4xOS4wLjIgMTcyLjE5LjAuMyAxNzIuMTkuMC40KQpmb3IgaXAgaW4gIiR7aXBzW0BdfSI7IGRvCiAgZWNobyAiRXNjYW5lYW5kbyAkaXAuLi4iCiAgZm9yIGkgaW4gJChzZXEgMSAxMDAwMCk7IGRvCiAgICAgIHRpbWVvdXQgMSBiYXNoIC1jICJlY2hvICcnID4gL2Rldi90Y3AvJGlwLyRpIiAyPi9kZXYvbnVsbCAmJiBlY2hvICJcdFsrXSBQdWVydG8gQWJpZXJ0byAkaSIgJgogIGRvbmU7IHdhaXQgCmRvbmUK | base64 -d > port_scan.sh; chmod +x port_scan.sh
 ```
-## Shell as www-data @container 172.19.0.3 - 172-20.0.3
+## Shell as www-data @nodered
 
 Y ya después de ejecutarlo veo que puertos corren para cada `ip`.
 
@@ -304,7 +304,7 @@ for i in {1..254} ;do (ping -c 1 172.20.0.$i | grep "bytes from" &) ;done
 www-data@www:/home/somaro$ ping -c 1 localhost
 ping: icmp open socket: Operation not permitted
 ```
-## Shell as root @container 172.20.0.3
+## Shell as root @www
 
 Dentro de la ruta `/backup` veo un archivo, el cual parece que corre como `root`, en el mismo veo que con `rsync` ejecuta todos los archivos que acaben con la extensión `.rdb`.
 
@@ -387,7 +387,7 @@ Escaneando 172.20.0.2...
 bash-4.3# hostname -I
 172.19.0.3 172.20.0.3
 ```
-## Shell as root @container 172.20.0.3
+## Shell as root @backup
 ### rsync
 
 Usando `rsync` puedo enumerar los directorios, usando los `endpoints` de el script, veo que en uno están los archivos que corren la web.
