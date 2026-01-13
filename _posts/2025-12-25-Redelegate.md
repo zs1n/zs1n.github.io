@@ -417,57 +417,8 @@ INFO: Starting computer enumeration with 10 workers
 INFO: Querying computer: 
 INFO: Querying computer: dc.redelegate.vl
 ERROR: Unhandled exception in computer dc.redelegate.vl processing: The NETBIOS connection with the remote host timed out.
-INFO: Traceback (most recent call last):
-  File "/usr/lib/python3/dist-packages/impacket/nmb.py", line 986, in non_polling_read
-    received = self._sock.recv(bytes_left)
-TimeoutError: timed out
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/usr/lib/python3/dist-packages/bloodhound/enumeration/computers.py", line 130, in process_computer
-    unresolved = c.rpc_get_group_members(555, c.rdp)
-  File "/usr/lib/python3/dist-packages/bloodhound/ad/computer.py", line 795, in rpc_get_group_members
-    raise e
-  File "/usr/lib/python3/dist-packages/bloodhound/ad/computer.py", line 728, in rpc_get_group_members
-    resp = samr.hSamrConnect(dce)
-  File "/usr/lib/python3/dist-packages/impacket/dcerpc/v5/samr.py", line 2469, in hSamrConnect
-    return dce.request(request)
-           ~~~~~~~~~~~^^^^^^^^^
-  File "/usr/lib/python3/dist-packages/impacket/dcerpc/v5/rpcrt.py", line 860, in request
-    self.call(request.opnum, request, uuid)
-    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3/dist-packages/impacket/dcerpc/v5/rpcrt.py", line 849, in call
-    return self.send(DCERPC_RawCall(function, body.getData(), uuid))
-           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3/dist-packages/impacket/dcerpc/v5/rpcrt.py", line 1306, in send
-    self._transport_send(data)
-    ~~~~~~~~~~~~~~~~~~~~^^^^^^
-  File "/usr/lib/python3/dist-packages/impacket/dcerpc/v5/rpcrt.py", line 1243, in _transport_send
-    self._transport.send(rpc_packet.get_packet(), forceWriteAndx = forceWriteAndx, forceRecv = forceRecv)
-    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3/dist-packages/impacket/dcerpc/v5/transport.py", line 543, in send
-    self.__smb_connection.writeFile(self.__tid, self.__handle, data)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3/dist-packages/impacket/smbconnection.py", line 543, in writeFile
-    return self._SMBConnection.writeFile(treeId, fileId, data, offset)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3/dist-packages/impacket/smb3.py", line 1742, in writeFile
-    written = self.write(treeId, fileId, writeData, writeOffset, len(writeData))
-  File "/usr/lib/python3/dist-packages/impacket/smb3.py", line 1444, in write
-    ans = self.recvSMB(packetID)
-  File "/usr/lib/python3/dist-packages/impacket/smb3.py", line 515, in recvSMB
-    data = self._NetBIOSSession.recv_packet(self._timeout)
-  File "/usr/lib/python3/dist-packages/impacket/nmb.py", line 917, in recv_packet
-    data = self.__read(timeout)
-  File "/usr/lib/python3/dist-packages/impacket/nmb.py", line 1004, in __read
-    data = self.read_function(4, timeout)
-  File "/usr/lib/python3/dist-packages/impacket/nmb.py", line 988, in non_polling_read
-    raise NetBIOSTimeout
-impacket.nmb.NetBIOSTimeout: The NETBIOS connection with the remote host timed out.
-
+INFO: Traceback (most recent call last)
 INFO: Done in 01M 27S
-
 ```
 
 ## Shell as helen.frost

