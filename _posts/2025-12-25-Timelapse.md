@@ -373,13 +373,13 @@ Por lo que ahora podemos enumerar el dominio con `bloodhound`.
 bloodhound-python -c all -u 'svc_deploy' -p 'E3R$Q62^12p7PLlC%KWaxuaV' -ns 
 ```
 
-![[Untitled 43 1.jpg]]
+![image-center](/assets/images/Untitled 43 1.jpg)
 
 Vemos que el usuario `svc_deploy` es parte del grupo `LAPS_READERS` y que a su vez este grupo tiene permisos y privilegios `LAPSPasswords` sobre el `DC01`.
 
 >LAPS guarda en Active Directory la contraseña **local** del administrador de máquina (atributo `ms-Mcs-AdmPwd`) para equipos unidos al dominio, y la rota automáticamente. Quien tenga **permiso de lectura** sobre ese atributo puede recuperar la contraseña actual.
 
-![[Untitled 44 1.jpg]]
+![image-center](/assets/images/Untitled 44 1.jpg)
 
 Para eso podemos hacer uso de `bloodyAD` para poder ver la contraseña guardada del admin del `dc01`. 
 

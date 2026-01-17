@@ -39,13 +39,13 @@ Nmap done: 1 IP address (1 host up) scanned in 121.26 seconds
 
 El escaneo de `nmap` nos revela que en el puerto `80`el cual parece ser un servicio `http` se aloja un `robots.txt`el cual puede contener informacion valiosa. La pagina principal de por si no tiene nada de informacion por lo que directamente vamos a ver el contenido de la ruta donde se aloja el `robots.txt`.
 
-![[Untitled 6 1.jpg]]
+![image-center](/assets/images/Untitled 6 1.jpg)
 
 Nos informa de rutas de la pagina.
 
 - La ruta `ghost` nos redirigue a un panel de login.
 
-![[Untitled 7 1.jpg]]
+![image-center](/assets/images/Untitled 7 1.jpg)
 
 - La ruta `/r` y `/p` no nos lleva a ningun lado, ya que nos devuelven un codigo de estado `404` de **page not found**
 - Lo mismo para para la ruta `/email`
@@ -106,7 +106,7 @@ Vemos que nos encuentra un subdominio `dev` para la pagina, lo agregamos al `/et
 echo -e '10.10.11.47\t\dev.linkvortex.htb' | sudo tee -a /etc/hosts
 ```
 
-![[Untitled 8 1.jpg]]
+![image-center](/assets/images/Untitled 8 1.jpg)
 
 Vemos que la pagina esta vacia, podriamos intentar buscar por directorios o archivos dentro de la misma.
 
@@ -136,7 +136,7 @@ Starting gobuster in directory enumeration mode
 
 Nos encontro un `.git` en la ruta de la pagina.
 
-![[Untitled 9 1.jpg]]
+![image-center](/assets/images/Untitled 9 1.jpg)
 
 Revisando muy por arriba el contenido de esta ruta no encontramos nada interesante, pero existen herramientas como [GitHack](https://github.com/lijiejie/GitHack) la cual nos permite dumpear datos secretos u ocultos de la ruta.
 

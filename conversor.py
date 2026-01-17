@@ -8,8 +8,8 @@ def convert_image_links(file_path):
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
         
-        # Patrón para buscar ![[imagen.png]]
-        pattern = r'!\[\[([^]]+\.png)\]\]'
+        # Patrón para buscar ![[imagen.ext]]
+        pattern = r'!\[\[([^]]+\.(png|jpe?g|gif|webp|svg))\]\]'
         
         # Función de reemplazo
         def replace_link(match):
@@ -40,7 +40,7 @@ def process_directory(directory='.'):
     
     for root, dirs, files in os.walk(directory):
         for file in files:
-            # Procesar archivos de texto (ajusta las extensiones según necesites)
+            # Procesar archivos de texto
             if file.endswith(('.md', '.markdown', '.txt')):
                 file_path = os.path.join(root, file)
                 
@@ -49,15 +49,15 @@ def process_directory(directory='.'):
                     with open(file_path, 'r', encoding='utf-8') as f:
                         content = f.read()
                     
-                    # Contar cuántas imágenes hay
-                    matches = re.findall(r'!\[\[([^]]+\.png)\]\]', content)
+                    # Contar cuántas imágenes hay (TODOS los formatos)
+                    matches = re.findall(r'!\[\[([^]]+\.(png|jpe?g|gif|webp|svg))\]\]', content)
                     
                     if matches:
                         print(f"[+] Procesando: {file_path}")
                         print(f"    Imágenes encontradas: {len(matches)}")
                         
                         for img in matches:
-                            print(f"    - {img}")
+                            print(f"    - {img[0]}")  # img[0] porque findall devuelve tuplas
                         
                         if convert_image_links(file_path):
                             files_modified += 1
