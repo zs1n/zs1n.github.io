@@ -40,7 +40,8 @@ Agregamos el dominio al `/etc/hosts`
 sudo echo "10.10.11.63 whiterabbit.htb"
 ```
 
-![Pasted image 20250902125901](images/Pasted image 20250902125901.png)
+![image-center](/assets/images/Pasted image 20250902125901.png)
+
 Vemos que en la pagina principal no hay nada de nada, asi que nos ponemos a enumerar por subdominios con la herramienta `gobuster`.
 
 ```bash 
@@ -96,7 +97,8 @@ Starting gobuster in directory enumeration mode
 /Upload               (Status: 301) [Size: 179] [--> /Upload/]
 Progress: 152440 / 8916817 (1.71%)^C
 ```
-![Pasted image 20250902130419](images/Pasted image 20250902130419.png)
+
+![image-center](/assets/images/Pasted image 20250902130419.png)
 
 
 ```bash 
@@ -122,13 +124,13 @@ wfuzz -c -t 200 -u http://status.whiterabbit.htb/status/FUZZ -w /usr/share/secli
 000001468:   200        40 L     152 W      3359 Ch     "temp"
 ```
 
-![Pasted image 20250902131827](images/Pasted image 20250902131827.png)
+![image-center](/assets/images/Pasted image 20250902131827.png)
 
 http://a668910b5514e.whiterabbit.htb/en/gophish_webhooks
 
 Vemos un nuevo host para agregar el `/etc/hosts` y un link que nos descarga un `.json`.
 
-![Pasted image 20250902150056](images/Pasted image 20250902150056.png)
+![image-center](/assets/images/Pasted image 20250902150056.png)
 
 El contenido de archivo `json` muestra un `workflow exportado` en `json` el cual recibe eventos de n8n y actualiza la base de datos `victim` en `maria-db` o `mysql`.Dentro del archivo vemos una clave secreta. Esta clave permite generar firmas válidas para cualquier payload, lo que nos da la posibilidad de interactuar con el webhook de manera controlada.
 
@@ -528,3 +530,5 @@ neo@whiterabbit:~$ sudo su
 [sudo] password for neo: 
 root@whiterabbit:/home/neo#
 ```
+
+`~Happy Hacking.`

@@ -288,7 +288,7 @@ Hacemos lo mismo que hicimos con el `.zip` pero con el certificado.
 pfx2john legacyy_dev_auth.pfx > pfx.txt
 ```
 
-```bash                                                                                                                         cat pfx.txt             
+```bash                                                      cat pfx.txt             
 legacyy_dev_auth.pfx:$pfxng$1$20$2000$20$eb755568327396de179c4a5d668ba8fe550ae18a$3082099c3082060f06092a864886f70d010701a0820600048205fc308205f8308205f4060b2a864886f70d010c0a0102a08204fe308204fa301c060a2a864886f70d010c0103300e04084408e3852b96a898020207d004<SNIP>:::::legacyy_dev_auth.pfx
 ```
 
@@ -373,13 +373,13 @@ Por lo que ahora podemos enumerar el dominio con `bloodhound`.
 bloodhound-python -c all -u 'svc_deploy' -p 'E3R$Q62^12p7PLlC%KWaxuaV' -ns 
 ```
 
-![Untitled 43 1](images/Untitled 43 1.jpg)
+![[Untitled 43 1.jpg]]
 
 Vemos que el usuario `svc_deploy` es parte del grupo `LAPS_READERS` y que a su vez este grupo tiene permisos y privilegios `LAPSPasswords` sobre el `DC01`.
 
 >LAPS guarda en Active Directory la contraseña **local** del administrador de máquina (atributo `ms-Mcs-AdmPwd`) para equipos unidos al dominio, y la rota automáticamente. Quien tenga **permiso de lectura** sobre ese atributo puede recuperar la contraseña actual.
 
-![Untitled 44 1](images/Untitled 44 1.jpg)
+![[Untitled 44 1.jpg]]
 
 Para eso podemos hacer uso de `bloodyAD` para poder ver la contraseña guardada del admin del `dc01`. 
 

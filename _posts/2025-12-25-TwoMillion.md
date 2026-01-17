@@ -244,7 +244,7 @@ whoami
 www-data
 ```
 
-![Untitled 29 1](images/Untitled 29 1.jpg)
+## Shell as admin
 
 Ya una vez dentro estamos como `www-data` y que si listamos los archivos y carpetas dentro de la ruta en la que la pagina se aloja vemos un archivo `.env` extraño. El cual si lo cateamos vemos unas credenciales del usuario `admin`.
 

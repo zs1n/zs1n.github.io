@@ -42,7 +42,7 @@ Nmap done: 1 IP address (1 host up) scanned in 130.12 seconds
 
 En la pagina que se nos presenta en el puerto `80` aparece esto.
 
-![Untitled 18 1](images/Untitled 18 1.jpg)
+![[Untitled 18 1.jpg]]
 
 Debajo hay un apartado de contacto el cual podemos probar por tratar de poner una etiquetas `script` intentado un `XSS`, pero no vamos a tener exito.
 
@@ -294,9 +294,10 @@ Vemos que con exito nos logueamos pero tenemos asignada una `rbash` con la cual 
 ```bash
 ssh mindy@10.10.10.51 bash
 ```
+
 # Post-Explotacion / Privilege escalation
 
-![Untitled 19 1](images/Untitled 19 1.jpg)
+![[Untitled 19 1.jpg]]
 
 Con el uso de `pspy` vemos que `root` corre con `sh` el archivo `tmp.py` que esta en el directorio `/opt` y vemos que efectivamente, tenemos permisos de escritura en dicho file por lo que podemos modificarlo a nuestro favor para ganar una shell como `root`.
 

