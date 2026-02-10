@@ -72,8 +72,7 @@ docker pull mysql
 Después levanto el contenedor.
 
 ```bash
-docker run -p 3306:3306 --rm --name mysqldb -e testing=password
-mysql:latest
+docker run -p 3306:3306 --rm --name mysqldb -e testing=password mysql:latest
 ```
 
 Luego en la misma pagina le puedo indicar el servidor, que en este caso, es mi `ip`.

@@ -322,6 +322,7 @@ git clone https://github.com/xkaneiki/CVE-2023-0386/
 ```
 
 Lo comprimo en `.tar` para enviarlo a la maquina victima.
+
 ```bash 
 tar -cvjf cve.tar CVE-2023-0386/
 ```
