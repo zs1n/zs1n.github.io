@@ -596,6 +596,7 @@ james:x:1000:1000:,,,:/home/james:/bin/bash
 
 Para hacerlo mas a meno, cree otro script adicional (opcional) por comodidad para actualizar mi payload JavaScript, para poder apuntar a un archivo que yo quiera.
 
+{% raw %}
 ```python
 cat lfi.py
 import requests
@@ -662,6 +663,7 @@ if __name__ == "__main__":
     archivo_objetivo = sys.argv[1]
     exploit(archivo_objetivo)
 ```
+{% endraw %}
 ### Express JS file
 
 Volviendo a `ExpressJS`, busque en internet archivos comunes para este framework, dentro de los cuales están `app.js, index,js, package.json`.
