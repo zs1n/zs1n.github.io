@@ -8,183 +8,35 @@
         "type": "tabs",
         "children": [
           {
-            "id": "4e9f916d247c5d22",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/2025-12-31-APT.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2025-12-31-APT"
-            }
-          },
-          {
-            "id": "34913d6e71e4d38f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/2026-1-2-Manager.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2026-1-2-Manager"
-            }
-          },
-          {
-            "id": "43621be1cb855861",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/2025-12-17-Escape.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2025-12-17-Escape"
-            }
-          },
-          {
-            "id": "c168a0b3dc85acb1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/2025-12-2-Nineveh.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2025-12-2-Nineveh"
-            }
-          },
-          {
-            "id": "c0a6891427faf4bd",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/CPTS.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "CPTS"
-            }
-          },
-          {
-            "id": "96bb2ae4ba998193",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/CPTS.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "CPTS"
-            }
-          },
-          {
-            "id": "079cf6d29489d262",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/2026-1-2-Pressed.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2026-1-2-Pressed"
-            }
-          },
-          {
-            "id": "5a8d1bfe6716d010",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/CPTS.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "CPTS"
-            }
-          },
-          {
-            "id": "1753e02063b34d55",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/2025-12-22-Devvortex.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2025-12-22-Devvortex"
-            }
-          },
-          {
-            "id": "ed4c09a5ef8e797c",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "assets/images/Pasted image 20260121002347.png"
-              },
-              "icon": "lucide-image",
-              "title": "Pasted image 20260121002347"
-            }
-          },
-          {
-            "id": "c8f12f9e09f181c3",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "assets/images/Pasted image 20260120232943.png"
-              },
-              "icon": "lucide-image",
-              "title": "Pasted image 20260120232943"
-            }
-          },
-          {
-            "id": "09974131bf12acfc",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "assets/images/Pasted image 20260120144408.png"
-              },
-              "icon": "lucide-image",
-              "title": "Pasted image 20260120144408"
-            }
-          },
-          {
             "id": "87f4e33e390cac7c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2026-1-2-Pressed.md",
+                "file": "_posts/2026-2-19-Zero.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-1-2-Pressed"
+              "title": "2026-2-19-Zero"
+            }
+          },
+          {
+            "id": "c3b71dbfc5c79a53",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Borradores/2026-2-18-Format.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2026-2-18-Format"
             }
           }
         ],
-        "currentTab": 12
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -216,7 +68,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "ldapsear",
+                "query": "ServerRoot ",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -346,45 +198,45 @@
       "bases:Create new base": false
     }
   },
-  "active": "87f4e33e390cac7c",
+  "active": "b85fc5b96da8a4a8",
   "lastOpenFiles": [
-    "_posts/2026-2-18-Format.md",
-    "images/Untitled.md",
+    "_posts/2026-2-5-Manage.md",
+    "_posts/2026-2-3-Sau.md",
+    "_posts/2026-2-3-Retro.md",
+    "_posts/2026-2-3-Lock.md",
+    "_posts/2026-2-3-Down.md",
+    "_posts/2026-2-17-MailRoom.md",
+    "_posts/2026-2-10-Jerry.md",
+    "_posts/2026-2-10-Inject.md",
+    "_posts/2026-2-10-Coder.md",
+    "_posts/2026-2-10-Bookworm.md",
+    "_posts/2026-1-9-Seal.md",
+    "_posts/2026-1-9-Scrambled.md",
+    "_posts/2026-1-9-Legacy.md",
+    "_posts/2026-1-7-Sense.md",
+    "_posts/2026-1-7-Armegeddon.md",
+    "_posts/2026-1-6-Ready.md",
+    "_posts/2026-1-6-Frolic.md",
+    "_posts/2026-1-6-Friendzone.md",
+    "_posts/2026-1-6-Devel.md",
+    "_posts/2026-1-4-Reddish.md",
+    "_posts/2026-1-16-Sendai.md",
+    "_posts/2026-1-16-Optimun.md",
+    "_posts/2026-1-16-Blunder.md",
+    "_posts/2026-1-15-Forgotten.md",
+    "_posts/2026-1-15-BabyTwo.md",
+    "2026-2-2-Sendai.md",
+    "assets/images/Pasted image 20260224143222.png",
+    "assets/images/Pasted image 20260224141944.png",
+    "assets/images/Pasted image 20260224141632.png",
+    "assets/images/Pasted image 20260224141527.png",
+    "assets/images/Pasted image 20260224165155.png",
+    "assets/images/Pasted image 20260224154718.png",
+    "assets/images/Pasted image 20260224141459.png",
+    "assets/images/Pasted image 20260224141410.png",
+    "assets/images/Pasted image 20260219021747.png",
+    "assets/images/website 4.webp",
     "images",
-    "assets/images/Pasted image 20260218164044.png",
-    "assets/images/Pasted image 20260218164035.png",
-    "assets/images/Pasted image 20260218163403.png",
-    "assets/images/Pasted image 20260218163043.png",
-    "assets/images/Pasted image 20260218162936.png",
-    "assets/images/Pasted image 20260218161236.png",
-    "assets/images/Pasted image 20260218155537.png",
-    "assets/images/Pasted image 20260218155506.png",
-    "assets/images/Pasted image 20260218153932.png",
-    "assets/images/Pasted image 20260218153519.png",
-    "_posts/2026-2-9-PermX.md",
-    "_posts/2026-2-9-Headless.md",
-    "_posts/2026-2-9-Bizness.md",
-    "_posts/2026-2-5-Reset.md",
-    "_posts/2026-1-15-Baby.md",
-    "_posts/2026-1-13-Delegate.md",
-    "_posts/2026-1-13-Breach.md",
-    "_posts/2026-1-12-Slonik.md",
-    "_posts/2026-1-12-Job.md",
-    "_posts/2026-1-12-Bruno.md",
-    "_posts/2026-1-11-Valentine.md",
-    "_posts/2025-12-30-RustyKey.md",
-    "Borradores/2026-2-17-OnlyForYou.md",
-    "Borradores/2026-2-10-SteamCloud.md",
-    "Borradores/2026-2-10-Socket.md",
-    "Borradores/2026-2-10-Cerberus.md",
-    "Borradores/2026-1-8-Object.md",
-    "Borradores/2026-02-15-WingData.md",
-    "Borradores",
-    "_posts/2026-2-19-MonitorsTwo.md",
-    "_posts/2026-2-10-Paper.md",
-    "_posts/2026-2-19-Zero.md",
-    "_posts/2026-2-19-Traverxec.md",
-    "_posts/2025-11-20-Blackfield.md",
-    "_posts/2025-12-25-Reel.md"
+    "Borradores"
   ]
 }
