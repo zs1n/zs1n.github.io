@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Borradores/2026-2-18-Format.md",
+                "file": "_posts/2026-2-19-Zero.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-2-18-Format"
+              "title": "2026-2-19-Zero"
             }
           }
         ],
@@ -198,14 +198,17 @@
       "bases:Create new base": false
     }
   },
-  "active": "b85fc5b96da8a4a8",
+  "active": "c3b71dbfc5c79a53",
   "lastOpenFiles": [
+    "_posts/2026-2-17-MailRoom.md",
+    "_posts/2026-2-19-Zero.md",
+    "_posts/2026-2-19-Traverxec.md",
+    "Borradores/2026-2-18-Format.md",
     "_posts/2026-2-5-Manage.md",
     "_posts/2026-2-3-Sau.md",
     "_posts/2026-2-3-Retro.md",
     "_posts/2026-2-3-Lock.md",
     "_posts/2026-2-3-Down.md",
-    "_posts/2026-2-17-MailRoom.md",
     "_posts/2026-2-10-Jerry.md",
     "_posts/2026-2-10-Inject.md",
     "_posts/2026-2-10-Coder.md",
@@ -223,9 +226,6 @@
     "_posts/2026-1-16-Sendai.md",
     "_posts/2026-1-16-Optimun.md",
     "_posts/2026-1-16-Blunder.md",
-    "_posts/2026-1-15-Forgotten.md",
-    "_posts/2026-1-15-BabyTwo.md",
-    "2026-2-2-Sendai.md",
     "assets/images/Pasted image 20260224143222.png",
     "assets/images/Pasted image 20260224141944.png",
     "assets/images/Pasted image 20260224141632.png",
