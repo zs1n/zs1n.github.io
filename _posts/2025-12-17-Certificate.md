@@ -201,6 +201,7 @@ Para listar el almacen de certificados del Usuario actual. En el que podes visua
 ```bash 
 > certutil -Store My
 ```
+
 <img width="661" height="558" alt="image" src="https://github.com/zs1n/Pentesting/blob/main/content/posts/images/Pasted image 20250722025839.png" />
 
 

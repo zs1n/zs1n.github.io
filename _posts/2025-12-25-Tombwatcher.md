@@ -33,7 +33,7 @@ Al ver por `Bloodhound` que *`Henry`* posee permisos `WriteSPN` spobre el user *
 > python3 targetedKerberoast.py -v -u 'henry' -p 'H3nry_987TGV!' -d 'tombwatcher.htb' --dc-host 'dc01.tombwatcher.htb'
 ```
 
-<img width="661" height="558" alt="image" src="https://github.com/zs1n/Pentesting/blob/main/content/posts/images/Pasted image 20250719035513.png" />
+![image-center](/assets/images/Pasted image 20250719035513.png)
 
 
 Lo crackeamos con `JohnTheRipper`. 
@@ -60,16 +60,16 @@ Si seguimos enumerando por `Bloodhound` vemos que *`Alfred`* tiene la posibilida
 > python3 gMSADumper.py -u Alfred -p basketball -d tombwatcher.htb
 ```
 
-<img width="661" height="558" alt="image" src="https://github.com/zs1n/Pentesting/blob/main/content/posts/images/Pasted image 20250719041427.png" />
+![image-center](/assets/images/Pasted image 20250719041427.png)
 
-
-Obtenemos un hash NetNTLMv2 del usuario *`ansible_dev$`*, donde si no tenemos exito al intentar loguearnos via [[EvilWinRM]], asi que siguiendo enumerando vemos que este `user` posee persmisos `ForceChangePassword` sobre el usuario *`Sam`* y que a su vez *`Sam`* tiene los permisos `WriteOwner` sobre el usuario *`John`* por lo que despues podemos intentar un forzado de cambio de su password. 
+Obtenemos un hash NetNTLMv2 del usuario *`ansible_dev$`*, donde si no tenemos éxito al intentar loguearnos vía [[EvilWinRM]], así que siguiendo enumerando vemos que este `user` posee permisos `ForceChangePassword` sobre el usuario *`Sam`* y que a su vez *`Sam`* tiene los permisos `WriteOwner` sobre el usuario *`John`* por lo que después podemos intentar un forzado de cambio de su password. 
 
 `ansible_dev$:<hash>`
 
 # User Flag 
 
 Le cambiamos el password a *`Sam`*.
+
 ```bash 
 > pth-net rpc password "sam" "newP@ssword2022" -U
 "tombwatcher.htb"/"ansible_dev$"%"ffffffffffffffffffffffffffffffff":"7bc5a56af89da4d3c03bc048055350f2" -S "10.10.11.72"
@@ -105,7 +105,7 @@ Una vez dentro de la maquina vemos que enumerando las rutas no hay nada interesa
 > Get-ADObject -Filter {Deleted -eq $true -and ObjectClass -eq "user"} -IncludeDeletedObjects
 ```
 
-<img width="661" height="558" alt="image" src="https://github.com/zs1n/Pentesting/blob/main/content/posts/images/Pasted image 20250719234052.png" />
+![image-center](/assets/images/Pasted image 20250719234052.png)
 
 
 Vemos que esta el usuario *`cert_admin`* eliminado del dominio y con su nombre podemos intuir que la escalada puede tratarse de algun certificado o plantilla vulnerable, pero primero debemos restaurar y habilitar al usuario y como no conocemos su `password` debemos setearlo una nueva.

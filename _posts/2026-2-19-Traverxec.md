@@ -160,7 +160,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 87.21 seconds
 ```
 
-![[Pasted image 20260224165155.png]]
+![image-center](/assets/images/Pasted image 20260224165155.png)
 
 ```bash
 searchsploit nostromo 1.9.6

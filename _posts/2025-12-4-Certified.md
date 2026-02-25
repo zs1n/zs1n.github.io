@@ -99,7 +99,7 @@ user:[gregory.cameron] rid:[0x643]
 Con las credenciales me recolecte toda la información del dominio con `rusthound`.
 
 ```bash
-rusthound -d certified.htb -u 'judith.mader' -p 'judith09'
+	rusthound -d certified.htb -u 'judith.mader' -p 'judith09'
 ---------------------------------------------------
 Initializing RustHound at 06:03:47 on 12/05/25
 Powered by g0h4n from OpenCyber
