@@ -158,9 +158,9 @@ La password, termina en `2021` pero sabiendo que la maquina fue hecha en `2022` 
 ### XLM-RPC Enumeration
 
 Al parecer esta protegida con `Autenticacion 2FA`, por lo que estoy encerrado, sin embargo volviendo al escaneo, vi que `XML-RPC` esta habilitado.
-Asi que use la siguiente guia de [HackTricks](https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-web/wordpress.html?highlight=xml-rpc#xml-rpc) para enumerar credenciales.
+Así que use la siguiente guía de [HackTricks](https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-web/wordpress.html?highlight=xml-rpc#xml-rpc) para enumerar credenciales.
 
-Viendo alguno de los metodos, uno me llamo la atencion.
+Viendo alguno de los métodos, uno me llamo la atención.
 
 ```bash
  curl --data "<methodCall><methodName>system.listMethods</methodName><params></params></methodCall>" http://pressed.htb/xmlrpc.php
@@ -179,7 +179,7 @@ Viendo alguno de los metodos, uno me llamo la atencion.
 ```
 ### User flag
 
-Viendolo, veo la `user` flag de la maquina.
+Viéndolo, veo la `user` flag de la maquina.
 
 ```bash
 curl --data "<methodCall><methodName>htb.get_flag</methodName><params></params></methodCall>" http://pressed.htb/xmlrpc.php
@@ -198,7 +198,7 @@ curl --data "<methodCall><methodName>htb.get_flag</methodName><params></params><
 ```
 ### Python wordpress XML-RPC
 
-Para la siguiete fase use la guia de este [link](https://python-wordpress-xmlrpc.readthedocs.io/en/latest/ref/methods.html#module-wordpress_xmlrpc.methods.media) para poder enumerar los metods, la cual usa `Python` para poder `interactuar a nivel de programacion` con el centro de medios de un sitio `WordPress` utilizando el protocolo XML-RPC.
+Para la siguiente fase use la guía de este [link](https://python-wordpress-xmlrpc.readthedocs.io/en/latest/ref/methods.html#module-wordpress_xmlrpc.methods.media) para poder enumerar los métodos, la cual usa `Python` para poder `interactuar a nivel de programacion` con el centro de medios de un sitio `WordPress` utilizando el protocolo XML-RPC.
 
 Use las credenciales, y la `url` del sistema.
 

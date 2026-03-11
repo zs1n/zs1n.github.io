@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2026-2-10-Bookworm.md",
+                "file": "_posts/2025-12-2-Nineveh.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-2-10-Bookworm"
+              "title": "2025-12-2-Nineveh"
             }
           },
           {
@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2026-2-10-Bookworm.md",
+                "file": "Presale/2026-2-27-Lookup.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-2-10-Bookworm"
+              "title": "2026-2-27-Lookup"
             }
           },
           {
@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2026-2-9-Headless.md",
+                "file": "_posts/2026-2-3-Lock.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-2-9-Headless"
+              "title": "2026-2-3-Lock"
             }
           },
           {
@@ -101,7 +101,7 @@
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "Files"
+              "title": "Explorador de archivos"
             }
           },
           {
@@ -110,7 +110,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "javascript",
+                "query": "firejail",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -118,7 +118,7 @@
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-search",
-              "title": "Search"
+              "title": "Buscar"
             }
           },
           {
@@ -231,57 +231,57 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "switcher:Abrir selector rápido": false,
+      "graph:Abrir vista gráfica": false,
+      "canvas:Crear nuevo lienzo": false,
+      "daily-notes:Abrir la nota de hoy": false,
+      "templates:Insertar plantilla": false,
+      "command-palette:Abrir paleta de comandos": false,
+      "bases:Crear nueva base": false
     }
   },
   "active": "ec2f9a2b23e4d160",
   "lastOpenFiles": [
-    "_posts/2026-2-9-PermX.md",
-    "_posts/2026-2-18-Format.md",
-    "assets/images/Pasted image 20260218164044.png",
-    "assets/images/Pasted image 20260218164035.png",
-    "assets/images/Pasted image 20260218163403.png",
-    "assets/images/Pasted image 20260218163043.png",
-    "assets/images/Pasted image 20260218162936.png",
-    "assets/images/Pasted image 20260218161236.png",
-    "assets/images/Pasted image 20260218155537.png",
-    "assets/images/Pasted image 20260218155506.png",
-    "assets/images/Pasted image 20260218153932.png",
-    "assets/images/Pasted image 20260218153519.png",
-    "_posts/2026-2-17-MailRoom.md",
-    "Borradores/2026-2-10-Cerberus.md",
-    "Borradores/2026-2-17-OnlyForYou.md",
-    "Borradores/2026-1-8-Object.md",
-    "_posts/2026-1-7-Sense.md",
-    "_posts/2025-12-25-Media.md",
-    "_posts/2025-11-21-Codify.md",
-    "_posts/2026-2-10-Bookworm.md",
-    "_posts/2026-2-9-Headless.md",
+    "assets/images/Pasted image 20260311161329.png",
+    "Presale/2026-1-8-Object.md",
+    "_posts/2026-2-27-Smol.md",
+    "Presale/2026-2-17-OnlyForYou.md",
+    "_posts/2026-2-27-Attacktive Directory.md",
+    "Presale/2026-2-10-Interpreter.md",
+    "_posts/2026-2-27-Perfection.md",
+    "_posts/2026-2-28-Sandworm.md",
+    "Presale/2026-2-10-Cerberus.md",
+    "_posts/2026-2-27-Shibuya.md",
+    "_posts/2026-3-2-PikleRick.md",
+    "_posts/2026-2-19-RegistryTwo.md",
+    "Presale/2026-2-27-Lookup.md",
+    "assets/images/Pasted image 20260310162332.png",
+    "assets/images/Pasted image 20260310162027.png",
+    "assets/images/Pasted image 20260310155016.png",
+    "assets/images/Pasted image 20260310154840.png",
+    "assets/images/Pasted image 20260310153400.png",
+    "assets/images/Pasted image 20260310153350.png",
+    "_posts/2025-12-2-Nineveh.md",
+    "_posts/2026-1-2-Pressed.md",
+    "assets/images/Pasted image 20260310144516.png",
+    "assets/images/Pasted image 20260310140917.png",
+    "_posts/2026-2-3-Lock.md",
+    "assets/images/Pasted image 20260309200413.png",
+    "assets/images/Pasted image 20260309200412.png",
     "_posts/2025-12-25-StreamIO.md",
-    "_posts/2026-2-10-Coder.md",
-    "_posts/2026-2-10-Jerry.md",
-    "Borradores/2026-2-10-Socket.md",
-    "Borradores/2026-2-10-SteamCloud.md",
-    "_posts/2026-2-10-Inject.md",
-    "_posts/2026-2-10-GoodGames.md",
-    "_posts/2026-2-5-Reset.md",
-    "_posts/2026-1-4-Reddish.md",
-    "Borradores/2026-02-15-WingData.md",
-    "_posts/2025-12-15-Sniper.md",
-    "_posts/2025-12-25-Tabby.md",
-    "_posts/2025-12-25-Vulncicada.md",
-    "_posts/2025-12-24-Boardlight.md",
-    "_posts/2025-12-15-Secnotes.md",
+    "Presale/2026-2-27-tets.md",
+    "_posts/2026-2-19-Rebound.md",
+    "Presale/2026-3-2-Pirate.md",
+    "Presale/2026-3-4-CCTV.md",
+    "Presale/2026-3-4-Overwatch.md",
+    "Presale/2026-3-4-Sorcery.md",
+    "Presale/2026-2-10-Socket.md",
+    "Presale/2026-3-4-Eloquia.md",
+    "Presale/2026-02-15-WingData.md",
     "staff.accdb",
     "images",
     "_posts/Untitled",
-    "Borradores",
+    "Presale",
     "fix.py"
   ]
 }

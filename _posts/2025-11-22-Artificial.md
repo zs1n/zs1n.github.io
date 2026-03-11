@@ -16,7 +16,7 @@ sidebar: main
 # Introducción
 
 `Artificial` es una máquina `Linux` de `fácil` dificultad que muestra la explotación de una aplicación web utilizada para ejecutar modelos de IA con `Tensorflow` y la interfaz de usuario web `Backrest` mediante el abuso de las funcionalidades de copia de seguridad y restauración y la utilidad `restic` utilizada por la aplicación.
-# Reconocimiento
+# Recon
 
 ```bash
 nmap -sCV -p22,80 10.129.232.51                 
@@ -43,7 +43,7 @@ Nmap done: 1 IP address (1 host up) scanned in 37.36 seconds
 
 ![image-center](/assets/images/{2FA69DF2-6217-41C9-ADEA-9DBFABF5029F}.png)
 
-Al entrar en la web no veo nada interesante mas que un panel de `login` y registro. Asi que me registro 
+Al entrar en la web no veo nada interesante mas que un panel de `login` y registro. Así que me registro 
 
 ![image-center](/assets/images/{5AFE1E90-584A-4363-9858-AEFD8368EB47}.png)
 
