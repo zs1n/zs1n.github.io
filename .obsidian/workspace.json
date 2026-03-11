@@ -1,98 +1,37 @@
 {
   "main": {
-    "id": "f63c70b5553d175a",
+    "id": "75e8b6dfe1ea68ae",
     "type": "split",
     "children": [
       {
-        "id": "00bd3b673a74788a",
+        "id": "6c5caf287816502b",
         "type": "tabs",
         "children": [
           {
-            "id": "c7c239f02ba8d104",
+            "id": "03c05d1babededb9",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/2025-12-2-Nineveh.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "2025-12-2-Nineveh"
-            }
-          },
-          {
-            "id": "ec2f9a2b23e4d160",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Presale/2026-2-27-Lookup.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2026-2-27-Lookup"
-            }
-          },
-          {
-            "id": "9cf9f41a35ecdbb1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/2026-2-3-Lock.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2026-2-3-Lock"
-            }
-          },
-          {
-            "id": "26a0f7d9130b1f02",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/2026-1-4-Reddish.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2026-1-4-Reddish"
-            }
-          },
-          {
-            "id": "d17b37f36559aadf",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Borradores/2026-1-8-Object.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2026-1-8-Object"
+              "title": "Nueva pestaña"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "adb808207758c88b",
+    "id": "25cc848ed8a80c27",
     "type": "split",
     "children": [
       {
-        "id": "4cdcac81fd97392f",
+        "id": "56396d3802f511e3",
         "type": "tabs",
         "children": [
           {
-            "id": "96e117b3665b210c",
+            "id": "ca9d3247f4e5459d",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -105,12 +44,12 @@
             }
           },
           {
-            "id": "427a31ce67bf81d4",
+            "id": "f36a7d9d232857b6",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "firejail",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -122,36 +61,35 @@
             }
           },
           {
-            "id": "ba4975e883304ea0",
+            "id": "b5953bc651024005",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
               "state": {},
               "icon": "lucide-bookmark",
-              "title": "Bookmarks"
+              "title": "Marcadores"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 291.5
+    "width": 300
   },
   "right": {
-    "id": "9e3adbedd89c70fb",
+    "id": "075843d0f0b5764b",
     "type": "split",
     "children": [
       {
-        "id": "20100c113fe9b838",
+        "id": "97bdb3c4de2167d1",
         "type": "tabs",
         "children": [
           {
-            "id": "6d0e3fe040100746",
+            "id": "c4a260066bd7036a",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/2025-12-30-RustyKey.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -161,25 +99,24 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 2025-12-30-RustyKey"
+              "title": "Enlaces entrantes"
             }
           },
           {
-            "id": "2482c6ed6f76eb39",
+            "id": "b6430c1b1412926f",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/2025-12-30-RustyKey.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 2025-12-30-RustyKey"
+              "title": "Enlaces salientes"
             }
           },
           {
-            "id": "cffca5917ba2f55b",
+            "id": "77688872a00a6754",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -190,11 +127,11 @@
                 "searchQuery": ""
               },
               "icon": "lucide-tags",
-              "title": "Tags"
+              "title": "Etiquetas"
             }
           },
           {
-            "id": "dc09c8a86314afc5",
+            "id": "70d7de0e5cdaab89",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -204,22 +141,22 @@
                 "searchQuery": ""
               },
               "icon": "lucide-archive",
-              "title": "All properties"
+              "title": "Todas las propiedades"
             }
           },
           {
-            "id": "713e60649b46fdd2",
+            "id": "6c20a009dcf6d049",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/2025-12-30-RustyKey.md",
+                "file": "2026-2-2-Sendai.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 2025-12-30-RustyKey"
+              "title": "Esquema de 2026-2-2-Sendai"
             }
           }
         ]
@@ -240,48 +177,10 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "ec2f9a2b23e4d160",
+  "active": "ca9d3247f4e5459d",
   "lastOpenFiles": [
-    "assets/images/Pasted image 20260311161329.png",
-    "Presale/2026-1-8-Object.md",
-    "_posts/2026-2-27-Smol.md",
-    "Presale/2026-2-17-OnlyForYou.md",
-    "_posts/2026-2-27-Attacktive Directory.md",
-    "Presale/2026-2-10-Interpreter.md",
-    "_posts/2026-2-27-Perfection.md",
-    "_posts/2026-2-28-Sandworm.md",
-    "Presale/2026-2-10-Cerberus.md",
-    "_posts/2026-2-27-Shibuya.md",
-    "_posts/2026-3-2-PikleRick.md",
-    "_posts/2026-2-19-RegistryTwo.md",
-    "Presale/2026-2-27-Lookup.md",
-    "assets/images/Pasted image 20260310162332.png",
-    "assets/images/Pasted image 20260310162027.png",
-    "assets/images/Pasted image 20260310155016.png",
-    "assets/images/Pasted image 20260310154840.png",
-    "assets/images/Pasted image 20260310153400.png",
-    "assets/images/Pasted image 20260310153350.png",
-    "_posts/2025-12-2-Nineveh.md",
-    "_posts/2026-1-2-Pressed.md",
-    "assets/images/Pasted image 20260310144516.png",
-    "assets/images/Pasted image 20260310140917.png",
-    "_posts/2026-2-3-Lock.md",
-    "assets/images/Pasted image 20260309200413.png",
-    "assets/images/Pasted image 20260309200412.png",
-    "_posts/2025-12-25-StreamIO.md",
-    "Presale/2026-2-27-tets.md",
-    "_posts/2026-2-19-Rebound.md",
-    "Presale/2026-3-2-Pirate.md",
-    "Presale/2026-3-4-CCTV.md",
-    "Presale/2026-3-4-Overwatch.md",
-    "Presale/2026-3-4-Sorcery.md",
-    "Presale/2026-2-10-Socket.md",
-    "Presale/2026-3-4-Eloquia.md",
-    "Presale/2026-02-15-WingData.md",
-    "staff.accdb",
-    "images",
-    "_posts/Untitled",
-    "Presale",
-    "fix.py"
+    "test.md",
+    "2026-2-2-Sendai.md",
+    "_posts/CPTS.md"
   ]
 }
