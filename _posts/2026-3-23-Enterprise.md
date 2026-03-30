@@ -134,7 +134,7 @@ Nmap done: 1 IP address (1 host up) scanned in 102.93 seconds
 
 En la pagina principal, solo muestra el siguiente mensaje.
 
-![[Pasted image 20260323204259.png]]
+![image-center](/assets/images/Pasted image 20260323204259.png)
 ### SMB Enumeration
 
 Como el inicio de sesión `null` esta habilitado, me conecte como el usuario guest, viendo que tiene acceso al recurso `Docs`, y además a `Users`.
@@ -252,16 +252,16 @@ Session completed.
 
 Como en la pagina que corre por el puerto `7990` aparece un mensaje como este:
 
-![[Pasted image 20260326123426.png]]
+![image-center](/assets/images/Pasted image 20260326123426.png)
 ### Shell as nik
 Busque en Github alguna cuenta con este nombre, encontrando el [siguiente repositorio](https://github.com/Enterprise-THM).
 En `People` vi el nombre de uno de los integrantes del proyecto.
 
-![[Pasted image 20260323213847.png]]
+![image-center](/assets/images/Pasted image 20260323213847.png)
 
 Donde si me voy a sus repositorios personales, vi un `.ps1` con un commit viejo, el cual tiene sus credenciales.
 
-![[Pasted image 20260323213932.png]]
+![image-center](/assets/images/Pasted image 20260323213932.png)
 
 Codigo:
 ```powershell

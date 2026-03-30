@@ -60,16 +60,16 @@ Nmap done: 1 IP address (1 host up) scanned in 14.87 seconds
 
 En la pagina se hostea un servicio de citas.
 
-![[Pasted image 20260325185711.png]]
+![image-center](/assets/images/Pasted image 20260325185711.png)
 
 Me registre con un usuario nuevo.
 
-![[Pasted image 20260325190311.png]]
+![image-center](/assets/images/Pasted image 20260325190311.png)
 ### LFI
 
 Clickeando en cualquiera de los perfiles, veo como en mi consola se carga con `fetch_layout?=layout` y perfil determinado.
 
-![[Pasted image 20260325192738.png]]
+![image-center](/assets/images/Pasted image 20260325192738.png)
 
 Probando dicho endpoint con `curl` veo que puedo leer archivos.
 
@@ -117,7 +117,7 @@ polkitd:x:997:997:User for polkitd:/:/usr/sbin/nologin
 
 Viendo el contenido del `cmdline`, vi en donde corre la web.
 
-![[Pasted image 20260325193708.png]]
+![image-center](/assets/images/Pasted image 20260325193708.png)
 ### Source
 
 Viendo que en el codigo de la misma el valor de la `api` junto con la cabecera con la que tengo que enviarla, lo que me permite extraer el archivo de base de datos en `/api/admin/export_db`.

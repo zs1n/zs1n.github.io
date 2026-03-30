@@ -119,11 +119,11 @@ Nmap done: 1 IP address (1 host up) scanned in 89.49 seconds
 
 La pagina principal hostea una web de negocios
 
-![[Pasted image 20260318014001.png]]
+![image-center](/assets/images/Pasted image 20260318014001.png)
 
 En el formulario de contacto de la misma no tiene ninguna funcionalidad.
 
-![[Pasted image 20260318014159.png]]
+![image-center](/assets/images/Pasted image 20260318014159.png)
 ### Feroxbuster enumeration
 
 Enumerando archivos y directorios con `feroxbuster`, vi la ruta `/backup`.
@@ -302,7 +302,7 @@ THM{c105b6fb249741b89432fada8218f4ef}
 
 Con los datos de `bloodhound`, vi que el usuario `jmurphy` tenia un campo de descripción, con lo que parece ser la contraseña del mismo.
 
-![[Pasted image 20260318024541.png]]
+![image-center](/assets/images/Pasted image 20260318024541.png)
 ### Shell
 
 Use las mismas nuevamente para conectarme por `WinRM`.

@@ -17,12 +17,12 @@ sidebar: main
 
 En la pagina principal se hostea una tienda de quesos.
 
-![[Pasted image 20260320164239.png]]
+![image-center](/assets/images/Pasted image 20260320164239.png)
 ### Login pasge Bypass
 
 En la pagina de `login` probé credenciales típicas, para poder ingresar pero no tuve éxito.
 
-![[Pasted image 20260320164308.png]]
+![image-center](/assets/images/Pasted image 20260320164308.png)
 ### SQL Injection
 
 Sin embargo es vulnerable a inyecciones SQL, por lo que use el siguiente payload para bypassear el panel.
@@ -35,12 +35,12 @@ Sin embargo es vulnerable a inyecciones SQL, por lo que use el siguiente payload
 
 En el panel de administración, se puede ver como se usan filtros `php` para poder cargar el contenido de los archivos.
 
-![[Pasted image 20260320165818.png]]
+![image-center](/assets/images/Pasted image 20260320165818.png)
 ### /etc/passwd
 
 Para probar un LFI intente ver el `/etc/passwd`, teniendo exito.
 
-![[Pasted image 20260320165753.png]]
+![image-center](/assets/images/Pasted image 20260320165753.png)
 ### PHP Filter Chain RCE
 
 Por lo que use un generador de filtros php para poder ejecutar comandos, en [este repo](https://github.com/synacktiv/php_filter_chain_generator) de Github.

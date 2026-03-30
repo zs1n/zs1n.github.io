@@ -93,12 +93,12 @@ Nmap done: 1 IP address (1 host up) scanned in 72.04 seconds
 
 Las paginas principales parecen ser estaticas.
 
-![[Pasted image 20260327174937.png]]
+![image-center](/assets/images/Pasted image 20260327174937.png)
 ### Other website
 
 Esta por lo tanto tambien.
 
-![[Pasted image 20260327175414.png]]
+![image-center](/assets/images/Pasted image 20260327175414.png)
 ### AXFR
 
 Usando `dig` para realizar una transferencia de zona `(AXFR)`, descubrí unos subdominios adicionales.
@@ -123,7 +123,7 @@ ironcorp.me.		3600	IN	SOA	win-8vmbkf3g815. hostmaster. 3 900 600 86400 3600
 
 Como en la web `admin.ironcorp.me` por el puerto 11025 me muestra un panel de autenticacion, estoy sin salida.
 
-![[Pasted image 20260327180836.png]]
+![image-center](/assets/images/Pasted image 20260327180836.png)
 ## Shell as system
 
 Por lo que como la pagina, esta bajo el subdominio de `admin` use `hydra` para por fuerza bruta descubrir la contraseña de este panel.
@@ -144,21 +144,21 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2026-03-27 17:12:
 
 Usando estas credenciales accedí al panel de administración en donde tengo un panel de búsqueda en donde después de probar distintas cosas descubrí que es vulnerable a `SSRF`, usando así el protocolo `file://` para poder leer archivos.
 
-![[Pasted image 20260327181606.png]]
+![image-center](/assets/images/Pasted image 20260327181606.png)
 ### Internal page
 
 Ademas pude ver el contenido de el otro subdominio al cual no pude acceder de manera externa.
 
-![[Pasted image 20260327182227.png]]
+![image-center](/assets/images/Pasted image 20260327182227.png)
 
 Viendo que el código fuente el mismo apuntaba a `/name.php?name=` viendo al usuario Equinox.
 
-![[Pasted image 20260327182305.png]]
+![image-center](/assets/images/Pasted image 20260327182305.png)
 ### Command injection
 
 Usando el escape para ejecutar comandos `&` con un doble `url-encode`, el comando lo ejecutaba correctamente.
 
-![[Pasted image 20260327183156.png]]
+![image-center](/assets/images/Pasted image 20260327183156.png)
 ### Shell
 
 Por lo que intente subir el `nc.exe` a la ruta `C:\programdata\`.

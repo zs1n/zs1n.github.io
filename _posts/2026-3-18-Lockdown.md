@@ -67,27 +67,27 @@ Nmap done: 1 IP address (1 host up) scanned in 20.75 seconds
 
 La pagina principal, muestra un campo en el que tengo que colocar algún código para acceder al panel.
 
-![[Pasted image 20260316204553.png]]
+![image-center](/assets/images/Pasted image 20260316204553.png)
 ### SQL Injection
 
 Usando un simple payload para pasar la validación como `'or 1=1-- -`, veo que en la respuesta aparece un mensaje de `success`.
 
-![[Pasted image 20260316204836.png]]
+![image-center](/assets/images/Pasted image 20260316204836.png)
 ### Admin panel and SQL injection
 
 Use el mismo payload para poder acceder al panel de administración del usuario `admin`. En el pie de la pagina y ya en el propio titulo de la misma habla de `CTS-QR`, por lo que buscando por CVE's relacionados a este sistema encontré el [siguiente enlace](https://github.com/yihaofuweng/cve/issues/59).
 
 El mismo demuestra que el parámetro `page=state` es vulnerable una `inyeccion SQL`, como demuestro a continuación.
 
-![[Pasted image 20260316210512.png]]
+![image-center](/assets/images/Pasted image 20260316210512.png)
 
 Se puede ver que si envió la petición en la respuesta veo un `1`.
 
-![[Pasted image 20260316210526.png]]
+![image-center](/assets/images/Pasted image 20260316210526.png)
 
 Pero si coloco una simple comilla `'`, veo como el código rompe, mostrándome así la `query` que se realiza por detrás.
 
-![[Pasted image 20260316210549.png]]
+![image-center](/assets/images/Pasted image 20260316210549.png)
 ## Shell as www-data
 ### sqlmap
 
@@ -186,12 +186,12 @@ zs1n@ptw ~> sqlmap -r req.txt --batch -D cts_db -T users --dump --threads 10
 
 Por lo que fui a crackstation para romper el mismo.
 
-![[Pasted image 20260316214031.png]]
+![image-center](/assets/images/Pasted image 20260316214031.png)
 ### Shell
 
 Como la password por ahora no me sirve de nada, y tenia la posibilidad de cambiar el logo de la pagina principal de `login.php` por lo que subí una reverse shell en `php` para luego subirla en forma de imagen
 
-![[Pasted image 20260317025945.png]]
+![image-center](/assets/images/Pasted image 20260317025945.png)
 
 Me desloguee de la pagina y fui a:
 

@@ -295,7 +295,7 @@ Version: v1.0.3 (9dad6e1) - 03/17/26 - Ronnie Flathers @ropnop
 
 Viendo las acls de este usuario, vi que tiene la capacidad de performar un `kerberoasting attack` contra el usuario `jerri_lancaster`.
 
-![[Pasted image 20260317144646.png]]
+![image-center](/assets/images/Pasted image 20260317144646.png)
 ### Targeted Kerberoast
 
 Por lo que use [targetedKerberoast.py](github.com/ShutdownRepo/targetedKerberoast) para realizar dicha accion.
@@ -335,7 +335,7 @@ xfreerdp3 /v:<ip> /u:jerri_lancaster /p:'lovinlife!'
 
 Vi que el directorio `C:\Scripts` habia un archivo con las credenciales del usuario `SANFORD_DAUGHERTY`.
 
-![[Pasted image 20260317150241.png]]
+![image-center](/assets/images/Pasted image 20260317150241.png)
 ### Shell
 
 Por lo que use `smbpsexec` para conectarme como este usuario.
