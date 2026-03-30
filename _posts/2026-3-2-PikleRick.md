@@ -139,7 +139,7 @@ id
 uid=0(root) gid=0(root) groups=0(root)
 ```
 
-```bahs
+```bash
 cat 3rd.txt
 3rd ingredients: fleeb juice
 ```

