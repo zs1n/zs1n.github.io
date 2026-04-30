@@ -1,9 +1,11 @@
 # main links
 main:
-  - title: "Search"
-    url: https://zs1n.github.io/
+  - title: "Inicio"
+    url: /
+  - title: "Categorias"
+    url: /categorias/
   - title: "About"
-    url: https://mmistakes.github.io/minimal-mistakes/about/
+    url: /about/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"

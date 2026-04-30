@@ -12,7 +12,7 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "dark" #"dark" "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "air" #"dark" "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
@@ -115,7 +115,7 @@ analytics:
 author:
   name             : "zs1n"
   avatar           : "/assets/images/broly.jpg" # path of avatar image, e.g. 
-  bio              : "Cibersecurity Enthusiast 🕵️‍♂️ | Pentester | CTF Player 🚩"
+  bio              : "🧠 AI Security Researcher | 🛡️ Red Team | 🚩 CTF Player"
   location         : "Buenos Aires, Argentina"
   email            :
   links:

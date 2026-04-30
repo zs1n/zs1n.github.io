@@ -1,0 +1,66 @@
+---
+layout: home
+title: "Posts by Category"
+permalink: /categorias/
+author_profile: true
+entries_layout: list
+---
+
+<section class="home-hero">
+  <p class="home-hero__kicker">Writeups, Notes, and Things That Break</p>
+  <h1 class="home-hero__title">Posts by Category</h1>
+  <p class="home-hero__lead">
+    Browse writeups by category and keep scrolling for the full list of posts.
+  </p>
+</section>
+
+<section class="category-boxes" aria-label="Category shortcuts">
+  {% assign web_count = 0 %}
+  {% assign ad_count = 0 %}
+  {% assign ai_count = 0 %}
+  {% assign hacksmarter_count = 0 %}
+  {% assign thm_count = 0 %}
+  {% assign htb_count = 0 %}
+  {% assign challenges_count = 0 %}
+  {% assign scripts_count = 0 %}
+
+  {% for post in site.posts %}
+    {% assign tags_down = post.tags | join: '|' | downcase %}
+    {% assign categories_down = post.categories | join: '|' | downcase %}
+    {% assign terms_down = tags_down | append: '|' | append: categories_down %}
+
+    {% if terms_down contains 'web' %}
+      {% assign web_count = web_count | plus: 1 %}
+    {% endif %}
+    {% if terms_down contains 'active directory' %}
+      {% assign ad_count = ad_count | plus: 1 %}
+    {% endif %}
+    {% if terms_down contains 'ai' %}
+      {% assign ai_count = ai_count | plus: 1 %}
+    {% endif %}
+    {% if terms_down contains 'hacksmarter' %}
+      {% assign hacksmarter_count = hacksmarter_count | plus: 1 %}
+    {% endif %}
+    {% if terms_down contains 'tryhackme' %}
+      {% assign thm_count = thm_count | plus: 1 %}
+    {% endif %}
+    {% if terms_down contains 'hackthebox' %}
+      {% assign htb_count = htb_count | plus: 1 %}
+    {% endif %}
+    {% if terms_down contains 'challenges' %}
+      {% assign challenges_count = challenges_count | plus: 1 %}
+    {% endif %}
+    {% if terms_down contains 'scripts' %}
+      {% assign scripts_count = scripts_count | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+
+  <a class="category-boxes__item" href="#recent-posts">Web <span class="category-boxes__count">{{ web_count }}</span></a>
+  <a class="category-boxes__item" href="#recent-posts">Active Directory <span class="category-boxes__count">{{ ad_count }}</span></a>
+  <a class="category-boxes__item" href="#recent-posts">AI <span class="category-boxes__count">{{ ai_count }}</span></a>
+  <a class="category-boxes__item" href="#recent-posts">HackSmarter <span class="category-boxes__count">{{ hacksmarter_count }}</span></a>
+  <a class="category-boxes__item" href="#recent-posts">TryHackMe <span class="category-boxes__count">{{ thm_count }}</span></a>
+  <a class="category-boxes__item" href="#recent-posts">HackTheBox <span class="category-boxes__count">{{ htb_count }}</span></a>
+  <a class="category-boxes__item" href="#recent-posts">Challenges <span class="category-boxes__count">{{ challenges_count }}</span></a>
+  <a class="category-boxes__item" href="#recent-posts">Scripts <span class="category-boxes__count">{{ scripts_count }}</span></a>
+</section>
