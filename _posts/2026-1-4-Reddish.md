@@ -1,11 +1,20 @@
 ---
-tags:
 title: Reddish - Insane (HTB)
 toc: true
 permalink: /Reddish -HTB-Writeup
 toc_sticky: true
 toc_label: Topics
 sidebar: main
+tags:
+  - chisel
+  - cron-abuse
+  - docker
+  - nmap
+  - priv-esc
+  - redis
+  - reversing
+  - suid-abuse
+  - web
 ---
 ---
 # Recon

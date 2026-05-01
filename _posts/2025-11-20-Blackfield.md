@@ -1,11 +1,28 @@
 ---
-tags:
 title: Blackfield - Hard (HTB)
 permalink: /Blackfield-HTB-Writeup
 toc:
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - apache
+  - api
+  - bloodhound
+  - dns
+  - forensics
+  - impacket
+  - john-the-ripper
+  - kerberos
+  - ldap
+  - ldap-enum
+  - nmap
+  - password-cracking
+  - smb
+  - smb-enum
+  - web
+  - winrm
 ---
 ---
 # Reconocimiento

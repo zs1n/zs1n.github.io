@@ -1,11 +1,22 @@
 ---
-tags:
 title: Lockdown - Easy (THM)
 permalink: /Lockdown-THM-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - apache
+  - dns
+  - group-abuse
+  - group-abuse-www-data
+  - mysql
+  - mysql-enum
+  - nmap
+  - sqli
+  - ssh
+  - sudo-abuse
+  - web
 ---
 ---
 # Recon

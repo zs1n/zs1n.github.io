@@ -1,11 +1,33 @@
 ---
-tags:
 title: Delegate - Medium (HTB)
 permalink: /Delegate-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - apache
+  - api
+  - bloodhound
+  - dcsync
+  - dns
+  - docker
+  - group-abuse
+  - group-abuse-remote-management-users
+  - impacket
+  - john-the-ripper
+  - kerberoasting
+  - kerberos
+  - ldap
+  - ldap-enum
+  - nmap
+  - password-cracking
+  - rdp
+  - smb
+  - smb-enum
+  - web
+  - winrm
 ---
 ---
 # Recon

@@ -1,11 +1,18 @@
 ---
-tags:
 title: Pilgrimage- Easy (HTB)
 permalink: /Pilgrimage-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - feroxbuster
+  - nginx
+  - nmap
+  - ssh
+  - steganography
+  - sudo-abuse
+  - web
 ---
 ---
 # Reconocimiento

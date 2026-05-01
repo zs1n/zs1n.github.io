@@ -1,11 +1,31 @@
 ---
-tags:
 title: Manager- Medium (HTB)
 permalink: /Manager-HTB-Writeup
 toc_label: Topics
 toc: true
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - apache
+  - dns
+  - group-abuse
+  - group-abuse-administrators
+  - group-abuse-dnsadmins
+  - group-abuse-gpo-creator-owners
+  - iis
+  - impacket
+  - kerberos
+  - ldap
+  - ldap-enum
+  - mssql
+  - mssql-enum
+  - nmap
+  - password-spraying
+  - smb
+  - smb-enum
+  - web
+  - winrm
 ---
 ---
 # Recon

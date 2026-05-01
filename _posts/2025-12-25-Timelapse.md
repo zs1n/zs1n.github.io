@@ -1,11 +1,30 @@
 ---
-tags:
 title: Timelapse - Easy (HTB)
 permalink: /Timelapse-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - apache
+  - bloodhound
+  - dns
+  - group-abuse
+  - group-abuse-administrators
+  - impacket
+  - john-the-ripper
+  - kerberos
+  - ldap
+  - ldap-enum
+  - nmap
+  - password-cracking
+  - priv-esc
+  - smb
+  - smb-enum
+  - sudo-abuse
+  - web
+  - winrm
 ---
 ---
 # Reconocimiento

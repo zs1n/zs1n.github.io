@@ -1,11 +1,30 @@
 ---
-tags:
 title: Authority - Medium (HTB)
 permalink: /Authority-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - apache
+  - apache-tomcat
+  - dns
+  - group-abuse
+  - group-abuse-administrators
+  - iis
+  - impacket
+  - john-the-ripper
+  - kerberos
+  - ldap
+  - ldap-enum
+  - nmap
+  - password-cracking
+  - reversing
+  - smb
+  - smb-enum
+  - web
+  - winrm
 ---
 ---
 # Reconocimientos 

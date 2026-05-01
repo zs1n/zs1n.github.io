@@ -1,11 +1,18 @@
 ---
-tags:
 permalink: /Valentine-HTB-Writeup
 title: Valentine - Easy (HTB)
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - apache
+  - cve-2014-0160
+  - feroxbuster
+  - nmap
+  - ssh
+  - steganography
+  - web
 ---
 ---
 # Recon

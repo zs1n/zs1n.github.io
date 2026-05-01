@@ -1,11 +1,34 @@
 ---
-tags:
 title: Operation Endgame - Hard (THM)
 permalink: /OperationEndgame-THM-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - apache
+  - dns
+  - group-abuse
+  - group-abuse-administrators
+  - group-abuse-dnsadmins
+  - group-abuse-gpo-creator-owners
+  - iis
+  - impacket
+  - john-the-ripper
+  - kerberoasting
+  - kerberos
+  - ldap
+  - ldap-enum
+  - nmap
+  - password-cracking
+  - password-spraying
+  - rdp
+  - reversing
+  - smb
+  - smb-enum
+  - web
+  - winrm
 ---
 ---
 # Recon

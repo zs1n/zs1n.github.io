@@ -1,11 +1,29 @@
 ---
-tags:
 title: Attacktive Directory - Medium (THM)
 permalink: /Attacktive Directory-THM-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - api
+  - bloodhound
+  - dcsync
+  - dns
+  - docker
+  - impacket
+  - john-the-ripper
+  - kerberos
+  - ldap
+  - ldap-enum
+  - nmap
+  - password-cracking
+  - rdp
+  - smb
+  - smb-enum
+  - web
+  - winrm
 ---
 ---
 # Recon

@@ -1,11 +1,25 @@
 ---
-tags:
 title: MailRoom - Hard (HTB)
 permalink: /MailRoom-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - apache
+  - burpsuite
+  - command-injection
+  - dns
+  - docker
+  - mongodb
+  - nmap
+  - reversing
+  - sqli
+  - ssh
+  - sudo-abuse
+  - web
+  - wfuzz
+  - xss
 ---
 ---
 # Recon

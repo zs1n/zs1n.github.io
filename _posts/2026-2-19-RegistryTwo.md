@@ -1,11 +1,23 @@
 ---
-tags:
 title: RegistryTwo - Insane (HTB)
 permalink: /RegistryTwo-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - apache
+  - apache-tomcat
+  - api
+  - dns
+  - docker
+  - mysql
+  - mysql-enum
+  - nginx
+  - nmap
+  - ssh
+  - sudo-abuse
+  - web
 ---
 ---
 # Recon

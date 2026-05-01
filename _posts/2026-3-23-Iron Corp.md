@@ -1,11 +1,25 @@
 ---
-tags:
 title: Iron Corp - Hard (THM)
 permalink: /Iron-Corp-THM-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - apache
+  - command-injection
+  - dns
+  - hydra
+  - iis
+  - ldap
+  - nmap
+  - password-spraying
+  - rdp
+  - reversing
+  - smb
+  - ssrf
+  - sudo-abuse
+  - web
 ---
 ---
 # Recon

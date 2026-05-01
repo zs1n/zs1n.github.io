@@ -1,11 +1,21 @@
 ---
-tags:
 title: SolidState - Medium (HTB)
 permalink: /SolidState-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - apache
+  - gobuster
+  - john-the-ripper
+  - nmap
+  - password-cracking
+  - priv-esc
+  - ssh
+  - suid-abuse
+  - web
+  - xss
 ---
 ---
 # Reconocimiento

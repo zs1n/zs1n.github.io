@@ -1,11 +1,19 @@
 ---
-tags:
 title: ValenFind - Medium (THM)
 permalink: /ValenFind-THM-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - apache
+  - api
+  - dns
+  - irc
+  - lfi
+  - nmap
+  - ssh
+  - web
 ---
 ---
 # Recon

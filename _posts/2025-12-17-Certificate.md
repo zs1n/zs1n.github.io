@@ -1,11 +1,19 @@
 ---
-tags:
 title: Certificate - Hard (HTB)
 permalink: /Certificate-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - impacket
+  - kerberos
+  - mysql
+  - mysql-enum
+  - nmap
+  - web
+  - winrm
 ---
 ---
 # Reconocimiento

@@ -1,11 +1,24 @@
 ---
-tags:
 title: Traverxec - Easy (HTB)
 toc: true
 permalink: /Traverxec-HTB-Writeup
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - apache
+  - cve-2019-16278
+  - dns
+  - group-abuse
+  - group-abuse-www-data
+  - john-the-ripper
+  - nmap
+  - password-cracking
+  - rce
+  - reversing
+  - ssh
+  - sudo-abuse
+  - web
 ---
 # Recon
 

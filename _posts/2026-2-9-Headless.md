@@ -1,11 +1,20 @@
 ---
-tags:
 title: Headless - Easy (HTB)
 permalink: /Headless-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - apache
+  - burpsuite
+  - command-injection
+  - nmap
+  - ssh
+  - sudo-abuse
+  - suid-abuse
+  - web
+  - xss
 ---
 ---
 # Recon

@@ -1,11 +1,28 @@
 ---
-tags:
 permalink: /Scrambled-HTB-Writeup
 title: Scrambled - Medium (HTB)
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - apache
+  - dns
+  - iis
+  - impacket
+  - john-the-ripper
+  - kerberos
+  - ldap
+  - ldap-enum
+  - mssql
+  - mssql-enum
+  - nmap
+  - password-cracking
+  - peas
+  - smb
+  - smb-enum
+  - web
 ---
 ---
 # Recon

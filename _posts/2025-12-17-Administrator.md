@@ -1,11 +1,28 @@
 ---
-tags:
 title: Administrator - Medium (HTB)
 permalink: /Administrator-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - apache
+  - bloodhound
+  - dcsync
+  - dns
+  - ftp
+  - impacket
+  - john-the-ripper
+  - kerberoasting
+  - kerberos
+  - ldap
+  - ldap-enum
+  - nmap
+  - password-cracking
+  - smb
+  - web
+  - winrm
 ---
 ---
 # Reconocimiento 

@@ -1,11 +1,18 @@
 ---
-tags:
 title: PikleRick - Easy (THM)
 permalink: /PikleRick-THM-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - apache
+  - command-injection
+  - dns
+  - nmap
+  - ssh
+  - sudo-abuse
+  - web
 ---
 ---
 # Recon

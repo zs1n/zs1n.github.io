@@ -1,11 +1,18 @@
 ---
-tags:
 title: GettingStarted - Easy (HTB)
 permalink: /GettingStarted-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - csrf
+  - cve-2022-41544
+  - gobuster
+  - nmap
+  - rce
+  - sudo-abuse
+  - web
 ---
 ---
 # Reconocimiento

@@ -1,11 +1,39 @@
 ---
-tags:
 permalink: /Redelegate-HTB-Writeup
 title: Redelegate - Hard (HTB)
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - apache
+  - api
+  - bloodhound
+  - dns
+  - docker
+  - ftp
+  - group-abuse
+  - group-abuse-administrators
+  - group-abuse-dnsadmins
+  - group-abuse-remote-management-users
+  - iis
+  - impacket
+  - john-the-ripper
+  - kerberos
+  - ldap
+  - ldap-enum
+  - mssql
+  - mssql-enum
+  - nmap
+  - password-cracking
+  - password-spraying
+  - rdp
+  - reversing
+  - smb
+  - smb-enum
+  - web
+  - winrm
 ---
 ---
 # Reconocimiento

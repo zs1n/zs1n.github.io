@@ -1,11 +1,23 @@
 ---
-tags:
 title: VulnNet Active - Medium (THM)
 permalink: /VulnNet-Active-THM-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - dns
+  - impacket
+  - john-the-ripper
+  - ldap
+  - nmap
+  - password-cracking
+  - redis
+  - responder
+  - smb
+  - smb-enum
+  - sudo-abuse
+  - web
 ---
 ---
 # Recon

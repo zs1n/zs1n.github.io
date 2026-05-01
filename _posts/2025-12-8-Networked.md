@@ -1,11 +1,21 @@
 ---
-tags:
 title: Networked - Easy (HTB)
 permalink: /Networked-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - apache
+  - burpsuite
+  - command-injection
+  - cron-abuse
+  - feroxbuster
+  - nmap
+  - reversing
+  - ssh
+  - sudo-abuse
+  - web
 ---
 ---
 # Introduccion

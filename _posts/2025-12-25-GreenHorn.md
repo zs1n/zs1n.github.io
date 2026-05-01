@@ -1,11 +1,18 @@
 ---
-tags:
 title: GreenHorn - Easy (HTB)
 permalink: /GreenHorn-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - cve-2023-50564
+  - gobuster
+  - nginx
+  - nmap
+  - priv-esc
+  - ssh
+  - web
 ---
 ---
 # Reconocimiento 

@@ -1,11 +1,24 @@
 ---
-tags:
 title: Pressed - Hard (HTB)
 permalink: /Pressed-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - apache
+  - binary-exploitation
+  - cron-abuse
+  - cve-2021-4034
+  - group-abuse
+  - group-abuse-www-data
+  - linux-capabilities
+  - nmap
+  - reversing
+  - sudo-abuse
+  - suid-abuse
+  - web
+  - wordpress
 ---
 ---
 # Recon

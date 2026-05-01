@@ -1,11 +1,31 @@
 ---
-tags:
 title: Bookworm - Insane (HTB)
 permalink: /Bookworm-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - apache
+  - binary-exploitation
+  - burpsuite
+  - dns
+  - idor
+  - irc
+  - lfi
+  - mssql
+  - mssql-enum
+  - mysql
+  - mysql-enum
+  - nginx
+  - nmap
+  - path-traversal
+  - reversing
+  - sqli
+  - ssh
+  - sudo-abuse
+  - web
+  - xss
 ---
 ---
 # Recon

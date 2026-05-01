@@ -1,11 +1,30 @@
 ---
-tags:
 permalink: /Vulncicada-HTB-Writeup
 title: Vulncicada - Medium (HTB)
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - apache
+  - dns
+  - group-abuse
+  - group-abuse-administrators
+  - group-abuse-cert
+  - iis
+  - impacket
+  - kerberos
+  - ldap
+  - ldap-enum
+  - nfs
+  - nfs-misconfig
+  - nmap
+  - rdp
+  - smb
+  - smb-enum
+  - web
+  - winrm
 ---
 ---
 # Reconocimineto 

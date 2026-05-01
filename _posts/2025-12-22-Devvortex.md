@@ -1,11 +1,28 @@
 ---
-tags:
 title: Devvortex - Easy (HTB)
 permalink: /Devvortex-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - cve-2023-1326
+  - dns
+  - gobuster
+  - group-abuse
+  - group-abuse-www-data
+  - john-the-ripper
+  - joomla
+  - mysql
+  - mysql-enum
+  - nginx
+  - nmap
+  - password-cracking
+  - sqli
+  - ssh
+  - sudo-abuse
+  - web
 ---
 ---
 # Reconocimiento

@@ -1,11 +1,28 @@
 ---
 permalink: /Nocturnal-HTB-Writeup
-tags:
 title: Nocturnal - Easy (HTB)
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - api
+  - burpsuite
+  - command-injection
+  - csrf
+  - cve-2023-46818
+  - feroxbuster
+  - hashcat
+  - idor
+  - nginx
+  - nmap
+  - password-cracking
+  - rce
+  - reversing
+  - ssh
+  - sudo-abuse
+  - web
+  - wfuzz
 ---
 ---
 # Recon

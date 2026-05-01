@@ -1,11 +1,22 @@
 ---
-tags:
 title: Editorial- Easy (HTB)
 permalink: /Editorial-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - api
+  - burpsuite
+  - cve-2022-24439
+  - ffuf
+  - nginx
+  - nmap
+  - ssh
+  - ssrf
+  - sudo-abuse
+  - suid-abuse
+  - web
 ---
 ---
 # Introducción

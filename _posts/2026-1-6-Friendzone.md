@@ -1,11 +1,26 @@
 ---
 title: Frienzone - Easy (HTB)
-tags:
 permalink: /Frienzone-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - apache
+  - dns
+  - ftp
+  - group-abuse
+  - group-abuse-www-data
+  - impacket
+  - lfi
+  - mysql
+  - mysql-enum
+  - nmap
+  - rce
+  - smb
+  - smb-enum
+  - ssh
+  - web
 ---
 ---
 # Recon

@@ -1,11 +1,23 @@
 ---
-tags:
 title: Boardlight - Easy (HTB)
 permalink: /Boardlight-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - apache
+  - cve-2022-37706
+  - cve-2023-30253
+  - dns
+  - mysql
+  - mysql-enum
+  - nmap
+  - ssh
+  - sudo-abuse
+  - suid-abuse
+  - web
+  - wfuzz
 ---
 ---
 # Reconocimiento

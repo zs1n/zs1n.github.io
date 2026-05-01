@@ -1,11 +1,25 @@
 ---
-tags:
 title: Tombwatcher - Medium (HTB)
 permalink: /Tombwatcher-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - bloodhound
+  - cve-2024-49019
+  - impacket
+  - john-the-ripper
+  - kerberos
+  - ldap
+  - ldap-enum
+  - nmap
+  - pass-the-hash
+  - password-cracking
+  - smb
+  - smb-enum
+  - winrm
 ---
 ---
 # Reconocimiento 

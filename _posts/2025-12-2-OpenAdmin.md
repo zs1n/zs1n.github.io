@@ -1,11 +1,27 @@
 ---
-tags:
 title: OpenAdmin- Easy (HTB)
 permalink: /OpenAdmin-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - apache
+  - cve-2019-25065
+  - dns
+  - docker
+  - feroxbuster
+  - john-the-ripper
+  - mysql
+  - mysql-enum
+  - nmap
+  - openadmin
+  - password-cracking
+  - ssh
+  - sudo-abuse
+  - suid-abuse
+  - web
 ---
 ---
 # Introducción

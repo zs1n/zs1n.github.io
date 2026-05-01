@@ -1,11 +1,33 @@
 ---
-tags:
 title: MonitorsTwo - Easy (HTB)
 toc: true
 permalink: /MonitorsTwo-HTB-Writeup
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - command-injection
+  - cve-2020-25706
+  - cve-2021-33033
+  - cve-2021-41091
+  - cve-2022-46169
+  - dns
+  - docker
+  - group-abuse
+  - group-abuse-www-data
+  - john-the-ripper
+  - mysql
+  - mysql-enum
+  - nginx
+  - nmap
+  - password-cracking
+  - rce
+  - sqli
+  - ssh
+  - suid-abuse
+  - web
+  - xss
 ---
 ---
 # Recon

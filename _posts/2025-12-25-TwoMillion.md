@@ -1,11 +1,22 @@
 ---
 title: TwoMillion - Easy (HTB)
-tags:
 permalink: /TwoMillion-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - api
+  - burpsuite
+  - cve-2023-0386
+  - group-abuse
+  - group-abuse-www-data
+  - nginx
+  - nmap
+  - ssh
+  - sudo-abuse
+  - suid-abuse
+  - web
 ---
 ---
 # Introduccion

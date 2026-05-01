@@ -1,11 +1,21 @@
 ---
 title: Chatterbox -  Medium (HTB)
-tags:
 permalink: /Chatterbox-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - apache
+  - dns
+  - impacket
+  - nmap
+  - peas
+  - reversing
+  - smb
+  - smb-enum
+  - sudo-abuse
+  - web
 ---
 ---
 # Reconocimiento

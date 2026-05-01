@@ -1,11 +1,26 @@
 ---
-tags:
 title: Armegeddon - Easy (HTB)
 permalink: /Armegeddon-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - apache
+  - cron-abuse
+  - cve-2018-7600
+  - drupal
+  - john-the-ripper
+  - mysql
+  - mysql-enum
+  - nmap
+  - password-cracking
+  - priv-esc
+  - rce
+  - reversing
+  - ssh
+  - sudo-abuse
+  - web
 ---
 ---
 # Recon

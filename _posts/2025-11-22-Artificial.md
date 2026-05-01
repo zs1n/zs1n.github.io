@@ -1,16 +1,28 @@
 ---
-tags: 
-- tensorflow
-- restic
-- backrest
-- crackstation
-- ctf
 permalink: /Artificial-HTB-Writeup
 title: Artificial- Easy (HTB)
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - api
+  - backrest
+  - crackstation
+  - ctf
+  - docker
+  - hashcat
+  - jwt
+  - nginx
+  - nmap
+  - password-cracking
+  - rce
+  - restic
+  - ssh
+  - sudo-abuse
+  - tensorflow
+  - web
 ---
 ---
 # Introducción

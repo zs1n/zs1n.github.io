@@ -1,11 +1,19 @@
 ---
-tags:
 title: Analytics - Easy (HTB)
 permalink: /Analytics-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - cve-2023-2640
+  - cve-2023-32629
+  - cve-2023-38646
+  - nginx
+  - nmap
+  - rce
+  - ssh
+  - web
 ---
 ---
 # Introduccion

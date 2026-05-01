@@ -1,11 +1,23 @@
 ---
-tags:
 title: Perfection - Easy (HTB)
 permalink: /Perfection-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - burpsuite
+  - hashcat
+  - nginx
+  - nmap
+  - password-cracking
+  - rce
+  - reversing
+  - ssh
+  - ssti
+  - sudo-abuse
+  - web
 ---
 ---
 # Recon

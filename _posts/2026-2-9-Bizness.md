@@ -1,11 +1,18 @@
 ---
-tags:
 title: Bizness - Easy (HTB)
 permalink: /Bizness-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - apache
+  - nginx
+  - nmap
+  - rce
+  - reversing
+  - ssh
+  - web
 ---
 ---
 # Recon

@@ -1,11 +1,25 @@
 ---
-tags:
 title: Sandworm - Medium (HTB)
 permalink: /Sandworm-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - cron-abuse
+  - cve-2022-31214
+  - dns
+  - gobuster
+  - mysql
+  - mysql-enum
+  - nginx
+  - nmap
+  - rce
+  - reversing
+  - ssh
+  - ssti
+  - sudo-abuse
+  - web
 ---
 ---
 # Recon

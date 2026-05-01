@@ -1,11 +1,27 @@
 ---
-tags:
 title: Monteverde - Medium (HTB)
 permalink: /Monteverde-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - apache
+  - api
+  - asreproasting
+  - bloodhound
+  - dns
+  - impacket
+  - kerberos
+  - ldap
+  - ldap-enum
+  - nmap
+  - password-spraying
+  - smb
+  - smb-enum
+  - web
+  - winrm
 ---
 ---
 # Reconocimiento

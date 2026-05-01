@@ -1,11 +1,29 @@
 ---
-tags:
 title: EscapeTwo - Easy (HTB)
 permalink: /EscapeTwo-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - apache
+  - dns
+  - group-abuse
+  - group-abuse-administrators
+  - impacket
+  - kerberos
+  - ldap
+  - ldap-enum
+  - mssql
+  - mssql-enum
+  - nmap
+  - password-spraying
+  - peas
+  - smb
+  - smb-enum
+  - web
+  - winrm
 ---
 ---
 # Reconocimiento

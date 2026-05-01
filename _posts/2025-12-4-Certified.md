@@ -1,11 +1,28 @@
 ---
-tags:
 title: Certified - Medium (HTB)
 permalink: /Certified-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - apache
+  - dns
+  - docker
+  - group-abuse
+  - group-abuse-administrators
+  - group-abuse-remote-management-users
+  - impacket
+  - kerberos
+  - ldap
+  - ldap-enum
+  - nmap
+  - pass-the-hash
+  - reversing
+  - smb
+  - web
+  - winrm
 ---
 ---
 # Introduccion

@@ -1,11 +1,24 @@
 ---
-tags:
 title: Forgotten - Easy (HTB)
 permalink: /Forgotten-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - apache
+  - api
+  - cloud
+  - cve-2021-44967
+  - docker
+  - feroxbuster
+  - mysql
+  - mysql-enum
+  - nmap
+  - ssh
+  - sudo-abuse
+  - suid-abuse
+  - web
 ---
 ---
 # Recon

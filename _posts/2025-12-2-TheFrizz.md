@@ -1,11 +1,39 @@
 ---
-tags:
 title: TheFrizz- Medium (HTB)
 toc: true
 permalink: /TheFrizz-HTB-Writeup
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - apache
+  - api
+  - bloodhound
+  - cve-2023-34598
+  - dns
+  - docker
+  - group-abuse
+  - group-abuse-gpo-creator-owners
+  - group-abuse-pre-windows-2000-compatible-access
+  - group-abuse-remote-management-users
+  - hashcat
+  - impacket
+  - kerberos
+  - ldap
+  - ldap-enum
+  - lfi
+  - mysql
+  - mysql-enum
+  - nmap
+  - password-cracking
+  - rce
+  - reversing
+  - smb
+  - smb-enum
+  - ssh
+  - web
+  - xss
 ---
 ---
 # Introduccion

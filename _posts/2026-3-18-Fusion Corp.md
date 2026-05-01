@@ -1,11 +1,36 @@
 ---
-tags:
 title: Fusion Corp - Hard (THM)
 permalink: /FusionCorp-THM-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - apache
+  - api
+  - asreproasting
+  - bloodhound
+  - dns
+  - docker
+  - feroxbuster
+  - group-abuse
+  - group-abuse-backup
+  - group-abuse-backup-operators
+  - group-abuse-remote-management-users
+  - iis
+  - impacket
+  - john-the-ripper
+  - kerberos
+  - ldap
+  - ldap-enum
+  - nmap
+  - password-cracking
+  - rdp
+  - smb
+  - smb-enum
+  - web
+  - winrm
 ---
 ---
 # Recon

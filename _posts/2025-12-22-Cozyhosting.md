@@ -1,11 +1,23 @@
 ---
-tags:
 title: Cozyhosting - Easy (HTB)
 permalink: /Cozyhosting-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - burpsuite
+  - command-injection
+  - feroxbuster
+  - gobuster
+  - john-the-ripper
+  - nginx
+  - nmap
+  - password-cracking
+  - postgresql
+  - ssh
+  - sudo-abuse
+  - web
 ---
 ---
 # Reconocimiento

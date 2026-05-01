@@ -1,11 +1,28 @@
 ---
-tags:
 title: Soupedecode 01 - Easy (THM)
 permalink: /Soupedecode01-THM-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - dns
+  - group-abuse
+  - group-abuse-administrators
+  - group-abuse-dnsadmins
+  - group-abuse-gpo-creator-owners
+  - impacket
+  - john-the-ripper
+  - kerberos
+  - ldap
+  - ldap-enum
+  - nmap
+  - password-cracking
+  - rdp
+  - smb
+  - smb-enum
+  - web
 ---
 ---
 # Recon

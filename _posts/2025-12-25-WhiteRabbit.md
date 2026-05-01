@@ -1,11 +1,28 @@
 ---
-tags:
 title: WhiteRabbit - Insane (HTB)
 permalink: /WhiteRabbit-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - active-directory
+  - apache
+  - api
+  - dns
+  - docker
+  - gobuster
+  - hydra
+  - john-the-ripper
+  - mysql
+  - mysql-enum
+  - nmap
+  - password-cracking
+  - reversing
+  - ssh
+  - sudo-abuse
+  - web
+  - wfuzz
 ---
 ---
 # Reconocimiento

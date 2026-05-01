@@ -1,11 +1,22 @@
 ---
 title: LinkVortex - Easy (HTB)
-tags:
 permalink: /LinkVortex-HTB-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - apache
+  - api
+  - cve-2023-40028
+  - dns
+  - gobuster
+  - nmap
+  - priv-esc
+  - ssh
+  - sudo-abuse
+  - web
+  - wfuzz
 ---
 ---
 # Reconocimiento

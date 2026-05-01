@@ -1,11 +1,19 @@
 ---
-tags:
 title: Cheese CTF - Easy (THM)
 permalink: /CheeseCTF-THM-Writeup
 toc: true
 toc_label: Topics
 toc_sticky: true
 sidebar: main
+tags:
+  - lfi
+  - rce
+  - sqli
+  - ssh
+  - steganography
+  - sudo-abuse
+  - suid-abuse
+  - web
 ---
 ---
 # Recon
