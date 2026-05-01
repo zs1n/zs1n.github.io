@@ -18,6 +18,8 @@ tags:
   - smb-enum
   - sudo-abuse
   - web
+  - active directory
+  - tryhackme
 ---
 ---
 # Recon

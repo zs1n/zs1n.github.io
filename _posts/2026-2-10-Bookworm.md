@@ -26,6 +26,8 @@ tags:
   - sudo-abuse
   - web
   - xss
+  - active directory
+  - hackthebox
 ---
 ---
 # Recon

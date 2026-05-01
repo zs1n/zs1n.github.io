@@ -6,7 +6,7 @@ toc_label: Topics
 toc_sticky: true
 sidebar: main
 tags:
-  - active-directory
+  - active directory
   - apache
   - cve-2019-25065
   - dns
@@ -22,6 +22,7 @@ tags:
   - sudo-abuse
   - suid-abuse
   - web
+  - hackthebox
 ---
 ---
 # Introducción

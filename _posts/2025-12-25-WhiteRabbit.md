@@ -6,7 +6,7 @@ toc_label: Topics
 toc_sticky: true
 sidebar: main
 tags:
-  - active-directory
+  - active directory
   - apache
   - api
   - dns
@@ -23,6 +23,7 @@ tags:
   - sudo-abuse
   - web
   - wfuzz
+  - hackthebox
 ---
 ---
 # Reconocimiento

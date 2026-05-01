@@ -6,7 +6,7 @@ toc_label: Topics
 toc_sticky: true
 sidebar: main
 tags:
-  - active-directory
+  - active directory
   - bloodhound
   - cve-2024-49019
   - impacket
@@ -20,6 +20,7 @@ tags:
   - smb
   - smb-enum
   - winrm
+  - hackthebox
 ---
 ---
 # Reconocimiento 

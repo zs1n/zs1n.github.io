@@ -20,6 +20,8 @@ tags:
   - ssti
   - sudo-abuse
   - web
+  - active directory
+  - hackthebox
 ---
 ---
 # Recon

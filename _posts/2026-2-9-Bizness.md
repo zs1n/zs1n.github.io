@@ -13,6 +13,8 @@ tags:
   - reversing
   - ssh
   - web
+  - active directory
+  - hackthebox
 ---
 ---
 # Recon

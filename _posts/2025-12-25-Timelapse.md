@@ -6,7 +6,7 @@ toc_label: Topics
 toc_sticky: true
 sidebar: main
 tags:
-  - active-directory
+  - active directory
   - apache
   - bloodhound
   - dns
@@ -25,6 +25,7 @@ tags:
   - sudo-abuse
   - web
   - winrm
+  - hackthebox
 ---
 ---
 # Reconocimiento

@@ -6,7 +6,7 @@ toc_label: Topics
 toc_sticky: true
 sidebar: main
 tags:
-  - active-directory
+  - active directory
   - apache
   - asreproasting
   - bloodhound
@@ -28,6 +28,7 @@ tags:
   - smb-enum
   - web
   - winrm
+  - hackthebox
 ---
 ---
 # Recon

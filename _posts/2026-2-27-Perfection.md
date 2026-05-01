@@ -6,7 +6,7 @@ toc_label: Topics
 toc_sticky: true
 sidebar: main
 tags:
-  - active-directory
+  - active directory
   - burpsuite
   - hashcat
   - nginx
@@ -18,6 +18,7 @@ tags:
   - ssti
   - sudo-abuse
   - web
+  - tryhackme
 ---
 ---
 # Recon

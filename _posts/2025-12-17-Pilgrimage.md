@@ -13,6 +13,8 @@ tags:
   - steganography
   - sudo-abuse
   - web
+  - active directory
+  - hackthebox
 ---
 ---
 # Reconocimiento

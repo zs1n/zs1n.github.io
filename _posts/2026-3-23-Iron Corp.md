@@ -20,6 +20,7 @@ tags:
   - ssrf
   - sudo-abuse
   - web
+  - tryhackme
 ---
 ---
 # Recon

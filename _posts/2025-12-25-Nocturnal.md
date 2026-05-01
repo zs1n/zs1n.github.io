@@ -23,6 +23,8 @@ tags:
   - sudo-abuse
   - web
   - wfuzz
+  - active directory
+  - hackthebox
 ---
 ---
 # Recon

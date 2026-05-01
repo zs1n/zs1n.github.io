@@ -16,6 +16,8 @@ tags:
   - suid-abuse
   - web
   - xss
+  - active directory
+  - hackthebox
 ---
 ---
 # Reconocimiento

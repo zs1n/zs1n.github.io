@@ -13,6 +13,8 @@ tags:
   - priv-esc
   - ssh
   - web
+  - active directory
+  - hackthebox
 ---
 ---
 # Reconocimiento 

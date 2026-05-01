@@ -13,6 +13,7 @@ tags:
   - rce
   - sudo-abuse
   - web
+  - hackthebox
 ---
 ---
 # Reconocimiento

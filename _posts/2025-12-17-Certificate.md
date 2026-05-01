@@ -6,7 +6,7 @@ toc_label: Topics
 toc_sticky: true
 sidebar: main
 tags:
-  - active-directory
+  - active directory
   - impacket
   - kerberos
   - mysql
@@ -14,6 +14,7 @@ tags:
   - nmap
   - web
   - winrm
+  - hackthebox
 ---
 ---
 # Reconocimiento

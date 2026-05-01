@@ -19,6 +19,8 @@ tags:
   - ssh
   - sudo-abuse
   - web
+  - active directory
+  - hackthebox
 ---
 # Recon
 

@@ -20,6 +20,8 @@ tags:
   - web
   - wfuzz
   - xss
+  - active directory
+  - hackthebox
 ---
 ---
 # Recon

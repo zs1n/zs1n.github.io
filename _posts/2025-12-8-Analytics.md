@@ -14,6 +14,8 @@ tags:
   - rce
   - ssh
   - web
+  - active directory
+  - hackthebox
 ---
 ---
 # Introduccion

@@ -21,6 +21,8 @@ tags:
   - smb-enum
   - ssh
   - web
+  - active directory
+  - hackthebox
 ---
 ---
 # Recon

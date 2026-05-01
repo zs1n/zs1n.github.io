@@ -17,6 +17,8 @@ tags:
   - sudo-abuse
   - suid-abuse
   - web
+  - active directory
+  - hackthebox
 ---
 ---
 # Introducción

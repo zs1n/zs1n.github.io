@@ -18,6 +18,8 @@ tags:
   - suid-abuse
   - web
   - wfuzz
+  - active directory
+  - hackthebox
 ---
 ---
 # Reconocimiento

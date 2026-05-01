@@ -6,7 +6,7 @@ toc_label: Topics
 toc_sticky: true
 sidebar: main
 tags:
-  - active-directory
+  - active directory
   - cve-2023-1326
   - dns
   - gobuster
@@ -23,6 +23,7 @@ tags:
   - ssh
   - sudo-abuse
   - web
+  - hackthebox
 ---
 ---
 # Reconocimiento

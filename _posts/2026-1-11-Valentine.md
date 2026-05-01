@@ -13,6 +13,8 @@ tags:
   - ssh
   - steganography
   - web
+  - active directory
+  - hackthebox
 ---
 ---
 # Recon

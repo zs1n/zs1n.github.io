@@ -16,6 +16,7 @@ tags:
   - smb-enum
   - sudo-abuse
   - web
+  - hackthebox
 ---
 ---
 # Reconocimiento

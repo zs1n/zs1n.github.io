@@ -6,7 +6,7 @@ toc_label: Topics
 toc_sticky: true
 sidebar: main
 tags:
-  - active-directory
+  - active directory
   - command-injection
   - cve-2020-25706
   - cve-2021-33033
@@ -28,6 +28,7 @@ tags:
   - suid-abuse
   - web
   - xss
+  - hackthebox
 ---
 ---
 # Recon

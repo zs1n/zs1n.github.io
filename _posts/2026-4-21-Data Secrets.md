@@ -13,6 +13,8 @@ tags:
   - ssh
   - sudo-abuse
   - web
+  - active directory
+  - hacksmarter
 ---
 ---
 # Recon

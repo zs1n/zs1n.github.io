@@ -19,6 +19,7 @@ tags:
   - suid-abuse
   - web
   - wordpress
+  - hackthebox
 ---
 ---
 # Recon

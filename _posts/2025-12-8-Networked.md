@@ -16,6 +16,8 @@ tags:
   - ssh
   - sudo-abuse
   - web
+  - active directory
+  - hackthebox
 ---
 ---
 # Introduccion

@@ -6,7 +6,7 @@ toc_label: Topics
 toc_sticky: true
 sidebar: main
 tags:
-  - active-directory
+  - active directory
   - api
   - bloodhound
   - dcsync
@@ -24,6 +24,7 @@ tags:
   - smb-enum
   - web
   - winrm
+  - tryhackme
 ---
 ---
 # Recon
